@@ -1,6 +1,13 @@
 language: c
 os: linux
 
+deploy:
+  provider: s3
+  access_key_id: "AKIAIK7PITYV72RQ2AXQ"
+  secret_access_key: "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"
+  bucket: "S3 Bucket
+
+
 script: 
       - mkdir build
       - cd build
