@@ -1,10 +1,10 @@
-﻿deploy: "provider:s3 
-access_key_id:\"AKIAIK7PITYV72RQ2AXQ\"
-secret_access_key:\"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\"
-bucket:\"S3 Bucket"
-branches:    # ← new!
-      only:      # ← new!
-        - frontEnd # ← new!
+﻿deploy:
+    provider:s3 
+    access_key_id:"AKIAIK7PITYV72RQ2AXQ"
+    secret_access_key:"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"
+    bucket:"S3 Bucket"
+on:
+      all_branches: true
 
 language: c
 os: linux
