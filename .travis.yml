@@ -8,7 +8,7 @@
     branch: frontEnd
 
 language: c
-os: windows
+os: linux   
 script: 
   - "mkdir build"
   - "cd build"
