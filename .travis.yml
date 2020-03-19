@@ -14,7 +14,7 @@ os:
 
 jobs:
   allow_failures:
-    - os: osx
+    - os: windows
 
 script: 
   - "mkdir build"
