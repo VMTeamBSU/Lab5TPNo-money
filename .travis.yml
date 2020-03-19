@@ -1,4 +1,11 @@
-deploy: "provider:s3 access_key_id:\"AKIAIK7PITYV72RQ2AXQ\" secret_access_key:\"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\" bucket:\"S3 Bucket"
+﻿deploy: "provider:s3 
+access_key_id:\"AKIAIK7PITYV72RQ2AXQ\"
+secret_access_key:\"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\"
+bucket:\"S3 Bucket"
+branches:    # ← new!
+      only:      # ← new!
+        - frontEnd # ← new!
+
 language: c
 os: linux
 script: 
