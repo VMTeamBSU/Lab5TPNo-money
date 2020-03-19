@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include "../include/UIController.h"
 
 int main() {
-    printf( "Bla:\n");
-    return 0;
+    UiControllerInit();
+	HandleStartWindow();
+	return 0;
 }
