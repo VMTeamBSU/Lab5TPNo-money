@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Use case" version="4">
+  <OBJECT>
+    <ID name="Use case" mc="Standard.Package" uid="81993dd9-111e-4dea-8e92-867836c825b0"/>
+    <PID name="Lab5" mc="Standard.Project" uid="d3d9ef9a-ad2a-4950-a4fe-51f459e8166e"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Use case]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Командир" mc="Standard.Actor" uid="43a81353-f9fc-463a-8752-3e32435b7651"/>
+        <COMPID name="Член экипажа" mc="Standard.Actor" uid="47a93d9f-a58e-4a8f-8bcf-eb800f9d38cb"/>
+        <COMPID name="Пользователь системы" mc="Standard.Actor" uid="ec75504d-0c06-47fd-9f8b-1d4feed797c5"/>
+        <COMPID name="Регистрация в системе" mc="Standard.UseCase" uid="af1dac50-f375-41ed-88de-8c8d8440877e"/>
+        <COMPID name="Редактирование данных в системе" mc="Standard.UseCase" uid="76b214fe-96f0-41cf-ab27-65566642387c"/>
+        <COMPID name="Удаление пользователя  из системы" mc="Standard.UseCase" uid="2ae9de7c-1fb6-4036-8c10-4ccf310527ad"/>
+        <COMPID name="Получить запрашиваемые данные" mc="Standard.UseCase" uid="4cd45f04-3306-4d71-8767-762686204939"/>
+        <COMPID name="Экспортирование данных" mc="Standard.UseCase" uid="2c71da89-cd7b-4a2d-a65a-37685055a93c"/>
+        <COMPID name="Сервер" mc="Standard.Actor" uid="dc7b9c54-9604-4d9c-b2da-9fb9ba8eb950"/>
+        <COMPID name="Админ" mc="Standard.Actor" uid="6f298109-373e-448b-96c3-284010f1bca1"/>
+        <COMPID name="Оповестить систему о завершении полета" mc="Standard.UseCase" uid="70bf0f11-a091-4737-bb48-da23d58df200"/>
+        <COMPID name="Оповещение пользователя об определенных события" mc="Standard.UseCase" uid="8a0a0d04-6bf8-4552-9484-d20b5aea9956"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Use case Use Case diagram" mc="Standard.UseCaseDiagram" uid="e2b21fc7-c6e4-4216-8152-be40d939de66"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
