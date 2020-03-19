@@ -8,7 +8,14 @@
     branch: frontEnd
 
 language: c
-os: linux   
+os: 
+  - linux
+  - windows
+
+jobs:
+  allow_failures:
+    - os: osx
+
 script: 
   - "mkdir build"
   - "cd build"
