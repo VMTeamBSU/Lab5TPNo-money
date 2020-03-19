@@ -12,6 +12,6 @@ os: windows
 script: 
   - "mkdir build"
   - "cd build"
-  - "cmake \"Visual Studio 16 2019\"" .."
+  - "cmake \"Visual Studio 16 2019\" .."
   - "cmake --build . --config Release"
   - ./tst/ExampleProject_tst
