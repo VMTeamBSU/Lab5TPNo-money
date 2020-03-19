@@ -1,24 +1,13 @@
 ﻿
 
-
-
-
 deploy:
-    provider: s3
-    edge: true
-    endpoint: "s3-website-us-west-2.amazonaws.com"
-    region: "us-west-2"
-    upload-dir: "booty-grid"
+  provider: s3 
+  access_key_id: "AKIAIK7PITYV72RQ2AXQ"
+  secret_access_key: "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"
+  bucket: "S3 Bucket"
+  on:
+    all_branches: true
     skip_cleanup: true
-    secret_access_key:
-        secure: OhdS9SKF/2vz1UfYWMnc/4yY9aRnN/yQyqNz2QwH
-    access_key_id:
-        secure: AKIAIK7PITYV72RQ2AXQ
-    local-dir: public
-    on:
-        branch: frontEnd
-
-
 
 language: c
 os: linux
