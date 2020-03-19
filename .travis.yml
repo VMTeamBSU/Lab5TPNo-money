@@ -12,6 +12,6 @@ os: windows
 script: 
   - "mkdir build"
   - "cd build"
-  - "cmake .. 
+  - "cmake .."
   - "make all"
   - ./tst/ExampleProject_tst
