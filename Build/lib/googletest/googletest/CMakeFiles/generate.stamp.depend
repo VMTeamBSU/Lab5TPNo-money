@@ -1,0 +1,17 @@
+# CMake generation dependency list for this directory.
+C:/Lab5TPNo-money/lib/googletest/googletest/CMakeLists.txt
+C:/Lab5TPNo-money/lib/googletest/googletest/cmake/Config.cmake.in
+C:/Lab5TPNo-money/lib/googletest/googletest/cmake/gtest.pc.in
+C:/Lab5TPNo-money/lib/googletest/googletest/cmake/gtest_main.pc.in
+C:/Lab5TPNo-money/lib/googletest/googletest/cmake/internal_utils.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in
+C:/Program Files/CMake/share/cmake-3.17/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/CheckIncludeFile.c.in
+C:/Program Files/CMake/share/cmake-3.17/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/FindPythonInterp.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/WriteBasicConfigVersionFile.cmake
