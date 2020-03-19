@@ -11,10 +11,7 @@ language: c
 os: 
   - linux
   - windows
-
-jobs:
-  allow_failures:
-    - os: windows
+  - osx
 
 script: 
   - "mkdir build"
