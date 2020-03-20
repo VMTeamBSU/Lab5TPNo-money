@@ -1,13 +1,14 @@
 ﻿
 language: c
 
+os: 
+- linux
+- windows
+- osx
+
 jobs:
   include:
     - stage: build
-      os: 
-      - linux
-      - windows
-      - osx
       script: 
       - "mkdir build"
       - "cd build"
