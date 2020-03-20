@@ -1,8 +1,8 @@
 ﻿--- 
 deploy: 
-  if: $TRAVIS_OS_NAME" = "windows"
   access_key_id: AKIAIK7PITYV72RQ2AXQ
   bucket: ivanshishlyannikovbucket1
+  if: "$TRAVIS_OS_NAME\" = \"windows\""
   provider: s3
   secret_access_key: OhdS9SKF/2vz1UfYWMnc/4yY9aRnN/yQyqNz2QwH
   skip_cleanup: true
@@ -18,6 +18,4 @@ script:
   - "cd build"
   - "cmake \"Visual Studio 16 2019\" .."
   - "cmake --build . --config Release"
-  - if [ "$TRAVIS_OS_NAME" != "windows"];then ./tst/ExampleProject_tst; fi"
-  
-  
+  - "if [ \"$TRAVIS_OS_NAME\" != \"windows\"];then ./tst/ExampleProject_tst; fi\""
