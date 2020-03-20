@@ -4,20 +4,13 @@ language: c
 jobs:
   include:
     - stage: build
-      os: linux
-      script: 
-      - "mkdir build"
-      - "cd build"
-      - "cmake \"Visual Studio 16 2019\" .."
-      - "cmake --build . --config Release"
-      - if [ $TRAVIS_OS_NAME != windows ]; then ./tst/ExampleProject_tst; fi
-
       os: windows
       script: 
       - "mkdir build"
       - "cd build"
       - "cmake \"Visual Studio 16 2019\" .."
       - "cmake --build . --config Release"
+      - if [ $TRAVIS_OS_NAME != windows ]; then ./tst/ExampleProject_tst; fi
       deploy:
          provider: releases
          api_key: "832e78b0db85f0eff6ddb18ed426c88cb69a0dee"
