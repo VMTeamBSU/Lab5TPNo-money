@@ -3,7 +3,7 @@ language: c
 
 jobs:
   include:
-    - os:linux
+    - os: osx
     - stage: build
       script: 
       - "mkdir build"
