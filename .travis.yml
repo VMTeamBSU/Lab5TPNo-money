@@ -7,7 +7,11 @@
   on:
     branch: frontEnd
 
-language: c
+language: 
+  - c
+  - c++
+  - objective-c
+
 os: 
   - linux
   - windows
