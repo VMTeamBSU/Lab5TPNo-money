@@ -3,10 +3,11 @@ language: c
 
 jobs:
   include:
-    - os: windows
-    - os: linux
-    - os: osx
     - stage: build
+      os: 
+        - osx
+        - windows 
+        - linux
       script: 
       - "mkdir build"
       - "cd build"
