@@ -1,4 +1,5 @@
 ﻿--- 
+if: branch = master
 deploy: 
   access_key_id: AKIAIK7PITYV72RQ2AXQ
   bucket: ivanshishlyannikovbucket1
