@@ -11,7 +11,7 @@ language: c
 
 stages:
   - name:deploy
-    if: branch = master
+    if:branch = master
 
 os: 
   - linux
