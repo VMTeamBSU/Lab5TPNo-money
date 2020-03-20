@@ -9,9 +9,7 @@ deploy:
     branch: frontEnd
 language: c
 os: 
-  - linux
   - windows
-  - osx
 script: 
   - "mkdir build"
   - "cd build"
