@@ -24,7 +24,6 @@ jobs:
          api_key: "832e78b0db85f0eff6ddb18ed426c88cb69a0dee"
          file: "./src/release/ExampleProject_run"
          skip_cleanup: true
-         branches:
-             only:
-             - frontEnd
+         branch: frontEnd
+
 
