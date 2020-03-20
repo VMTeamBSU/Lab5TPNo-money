@@ -13,7 +13,7 @@ jobs:
       - if [ $TRAVIS_OS_NAME != windows ]; then ./tst/ExampleProject_tst; fi
       deploy:
          provider: releases
-         api_key: "832e78b0db85f0eff6ddb18ed426c88cb69a0dee"
+         api_key: "bba57e1400ec83b5c99ebda9aa9fc96884b8bdbb"
          file: "./src/Release/ExampleProject_run"
          skip_cleanup: true
          on:
