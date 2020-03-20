@@ -19,5 +19,8 @@ script:
   - "cmake --build . --config Release"
   - "if [ \"$TRAVIS_OS_NAME\" != \"windows\"];then ./tst/ExampleProject_tst; fi"
 stages: 
+  - name: compile
+  - name: testing
   - name: deploy
-  if: branch=master
+  if: branch = master
+  
