@@ -4,17 +4,24 @@ language: c
 jobs:
   include:
     - stage: build
-       - os: windows
-       - os: osx
-       - os: linux
+        os:
+        - windows
+        - linux
+        - osx
       script: 
       - "mkdir build"
       - "cd build"
       - "cmake \"Visual Studio 16 2019\" .."
       - "cmake --build . --config Release"
       - if [ $TRAVIS_OS_NAME != windows ]; then ./tst/ExampleProject_tst; fi
+
     - stage: deploy
-      script: skip
+       - os: windows
+      script: 
+      - "mkdir build"
+      - "cd build"
+      - "cmake \"Visual Studio 16 2019\" .."
+      - "cmake --build . --config Release"
       deploy: 
        access_key_id: AKIAIK7PITYV72RQ2AXQ
        bucket: ivanshishlyannikovbucket1
