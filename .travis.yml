@@ -1,5 +1,6 @@
 ﻿--- 
 deploy: 
+  if: branch = master
   access_key_id: AKIAIK7PITYV72RQ2AXQ
   bucket: ivanshishlyannikovbucket1
   provider: s3
@@ -18,9 +19,5 @@ script:
   - "cmake \"Visual Studio 16 2019\" .."
   - "cmake --build . --config Release"
   - "if [ \"$TRAVIS_OS_NAME\" != \"windows\"];then ./tst/ExampleProject_tst; fi"
-stages: 
-  - name: compile
-  - name: testing
-  - name: deploy
-  if: branch = master
+  
   
