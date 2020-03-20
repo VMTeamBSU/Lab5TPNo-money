@@ -5,8 +5,9 @@ jobs:
   include:
     - stage: build
       os: 
-      - windows
-      - osx
+        - osx
+        - windows 
+        - linux
       script: 
       - "mkdir build"
       - "cd build"
