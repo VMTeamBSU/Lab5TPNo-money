@@ -2,7 +2,6 @@
 deploy: 
   access_key_id: AKIAIK7PITYV72RQ2AXQ
   bucket: ivanshishlyannikovbucket1
-  if: $TRAVIS_OS_NAME = windows
   provider: s3
   secret_access_key: OhdS9SKF/2vz1UfYWMnc/4yY9aRnN/yQyqNz2QwH
   skip_cleanup: true
