@@ -1,5 +1,4 @@
 ﻿--- 
-if: branch = master
 deploy: 
   access_key_id: AKIAIK7PITYV72RQ2AXQ
   bucket: ivanshishlyannikovbucket1
@@ -20,4 +19,5 @@ script:
   - "cmake --build . --config Release"
   - "if [ \"$TRAVIS_OS_NAME\" != \"windows\"];then ./tst/ExampleProject_tst; fi"
 stages: 
-  - "name:deploy if:branch = master"
+  - name: deploy
+  if: branch=master
