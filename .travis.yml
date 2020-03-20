@@ -3,8 +3,8 @@ language: c
 
 jobs:
   include:
-    - os:linux
     - stage: build
+    - os:linux
       script: 
       - "mkdir build"
       - "cd build"
