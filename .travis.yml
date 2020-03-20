@@ -4,7 +4,7 @@ language: c
 jobs:
   include:
     - stage: build
-      os: osx
+      os: linux
       script: 
       - "mkdir build"
       - "cd build"
