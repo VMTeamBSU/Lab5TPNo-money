@@ -7,10 +7,11 @@
   on:
     branch: frontEnd
 
-language: 
-  - c
-  - c++
-  - objective-c
+language: c
+
+stages:
+  - name:deploy
+    if:"$TRAVIS_OS_NAME" = "windows"
 
 os: 
   - linux
