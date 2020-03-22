@@ -5,15 +5,13 @@ jobs:
   include:
     - stage: build
       os: linux
-      os: osx
       script: 
       - "mkdir build"
       - "cd build"
       - "cmake \"Visual Studio 16 2019\" .."
       - "cmake --build . --config Release"
       - if [ $TRAVIS_OS_NAME != windows ]; then ./tst/ExampleProject_tst; fi
-
-    - stage:deploy
+    - stage: deploy
       os: windows
       script:
       - "mkdir build"
@@ -21,10 +19,10 @@ jobs:
       - "cmake \"Visual Studio 16 2019\" .."
       - "cmake --build . --config Release"
       deploy:
-         provider: "s3",
-         access_key_id: "AKIAIK7PITYV72RQ2AXQ",
-         bucket: "ivanshishlyannikovbucket1",
-         secret_access_key": "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",
+         provider: "s3"
+         access_key_id: "AKIAIK7PITYV72RQ2AXQ"
+         bucket: "ivanshishlyannikovbucket1"
+         secret_access_key": "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"
          skip_cleanup: true
          on:
            branch: master
