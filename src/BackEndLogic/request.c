@@ -1,5 +1,5 @@
 #include "../../include/request.h"
-#include "sqlite3.h"
+#include "../../lib/sqlite3/sqlite3.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -10,6 +10,13 @@ int MainCounter = 0;
 int CurrentRow = 0;
 char*** MatrixResponce;
 char** RequestColumnName;
+int openResult;
+
+void Init()
+{
+	if (db == NULL)
+		openResult = sqlite3_open("../../DataBase/AirCab.db", &db);
+}
 
 static int callback(void* NotUsed, int argc, char** argv, char** azColName)
 {
@@ -25,7 +32,6 @@ static int callback(void* NotUsed, int argc, char** argv, char** azColName)
 
 	for (i = 0; i < argc; i++)
 	{
-		printf(" %s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
 		strcpy(MatrixResponce[CurrentRow][i], argv[i] ? argv[i] : "NULL");
 	}
 	printf("\n");
@@ -60,6 +66,7 @@ void MyDInit()
 
 char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnName)
 {
+	
 	sqlite3_stmt* pStmt;
 
 	if (sqlite3_prepare_v2(db, RequestBuffer, -1, &pStmt, 0) == SQLITE_OK)

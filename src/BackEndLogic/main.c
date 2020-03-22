@@ -1,101 +1,56 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "sqlite3.h"
+#include "../../lib/sqlite3/sqlite3.h"
 #include <Windows.h>
 #include "../../include/request.h"
 #pragma warning(disable:4996)
-struct sqlite3* db;
 
-
-void CrewMemberInformation(char* text)
+//surname: фамили€ члена экипажа, по которой делаетс€ запрос.
+//columnName: массив, который содержит названи€ столбцов по пор€дку вывода.
+//rowCount: переменна€, котора€ содержит информацию о количестве р€дов в таблице-ответе.
+//columnCount: переменна€, котора€ содержит информацию о количестве колонок в таблице-ответе.
+//Result: наша фукци€ возвращает матрица, содержаща€ таблицу-ответ на запрос по экипажу(или члену экипажа), Ц все сведени€ о выполненных им рейсах (*).
+char*** CrewMemberInformation(char* surname, char*** columnName, int* rowCount, int* columnCount)
 {
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
 		"SELECT * FROM flights WHERE ID_helicopter = (SELECT ID_helicopter FROM commander INNER JOIN crew ON commander.ID = crew.ID_commander WHERE crew.surname = '%s');",
-		text);
+		surname);
 	char** ColumnName = NULL;
 	int row = 0;
 	int column = 0;
 	char*** Result = GetResult(requestBuffer, &column, &row, &ColumnName);
-	int c;
+	*rowCount = row;
+	*columnCount = column;
+	*columnName = ColumnName;
+
+	return Result;
 }
 
-void SpecialOrNotInformation(char* text)
+//Special: если Special = 1, то мы получим инфрмацию о спецвылетах, если Special = 0, то мы получим информацию о обычных вылетах.
+//columnName: массив, который содержит названи€ столбцов по пор€дку вывода.
+//rowCount: переменна€, котора€ содержит информацию о количестве р€дов в таблице-ответе.
+//columnCount: переменна€, котора€ содержит информацию о количестве колонок в таблице-ответе.
+//Result: наша фукци€ возвращает матрицу, содержаща€ таблицу-ответ на запрос по всем вертолетам, выполн€вшим обычные рейсы или спецрейсы, Ц общее количество рейсов, обща€ масса перевезенных грузов, обща€ сумма заработанных денег;
+char*** GetFlightInformation(int special, char*** columnName, int* rowCount, int* columnCount) 
 {
+	char* text;
+	if (special == 1)
+		text = "yes";
+	else
+		text = "no";
+
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
-		"SELECT count(ID_helicopter), sum(weight_of_goods), sum(price) from flights where flights.special = '%s'; ",
+		"SELECT count(ID_helicopter), sum(weight_of_goods), sum(price) from flights where flights.special = '%s';", 
 		text);
 	char** ColumnName = NULL;
 	int row = 0;
 	int column = 0;
 	char*** Result = GetResult(requestBuffer, &column, &row, &ColumnName);
-	int c;
-}
+	*rowCount = row;
+	*columnCount = column;
+	*columnName = ColumnName;
 
-
-int main()
-{
-	int run = 1;
-	//int openResult = sqlite3_open("MyStudents.db", &db);
-	int openResult = sqlite3_open("AirCab.db", &db);
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-	if (openResult)
-	{
-		printf("Cant open db\n");
-	}
-
-	while (run)
-	{
-		printf("SUGGESTED OPTIONS:\n");
-		printf("Special flights INF: 1\n");
-		printf("Usual flights INF: 2\n");
-		printf("Crew member INF: 8\n");
-		printf("Exit: 0\n");
-
-		int command;
-		scanf("%d", &command);
-
-		switch (command)
-		{
-			
-		case 8: {
-			printf("Test func\n");
-
-			printf("Insert requered ccrew memder: \n");
-			char id[50];
-			//int id;
-			scanf("%s", &id);
-			CrewMemberInformation(id);
-			break;
-		}
-		case 1: {
-			printf("Special flights INF\n");
-			char* s = "yes";
-			SpecialOrNotInformation(s);
-			break;
-		}
-		case 2: {
-			printf("Usual flights INF\n");
-			char* s = "no";
-			SpecialOrNotInformation(s);
-			break;
-		}
-		case 0:
-		{
-			run = 0;
-			break;
-
-		}
-
-		default:
-		{
-			printf(" Incorrect option!!!!\n");
-			continue;
-		}
-		}
-
-	}
-
+	return Result;                     
 }
