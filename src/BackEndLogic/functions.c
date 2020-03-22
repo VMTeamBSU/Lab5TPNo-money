@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "../../lib/sqlite3/sqlite3.h"
-#include "../../include/request.h"
+#include "../include/request.h"
 #pragma warning(disable:4996)
 
 //surname: фамилия члена экипажа, по которой делается запрос.
