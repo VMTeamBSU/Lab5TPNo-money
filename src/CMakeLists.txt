@@ -6,4 +6,6 @@ set(SOURCES ${SOURCES})
 
 add_executable(${BINARY}_run ${SOURCES})
 
+target_link_libraries(${BINARY}_run PUBLIC sqlite3Lib)
+
 add_library(${BINARY}_lib STATIC ${SOURCES})
