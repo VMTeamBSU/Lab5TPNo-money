@@ -1,6 +1,6 @@
-#include "../include/UIController.h"
+#include "../../include/UIController.h"
 #include <stdio.h>
-#include "../include/Authorization.h"
+#include "../../include/Authorization.h"
 
 int timesToType;
 

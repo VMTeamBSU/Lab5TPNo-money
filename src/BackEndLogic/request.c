@@ -1,5 +1,5 @@
-#include "../include/request.h"
-#include "../lib/sqlite3/sqlite3.h"
+#include "../../include/request.h"
+#include "../../lib/sqlite3/sqlite3.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

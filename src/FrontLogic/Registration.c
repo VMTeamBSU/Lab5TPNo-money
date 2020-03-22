@@ -1,4 +1,4 @@
-#include "../include/Registration.h"
+#include "../../include/Registration.h"
 
 int RegisterUser(char* login, char* password)
 {

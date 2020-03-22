@@ -1,4 +1,4 @@
-#include "../include/SessionController.h"
+#include "../../include/SessionController.h"
 
 struct User CurrentUser;
 
