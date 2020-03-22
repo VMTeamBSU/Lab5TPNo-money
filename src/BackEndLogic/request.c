@@ -12,7 +12,7 @@ char*** MatrixResponce;
 char** RequestColumnName;
 int openResult;
 
-void Init()
+void InitDataBase()
 {
 	if (db == NULL)
 		openResult = sqlite3_open("../../DataBase/AirCab.db", &db);
@@ -66,7 +66,7 @@ void MyDInit()
 
 char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnName)
 {
-	
+	InitDataBase();
 	sqlite3_stmt* pStmt;
 
 	if (sqlite3_prepare_v2(db, RequestBuffer, -1, &pStmt, 0) == SQLITE_OK)
