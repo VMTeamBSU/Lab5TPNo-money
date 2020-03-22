@@ -4,9 +4,6 @@
 #include <Windows.h>
 #include "../../include/request.h"
 #pragma warning(disable:4996)
-struct sqlite3* db;
-
-int openResult = sqlite3_open("../../DataBase/AirCab.db", &db);
 
 //surname: фамили€ члена экипажа, по которой делаетс€ запрос.
 //columnName: массив, который содержит названи€ столбцов по пор€дку вывода.
@@ -36,6 +33,7 @@ char*** CrewMemberInformation(char* surname, char*** columnName, int* rowCount, 
 //columnCount: переменна€, котора€ содержит информацию о количестве колонок в таблице-ответе.
 //Result: наша фукци€ возвращает матрицу, содержаща€ таблицу-ответ на запрос по всем вертолетам, выполн€вшим обычные рейсы или спецрейсы, Ц общее количество рейсов, обща€ масса перевезенных грузов, обща€ сумма заработанных денег;
 char*** GetFlightInformation(int special, char*** columnName, int* rowCount, int* columnCount) 
+{
 	char* text;
 	if (special == 1)
 		text = "yes";
