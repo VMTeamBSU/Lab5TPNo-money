@@ -8,7 +8,6 @@ int ValidateUser(char* login, char* password)
 	}
 	else
 	{
-		int adsd;
 		return -1;
 	}
 }

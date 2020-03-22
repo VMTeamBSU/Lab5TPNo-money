@@ -61,7 +61,7 @@ void HandleAuthorization()
 
 void HandleMainMenu()
 {
-	
+	printf("Oh, you are in main menu.\n ");
 }
 
 void HandleRegistration()

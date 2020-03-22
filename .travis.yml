@@ -1,11 +1,35 @@
+﻿
 language: c
-os: linux
 
-script: 
-      - mkdir build
-      - cd build
-      - cmake .. -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles"
-      - make all
-      - ./src/ExampleProject_run 
-      - ./tst/ExampleProject_tst
+jobs:
+  include:
+    - stage: build
+      os: linux
+      script: 
+      - "mkdir build"
+      - "cd build"
+      - "cmake \"Visual Studio 16 2019\" .."
+      - "cmake --build . --config Release"
+      - if [ $TRAVIS_OS_NAME != windows ]; then ./tst/ExampleProject_tst; fi
+    - stage: deploy
+      os: windows
+      if: branch = master and tag = Release
+      tags: on
+      script:
+      - "mkdir build"
+      - "cd build"
+      - "cmake \"Visual Studio 16 2019\" .."
+      - "cmake --build . --config Release"
+      deploy:
+         provider: "s3"
+         access_key_id: "AKIAIK7PITYV72RQ2AXQ"
+         bucket: "ivanshishlyannikovbucket1"
+         secret_access_key": "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"
+         skip_cleanup: true
+         on:
+           branch: master
+           tags: true
+
+
+
 
