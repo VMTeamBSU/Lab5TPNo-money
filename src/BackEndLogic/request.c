@@ -1,5 +1,5 @@
 #include "../../include/request.h"
-#include "sqlite3.h"
+#include "../../lib/sqlite3/sqlite3.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -25,7 +25,6 @@ static int callback(void* NotUsed, int argc, char** argv, char** azColName)
 
 	for (i = 0; i < argc; i++)
 	{
-		printf(" %s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
 		strcpy(MatrixResponce[CurrentRow][i], argv[i] ? argv[i] : "NULL");
 	}
 	printf("\n");
