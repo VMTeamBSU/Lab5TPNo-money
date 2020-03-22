@@ -20,7 +20,7 @@ jobs:
       deploy:
          provider: releases
          api_key: "bba57e1400ec83b5c99ebda9aa9fc96884b8bdbb"
-         file: "CMakeLists"
+         file: "CMakeLists.txt"
          skip_cleanup: true
          on:
            branch: frontEnd
