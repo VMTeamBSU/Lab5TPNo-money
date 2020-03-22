@@ -19,7 +19,7 @@ jobs:
       - git tag $TRAVIS_TAG
       deploy:
          provider: releases
-         api_key: "bba57e1400ec83b5c99ebda9aa9fc96884b8bdbb"
+         api_key: "73ce78c03d1290247d69938b267824095bebc2e7"
          file: "CMakeLists.txt"
          skip_cleanup: true
          on:
