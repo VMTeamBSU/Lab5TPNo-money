@@ -15,7 +15,7 @@ int openResult;
 void InitDataBase()
 {
 	if (db == NULL)
-		openResult = sqlite3_open("../../DataBase/AirCab.db", &db);
+		openResult = sqlite3_open("../DataBase/AirCab.db", &db);
 }
 
 static int callback(void* NotUsed, int argc, char** argv, char** azColName)
