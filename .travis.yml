@@ -13,8 +13,7 @@ jobs:
       - if [ $TRAVIS_OS_NAME != windows ]; then ./tst/ExampleProject_tst; fi
     - stage: deploy
       os: windows
-      if: branch = master
-      if: tag = Release
+      if: branch = master and tag = Release
       tags: on
       script:
       - "mkdir build"
