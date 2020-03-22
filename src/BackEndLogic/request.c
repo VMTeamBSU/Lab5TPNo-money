@@ -105,4 +105,3 @@ char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnN
 	}
 
 }
-
