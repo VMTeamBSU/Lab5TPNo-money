@@ -16,10 +16,10 @@ static int callback(void* NotUsed, int argc, char** argv, char** azColName)
 	int i;
 
 	RequestColumnName = (char**)calloc(argc, sizeof(char*));
-	RequestColumnName = (char*)calloc(50, sizeof(char));
 
 	for (int i = 0; i < argc; i++)
-	{		
+	{
+		RequestColumnName[i] = (char*)calloc(50, sizeof(char));
 		strcpy(RequestColumnName[i], azColName[i]);
 	}
 
@@ -58,7 +58,7 @@ void MyDInit()
 	CurrentRow = 0;
 }
 
-char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char** aColumnName)
+char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnName)
 {
 	sqlite3_stmt* pStmt;
 
@@ -87,7 +87,7 @@ char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char** aColumnNa
 		char*** ResultMatrix = MatrixResponce;
 		*aRow = rows;
 		*aColumn = columns;
-		aColumnName = RequestColumnName;
+		*aColumnName = RequestColumnName;
 		MyDInit();
 
 		return ResultMatrix;

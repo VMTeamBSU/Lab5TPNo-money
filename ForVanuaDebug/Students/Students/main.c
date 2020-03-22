@@ -32,7 +32,7 @@ void TestValueById(char* text)
 	char** ColumnName = NULL;
 	int row = 0;
 	int column = 0;
-	char*** Result = GetResult(requestBuffer, &column, &row, ColumnName);
+	char*** Result = GetResult(requestBuffer, &column, &row, &ColumnName);
 	int c;
 }
 
