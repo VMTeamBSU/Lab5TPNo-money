@@ -1,8 +1,8 @@
 #include "../../include/request.h"
-#include "../../lib/sqlite3/sqlite3.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "../../lib/sqlite3/sqlite3.h"
 #pragma warning(disable:4996)
 struct sqlite3* db;
 
