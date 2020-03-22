@@ -23,6 +23,6 @@ jobs:
          file: ".gitignore"
          skip_cleanup: true
          on:
-           branch: frontEnd
+           branch: master
 
 
