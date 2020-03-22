@@ -5,6 +5,7 @@ jobs:
   include:
     - stage: build
       os: linux
+      os: osx
       script: 
       - "mkdir build"
       - "cd build"
@@ -12,17 +13,23 @@ jobs:
       - "cmake --build . --config Release"
       - if [ $TRAVIS_OS_NAME != windows ]; then ./tst/ExampleProject_tst; fi
 
-      # Set up git user name and tag this commit
-      - git config --local user.name "rexxmagtar"
-      - git config --local user.email "rexx.magtar@gmail.com"
-      - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-      - git tag $TRAVIS_TAG
+    - stage:deploy
+      os: windows
+      script:
+      - "mkdir build"
+      - "cd build"
+      - "cmake \"Visual Studio 16 2019\" .."
+      - "cmake --build . --config Release"
       deploy:
-         provider: releases
-         api_key: "7c573cc78b9cc6a19468730a4adaf01968b2bf5e"
-         file: "CMakeLists.txt"
+         provider: "s3",
+         access_key_id: "AKIAIK7PITYV72RQ2AXQ",
+         bucket: "ivanshishlyannikovbucket1",
+         secret_access_key": "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",
          skip_cleanup: true
          on:
-           branch: frontEnd
+           branch: master
+           tags: true
+
+
 
 
