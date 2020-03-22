@@ -23,3 +23,4 @@ TEST(TryLogin, correctLogin) {
     EXPECT_EQ(TryLogin("user1", "1111"), -1);
     EXPECT_EQ(TryLogin("admin", "1111"), 1);
 }
+
