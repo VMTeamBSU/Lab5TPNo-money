@@ -7,7 +7,8 @@ extern  "C" {
 
 TEST(test1, timesType) {
 	
-	char*** result =CrewMemberInformation("Shestopalov",0,0,0);
+	char*** result;
+	result = CrewMemberInformation("Shestopalov", 0, 0, 0);
 
 	EXPECT_STREQ(result[0][0], "1");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
