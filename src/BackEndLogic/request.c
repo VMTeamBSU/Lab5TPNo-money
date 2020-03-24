@@ -15,7 +15,7 @@ int openResult;
 
 void InitDataBase()
 {
-	printf("Doing initDataBase...\n");
+	
 	if (db == NULL)
 		openResult = sqlite3_open("../DataBase/AirCab.db", &db);
 }
