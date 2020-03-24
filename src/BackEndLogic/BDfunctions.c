@@ -23,8 +23,11 @@ char*** CrewMemberInformation(char* surname, char*** columnName, int* rowCount, 
 	 Result = (GetResult(requestBuffer, &column, &row, &ColumnName));
 	printf("Got result...\n");
 	*rowCount = row;
+	printf("setted raw...\n");
 	*columnCount = column;
+	printf("setted column...\n");
 	*columnName = ColumnName;
+	printf("setted columnName...\n");
 	printf("Returning result...\n");
 	return Result;
 }
