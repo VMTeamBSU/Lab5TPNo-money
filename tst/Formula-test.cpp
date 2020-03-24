@@ -13,18 +13,7 @@ TEST(test1, timesType) {
 	EXPECT_STREQ(result[0][1], "2020-02-01");
 	EXPECT_STREQ(result[0][2], "1");
 	EXPECT_STREQ(result[0][3], "12");
-	EXPECT_STREQ(result[0][4], "5");
-	EXPECT_STREQ(result[0][5], "2");
-	EXPECT_STREQ(result[0][6], "5000");
-	EXPECT_STREQ(result[0][7], "no");
-	EXPECT_STREQ(result[1][0], "6");
-	EXPECT_STREQ(result[1][1], "2020-02-07");
-	EXPECT_STREQ(result[1][2], "1");
-	EXPECT_STREQ(result[1][3], "18");
-	EXPECT_STREQ(result[1][4], "15");
-	EXPECT_STREQ(result[1][5], "4");
-	EXPECT_STREQ(result[1][6], "7000");
-	EXPECT_STREQ(result[1][7], "no");
+
 }
 TEST(TryLogin321, timesType) {
 	char*** result = CrewMemberInformation("Shestopalov",0,0,0);
