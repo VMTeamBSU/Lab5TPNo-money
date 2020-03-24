@@ -10,5 +10,5 @@ add_subdirectory(src)
 
 if (UNIX)
     add_subdirectory(tst)
-    add_subdirectory(lib/googletest)	
+    add_subdirectory(lib/googletest)
 endif (UNIX)

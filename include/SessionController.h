@@ -5,4 +5,4 @@ extern struct User CurrentUser;
 extern int ExecuteCommand(struct command* command);
 struct User GetCurrentUser(char* login);
 int CheckPermission(struct User user,int commandId);
-void Init(char* login);
+void InitDataBase(char* login);

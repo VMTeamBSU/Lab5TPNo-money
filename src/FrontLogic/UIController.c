@@ -1,6 +1,8 @@
 #include "../../include/UIController.h"
 #include <stdio.h>
 #include "../../include/Authorization.h"
+#include "../../include/Registration.h"
+#include "string.h"
 
 int timesToType;
 
@@ -19,19 +21,19 @@ int TryLogin(char* login,char* password)
 	if (ValidateUser(login, password) == 1)
 	{
 		return 1;
-		
+
 	}
 	else
 	{
 		return -1;
 	}
-	
+
 }
 
 void HandleAuthorization()
 {
 	int flag = 1;
-	
+
 	while (flag==1)
 	{
 		char login[30];
@@ -66,7 +68,48 @@ void HandleMainMenu()
 
 void HandleRegistration()
 {
-	
+	int stop = 1;
+	char password[30];
+	char passwordRepeat[30];
+	char login[30];
+
+	while (stop==1)
+	{
+		printf(" Enter your login: \n");
+
+		scanf("%s", &login);
+		if(FindUser(login)==1)
+		{
+			printf("Login is already taken \n:");
+			continue;
+		}
+		else
+		{
+			int stopPass = 1;
+				while (stopPass == 1) {
+					printf("Insert password \n");
+					scanf("%s", &password);
+					printf("Insert password again\n");
+					scanf("%s", &passwordRepeat);
+					if(strcmp(password,passwordRepeat)!=0)
+					{
+						printf("Password not matching! Try again\n");
+						continue;
+					}
+					else
+					{
+						RegisterUser(login, password);
+						printf("User registered successfully!\n");
+						HandleMainMenu();
+						break;
+					}
+
+
+				}
+
+			break;
+		}
+	}
 }
 
 
@@ -77,23 +120,37 @@ void HandleStartWindow()
 	printf("Select option\n");
 	printf("Login: 1\n");
 	printf("Register: 2\n");
+	printf("Exit: 3\n");
 
 	int option;
 	scanf("%d", &option);
-
-	switch (option)
+	int stop = 1;
+	while (stop == 1)
 	{
-	case 1:
+
+
+		switch (option)
 		{
-		HandleAuthorization();
+		case 1:
+		{
+			HandleAuthorization();
+			break;
 		}
-	case 2:
+		case 2:
 		{
-		HandleRegistration();
+			HandleRegistration();
+			break;
 		}
-	default:
+		case 3:
 		{
-		printf("Incorrect option");
+			stop = 0;
+			break;
+		}
+		default:
+		{
+			printf("Incorrect option");
+			break;
+		}
 		}
 	}
 }
