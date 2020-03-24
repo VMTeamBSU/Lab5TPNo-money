@@ -71,7 +71,7 @@ char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnN
 	printf("Doing GetResult...\n");
 	InitDataBase();
 	sqlite3_stmt* pStmt;
-
+	printf("initedDB...\n");
 	if (sqlite3_prepare_v2(db, RequestBuffer, -1, &pStmt, 0) == SQLITE_OK)
 	{
 		while (sqlite3_step(pStmt) == SQLITE_ROW)
