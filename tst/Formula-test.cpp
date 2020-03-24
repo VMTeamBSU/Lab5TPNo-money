@@ -32,7 +32,12 @@ TEST(test1, timesType) {
 	EXPECT_STREQ(result[1][7], "no");
 }
 TEST(TryLogin321, timesType) {
-	char*** result = CrewMemberInformation("Shestopalov",0,0,0);
+
+	char*** result;
+	char** names = NULL;
+	int b = 0;
+	int c = 0;
+    result = CrewMemberInformation("Shestopalov",0,0,0);
 	EXPECT_STRNE(result[0][0], "4");
 	EXPECT_STRNE(result[0][1], "2020-06-07");
 	EXPECT_STRNE(result[0][2], "D");
@@ -43,7 +48,12 @@ TEST(TryLogin321, timesType) {
 	EXPECT_STRNE(result[0][7], "yes");
 }
 TEST(TryLogin31313, timesType) {
-	char*** result = CrewMemberInformation("Pirsky",0,0,0);
+
+	char*** result;
+	char** names = NULL;
+	int b = 0;
+	int c = 0;
+	result = CrewMemberInformation("Pirsky",0,0,0);
 	
 	EXPECT_STREQ(result[0][0], "2");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
@@ -63,7 +73,12 @@ TEST(TryLogin31313, timesType) {
 	EXPECT_STREQ(result[1][7], "yes");
 	}
 TEST(TryL3131ogin, timesType) {
-	char*** result = CrewMemberInformation("Pirsky",0,0,0);
+
+	char*** result;
+	char** names = NULL;
+	int b = 0;
+	int c = 0;
+	result = CrewMemberInformation("Pirsky",0,0,0);
 	EXPECT_STRNE(result[0][0], "0");
 	EXPECT_STRNE(result[0][1], "2020-06-09");
 	EXPECT_STRNE(result[0][2], "F");
