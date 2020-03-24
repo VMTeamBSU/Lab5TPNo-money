@@ -52,3 +52,21 @@ char*** GetFlightInformation(int special, char*** columnName, int* rowCount, int
 
 	return Result;                     
 }
+
+
+char*** HelicopterInformation(char* date, char*** columnName, int* rowCount, int* columnCount)
+{
+	char requestBuffer[1000];
+	sprintf(requestBuffer,
+		"SELECT count(flights.date), sum(weight_of_goods), sum(num_of_people) FROM flights WHERE flights.date = '%s'; ",
+		date);
+	char** ColumnName = NULL;
+	int row = 0;
+	int column = 0;
+	char*** Result = GetResult(requestBuffer, &column, &row, &ColumnName);
+	*rowCount = row;
+	*columnCount = column;
+	*columnName = ColumnName;
+
+	return Result;
+}
