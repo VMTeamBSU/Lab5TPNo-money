@@ -1,5 +1,7 @@
 #include "../../include/Authorization.h"
+#include "../../lib/sqlite3/sqlite3.h"
 #include "string.h"
+
 int ValidateUser(char* login, char* password)
 {
 	sqlite3* pedp;
