@@ -1,10 +1,14 @@
+
 #include "gtest/gtest.h"
 extern  "C" {
 #include "../include/functions.h"
 }
 
-TEST(TryLogin, timesType) {
-	char*** result = CrewMemberInfomation("Shestopalov");
+TEST(test1, timesType) {
+	
+	char*** result =CrewMemberInformation("Shestopalov",0,0,0);
+
+	EXPECT_EQ()
 	EXPECT_EQ(result[0][0], "1");
 	EXPECT_EQ(result[0][1], "2020-02-01");
 	EXPECT_EQ(result[0][2], "1");
@@ -22,8 +26,8 @@ TEST(TryLogin, timesType) {
 	EXPECT_EQ(result[1][6], "7000");
 	EXPECT_EQ(result[1][7], "no");
 }
-TEST(TryLogin, timesType) {
-	char*** result = CrewMemberInfomation("Shestopalov");
+TEST(TryLogin321, timesType) {
+	char*** result = CrewMemberInformation("Shestopalov",0,0,0);
 	EXPECT_NE(result[0][0], "4");
 	EXPECT_NE(result[0][1], "2020-06-07");
 	EXPECT_NE(result[0][2], "D");
@@ -33,8 +37,8 @@ TEST(TryLogin, timesType) {
 	EXPECT_NE(result[0][6], " ");
 	EXPECT_NE(result[0][7], "yes");
 }
-TEST(TryLogin, timesType) {
-	char*** result = CrewMemberInfomation("Pirsky");
+TEST(TryLogin31313, timesType) {
+	char*** result = CrewMemberInfomation("Pirsky",0,0,0);
 	EXPECT_EQ(result[0][0], "2");
 	EXPECT_EQ(result[0][1], "2020-02-01");
 	EXPECT_EQ(result[0][2], "2");
@@ -52,8 +56,8 @@ TEST(TryLogin, timesType) {
 	EXPECT_EQ(result[1][6], "14000");
 	EXPECT_EQ(result[1][7], "yes");
 	}
-TEST(TryLogin, timesType) {
-	char*** result = CrewMemberInfomation("Pirsky");
+TEST(TryL3131ogin, timesType) {
+	char*** result = CrewMemberInfomation("Pirsky",0,0,0);
 	EXPECT_NE(result[0][0], "0");
 	EXPECT_NE(result[0][1], "2020-06-09");
 	EXPECT_NE(result[0][2], "F");
@@ -71,6 +75,5 @@ TEST(TryLogin, timesType) {
 	EXPECT_EQ(result[1][6], "14000");
 	EXPECT_EQ(result[1][7], "no");
 }
-}
-}
+
 
