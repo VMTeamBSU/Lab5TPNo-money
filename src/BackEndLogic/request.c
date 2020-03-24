@@ -76,6 +76,7 @@ char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnN
 	{
 		while (sqlite3_step(pStmt) == SQLITE_ROW)
 		{
+			printf("doing step...\n");
 			MainCounter++;
 		}
 	}
@@ -99,7 +100,7 @@ char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnN
 		*aColumn = columns;
 		*aColumnName = RequestColumnName;
 		MyDInit();
-
+		printf("all done...\n");
 		return ResultMatrix;
 	}
 	else
