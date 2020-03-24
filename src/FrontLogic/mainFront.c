@@ -5,6 +5,6 @@
 
 int main() {
     UiControllerInit();
-	HandleStartWindow();		
+	HandleStartWindow();
 	return 0;
 }

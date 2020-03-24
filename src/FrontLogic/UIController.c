@@ -21,19 +21,19 @@ int TryLogin(char* login,char* password)
 	if (ValidateUser(login, password) == 1)
 	{
 		return 1;
-		
+
 	}
 	else
 	{
 		return -1;
 	}
-	
+
 }
 
 void HandleAuthorization()
 {
 	int flag = 1;
-	
+
 	while (flag==1)
 	{
 		char login[30];
@@ -72,11 +72,11 @@ void HandleRegistration()
 	char password[30];
 	char passwordRepeat[30];
 	char login[30];
-	
+
 	while (stop==1)
 	{
 		printf(" Enter your login: \n");
-		
+
 		scanf("%s", &login);
 		if(FindUser(login)==1)
 		{
@@ -104,9 +104,9 @@ void HandleRegistration()
 						break;
 					}
 
-					
+
 				}
-				
+
 			break;
 		}
 	}
