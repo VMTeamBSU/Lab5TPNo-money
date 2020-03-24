@@ -37,7 +37,7 @@ TEST(TryLogin321, timesType) {
 	char** names = NULL;
 	int b = 0;
 	int c = 0;
-    result = CrewMemberInformation("Shestopalov",0,0,0);
+    result = CrewMemberInformation("Shestopalov", &names, &b, &c);
 	EXPECT_STRNE(result[0][0], "4");
 	EXPECT_STRNE(result[0][1], "2020-06-07");
 	EXPECT_STRNE(result[0][2], "D");
@@ -53,7 +53,7 @@ TEST(TryLogin31313, timesType) {
 	char** names = NULL;
 	int b = 0;
 	int c = 0;
-	result = CrewMemberInformation("Pirsky",0,0,0);
+	result = CrewMemberInformation("Pirsky", &names, &b, &c);
 	
 	EXPECT_STREQ(result[0][0], "2");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
@@ -78,7 +78,7 @@ TEST(TryL3131ogin, timesType) {
 	char** names = NULL;
 	int b = 0;
 	int c = 0;
-	result = CrewMemberInformation("Pirsky",0,0,0);
+	result = CrewMemberInformation("Pirsky", &names, &b, &c);
 	EXPECT_STRNE(result[0][0], "0");
 	EXPECT_STRNE(result[0][1], "2020-06-09");
 	EXPECT_STRNE(result[0][2], "F");
