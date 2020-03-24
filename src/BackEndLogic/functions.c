@@ -8,6 +8,7 @@
 //rowCount: переменная, которая содержит информацию о количестве рядов в таблице-ответе.
 //columnCount: переменная, которая содержит информацию о количестве колонок в таблице-ответе.
 //Result: наша фукция возвращает матрица, содержащая таблицу-ответ на запрос по экипажу(или члену экипажа), – все сведения о выполненных им рейсах (*).
+//Функция доступна только для коммандиров экипажей
 char*** CrewMemberInformation(char* surname, char*** columnName, int* rowCount, int* columnCount)
 {
 	char requestBuffer[1000];
@@ -60,12 +61,37 @@ char*** GetFlightInformation(int special, char*** columnName, int* rowCount, int
 //columnCount: переменная, которая содержит информацию о количестве колонок в таблице-ответе;
 //Result: наша фукция возвращает матрицу, содержащая таблицу-ответ на запрос по каждому вертолету за определенную дату, на выходе получаем: количество всех полетов в этот день, суммарное вес всех перевезенных грузов за этот день, суммарное количество людей за этот день. По столюцам соответсвенно;
 //Пример: date = '2020-02-10', Result[0][0] = 1, Result[0][1] = 3, Result[0][3] = 1; 
+//Функция доступна только для коммандиров экипажей
 char*** DateHelicopterInformation(char* date, char*** columnName, int* rowCount, int* columnCount)
 {
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
 		"SELECT count(flights.date), sum(weight_of_goods), sum(num_of_people) FROM flights WHERE flights.date = '%s'; ",
 		date);
+	char** ColumnName = NULL;
+	int row = 0;
+	int column = 0;
+	char*** Result = GetResult(requestBuffer, &column, &row, &ColumnName);
+	*rowCount = row;
+	*columnCount = column;
+	*columnName = ColumnName;
+
+	return Result;
+}
+
+//helicopterId: переменная, которая содержит ID вертолета.
+//columnName: массив, который содержит названия столбцов по порядку вывода;
+//rowCount: переменная, которая содержит информацию о количестве рядов в таблице-ответе;
+//columnCount: переменная, которая содержит информацию о количестве колонок в таблице-ответе;
+//Result: наша фукция возвращает матрицу, содержащая таблицу-ответ на запрос по каждому вертолету: общее количество часов, которые они налетали послекапитального ремонта, и ресурс летного времени(*);
+//Пример: ID = 1, Result[0][0] = 9(все время, проведенное в рейсах), Result[0][1] = 1086(летный ресурс минус все время, проведенное в рейсах); 
+//Функция доступна только для коммандиров экипажей
+char*** HelicopterFlyDurationAndFlyingResourse(int helicopterId, char*** columnName, int* rowCount, int* columnCount)
+{
+	char requestBuffer[1000];
+	sprintf(requestBuffer,
+		"SELECT sum(duration), (flying_resourse - sum(duration)) FROM helicopter INNER JOIN flights ON flights.ID_helicopter = helicopter.ID WHERE ID_helicopter = %d; ",
+		helicopterId);
 	char** ColumnName = NULL;
 	int row = 0;
 	int column = 0;
