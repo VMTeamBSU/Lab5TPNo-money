@@ -8,7 +8,6 @@ TEST(test1, timesType) {
 	
 	char*** result =CrewMemberInformation("Shestopalov",0,0,0);
 
-	EXPECT_EQ()
 	EXPECT_EQ(result[0][0], "1");
 	EXPECT_EQ(result[0][1], "2020-02-01");
 	EXPECT_EQ(result[0][2], "1");
