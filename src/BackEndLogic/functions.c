@@ -80,7 +80,7 @@ char*** DateHelicopterInformation(char* date, char*** columnName, int* rowCount,
 
 	return Result;
 
-
+}
 //helicopterId: ïåðåìåííàÿ, êîòîðàÿ ñîäåðæèò ID âåðòîëåòà.
 //columnName: ìàññèâ, êîòîðûé ñîäåðæèò íàçâàíèÿ ñòîëáöîâ ïî ïîðÿäêó âûâîäà;
 //rowCount: ïåðåìåííàÿ, êîòîðàÿ ñîäåðæèò èíôîðìàöèþ î êîëè÷åñòâå ðÿäîâ â òàáëèöå-îòâåòå;

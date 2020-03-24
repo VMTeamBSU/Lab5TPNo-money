@@ -11,3 +11,15 @@ int ValidateUser(char* login, char* password)
 		return -1;
 	}
 }
+int FindUser(char* login)
+{
+	if(strcmp("admin", login)==0)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
