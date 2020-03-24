@@ -3,12 +3,16 @@
 #include "gtest/gtest.h"
 extern  "C" {
 #include "../include/BDfunctions.h"
+#include "stdlib.h"
 }
 
 TEST(test1, timesType) {
 	
 	char*** result;
-	result = CrewMemberInformation("Shestopalov", 0, 0, 0);
+	char** names=NULL;
+		int b = 0;
+	int c=0;
+	result = CrewMemberInformation("Shestopalov", &names, &b, &c);
 
 	EXPECT_STREQ(result[0][0], "1");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
