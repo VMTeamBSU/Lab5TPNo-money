@@ -19,7 +19,8 @@ char*** CrewMemberInformation(char* surname, char*** columnName, int* rowCount, 
 	char** ColumnName = NULL;
 	int row = 0;
 	int column = 0;
-	char*** Result = GetResult(requestBuffer, &column, &row, &ColumnName);
+	char*** Result;
+	 Result = (GetResult(requestBuffer, &column, &row, &ColumnName));
 	printf("Got result...\n");
 	*rowCount = row;
 	*columnCount = column;
