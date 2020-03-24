@@ -11,6 +11,7 @@
 //������� �������� ������ ��� ����������� ��������
 char*** CrewMemberInformation(char* surname, char*** columnName, int* rowCount, int* columnCount)
 {
+	printf("Doing CrewMemberInformation...\n");
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
 		"SELECT * FROM flights WHERE ID_helicopter = (SELECT ID_helicopter FROM commander INNER JOIN crew ON commander.ID = crew.ID_commander WHERE crew.surname = '%s');",
