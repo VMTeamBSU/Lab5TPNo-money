@@ -1,8 +1,8 @@
 
-#include "../lib/googletest/googletest/include/gtest/gtest.h"
+
 #include "gtest/gtest.h"
 extern  "C" {
-#include "../include/functions.h"
+#include "../include/BDfunctions.h"
 }
 
 TEST(test1, timesType) {
