@@ -96,6 +96,7 @@ char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnN
 		}
 
 		char*** ResultMatrix = MatrixResponce;
+
 		*aRow = rows;
 		*aColumn = columns;
 		*aColumnName = RequestColumnName;

@@ -10,7 +10,7 @@ TEST(test1, timesType) {
 	
 	char*** result;
 	char** names=NULL;
-		int b = 0;
+	int b = 0;
 	int c=0;
 	result = CrewMemberInformation("Shestopalov", &names, &b, &c);
 
