@@ -37,7 +37,7 @@ TEST(TryLogin321, timesType) {
 	EXPECT_STRNE(result[0][7], "yes");
 }
 TEST(TryLogin31313, timesType) {
-	char*** result = CrewMemberInformation()mation("Pirsky",0,0,0);
+	char*** result = CrewMemberInformation("Pirsky",0,0,0);
 	EXPECT_STREQ(result[0][0], "2");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
 	EXPECT_STREQ(result[0][2], "2");
