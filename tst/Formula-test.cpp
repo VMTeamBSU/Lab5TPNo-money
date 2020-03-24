@@ -24,9 +24,9 @@ TEST(test1, timesType) {
 	EXPECT_STREQ(result[1][5], "4");
 	EXPECT_STREQ(result[1][6], "7000");
 	EXPECT_STREQ(result[1][7], "no");
-}		   STR
-TEST(TryLogSTRin321, timesType) {
-	char***STR result = CrewMemberInformation("Shestopalov",0,0,0);
+}
+TEST(TryLogin321, timesType) {
+	char*** result = CrewMemberInformation("Shestopalov",0,0,0);
 	EXPECT_STRNE(result[0][0], "4");
 	EXPECT_STRNE(result[0][1], "2020-06-07");
 	EXPECT_STRNE(result[0][2], "D");
@@ -35,9 +35,9 @@ TEST(TryLogSTRin321, timesType) {
 	EXPECT_STRNE(result[0][5], "6");
 	EXPECT_STRNE(result[0][6], " ");
 	EXPECT_STRNE(result[0][7], "yes");
-}		   STR
-TEST(TryLogSTRin31313, timesType) {
-	char***STR result = CrewMemberInformation("Pirsky",0,0,0);
+}
+TEST(TryLogin31313, timesType) {
+	char*** result = CrewMemberInformation()mation("Pirsky",0,0,0);
 	EXPECT_STREQ(result[0][0], "2");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
 	EXPECT_STREQ(result[0][2], "2");
@@ -54,9 +54,9 @@ TEST(TryLogSTRin31313, timesType) {
 	EXPECT_STREQ(result[1][5], "10");
 	EXPECT_STREQ(result[1][6], "14000");
 	EXPECT_STREQ(result[1][7], "yes");
-	}	   STR
-TEST(TryL31STR31ogin, timesType) {
-	char***STR result = CrewMemberInformation("Pirsky",0,0,0);
+	}
+TEST(TryL3131ogin, timesType) {
+	char*** result = CrewMemberInformation("Pirsky",0,0,0);
 	EXPECT_STRNE(result[0][0], "0");
 	EXPECT_STRNE(result[0][1], "2020-06-09");
 	EXPECT_STRNE(result[0][2], "F");
