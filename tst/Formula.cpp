@@ -3,7 +3,7 @@ extern  "C" {
 #include "../include/UIController.h"
 }
 
-TEST(TryLogin, timesType) {
+TEST(TryLoginFuncTest, timesType) {
     //arrange
     //act
     //assert

@@ -15,8 +15,9 @@ int openResult;
 
 void InitDataBase()
 {
+	
 	if (db == NULL)
-		openResult = sqlite3_open("../../DataBase/AirCab.db", &db);
+		openResult = sqlite3_open("../DataBase/AirCab.db", &db);
 }
 
 static int callback(void* NotUsed, int argc, char** argv, char** azColName)
@@ -69,7 +70,6 @@ char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnN
 {
 	InitDataBase();
 	sqlite3_stmt* pStmt;
-
 	if (sqlite3_prepare_v2(db, RequestBuffer, -1, &pStmt, 0) == SQLITE_OK)
 	{
 		while (sqlite3_step(pStmt) == SQLITE_ROW)
@@ -93,11 +93,11 @@ char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnN
 		}
 
 		char*** ResultMatrix = MatrixResponce;
+
 		*aRow = rows;
 		*aColumn = columns;
 		*aColumnName = RequestColumnName;
 		MyDInit();
-
 		return ResultMatrix;
 	}
 	else

@@ -13,3 +13,5 @@ add_executable(${BINARY}_run ${SOURCES})
 target_link_libraries(${BINARY}_run PUBLIC Sqlite3_lib)
 
 add_library(${BINARY}_lib STATIC ${SOURCES})
+
+target_link_libraries(${BINARY}_lib PUBLIC Sqlite3_lib)
