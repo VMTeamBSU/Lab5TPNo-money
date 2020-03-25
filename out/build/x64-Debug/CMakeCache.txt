@@ -196,9 +196,6 @@ ExampleProject_BINARY_DIR:STATIC=C:/Lab5TPNo-money/out/build/x64-Debug
 //Value Computed by CMake
 ExampleProject_SOURCE_DIR:STATIC=C:/Lab5TPNo-money
 
-//Dependencies for the target
-ExampleProject_lib_LIB_DEPENDS:STATIC=general;Sqlite3_lib;
-
 
 ########################
 # INTERNAL cache entries
