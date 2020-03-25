@@ -51,7 +51,7 @@ char*** DateHelicopterInformation(char* firstDate, char* secondDate, char*** col
 {
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
-		"SELECT count(flights.date), sum(weight_of_goods), sum(num_of_people) FROM flights WHERE flights.date >= '%s' AND <= '%s'; ",
+		"SELECT count(flights.date), sum(weight_of_goods), sum(num_of_people) FROM flights WHERE flights.date >= '%s' AND flights.date <= '%s'; ",
 		firstDate, secondDate);
 	char** ColumnName = NULL;
 	int row = 0;
