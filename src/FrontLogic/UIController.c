@@ -3,6 +3,9 @@
 #include "../../include/Authorization.h"
 #include "../../include/Registration.h"
 #include "string.h"
+#include "../../include/SessionController.h"
+#include "../../include/BDfunctions.h"
+#include "stdlib.h"
 
 int timesToType;
 
@@ -32,6 +35,7 @@ int TryLogin(char* login,char* password)
 
 void HandleAuthorization()
 {
+	system("CLS");
 	int flag = 1;
 
 	while (flag==1)
@@ -46,6 +50,7 @@ void HandleAuthorization()
 		if (result ==1)
 		{
 			printf("Loged in successfully!\n\n");
+			CurrentUser = GetCurrentUser(login);
 			HandleMainMenu();
 			break;
 		}
@@ -63,11 +68,50 @@ void HandleAuthorization()
 
 void HandleMainMenu()
 {
-	printf("Oh, you are in main menu.\n ");
+	
+	while (1)
+	{
+
+
+		system("CLS");
+		printf("Oh, you are in main menu.\n ");
+		printf("Choose option \n");
+		printf("Crew member information :1\n");
+		printf("Flights information :2\n");
+
+
+		printf("Choose option \n");
+		printf("Choose option \n");
+
+		int option = 0;
+		scanf("%d", &option);
+
+		switch (option)
+		{
+		case  1:
+		{
+			HandleCrewMemberInfo();
+			break;
+		}
+		case  2:
+			{
+			HandleFlightsInfo();
+			}
+		default:
+			{
+			printf("Invalid option!\n");
+				break;
+			}
+
+		}
+	}
+	
+	
 }
 
 void HandleRegistration()
 {
+	system("CLS");
 	int stop = 1;
 	char password[30];
 	char passwordRepeat[30];
@@ -100,7 +144,9 @@ void HandleRegistration()
 					{
 						RegisterUser(login, password);
 						printf("User registered successfully!\n");
+						CurrentUser = GetCurrentUser(login);
 						HandleMainMenu();
+						stop = 0;
 						break;
 					}
 
@@ -112,10 +158,9 @@ void HandleRegistration()
 	}
 }
 
-
-
 void HandleStartWindow()
 {
+	system("CLS");
 	printf("Welcome everybody!\n");
 	printf("Select option\n");
 	printf("Login: 1\n");
@@ -127,18 +172,18 @@ void HandleStartWindow()
 	int stop = 1;
 	while (stop == 1)
 	{
-
-
 		switch (option)
 		{
 		case 1:
 		{
 			HandleAuthorization();
+			stop = 0;
 			break;
 		}
 		case 2:
 		{
 			HandleRegistration();
+			stop = 0;
 			break;
 		}
 		case 3:
@@ -154,3 +199,158 @@ void HandleStartWindow()
 		}
 	}
 }
+
+void HandleCrewMemberInfo()
+{
+	while (1) {
+		system("CLS");
+
+		char*** result;
+		int rowsCount = 0;
+		int columnsCount = 0;
+		char surname[30];
+		char** columnsNames = NULL;
+
+
+		if (CurrentUser.privilege == member) {
+			strcpy(surname, CurrentUser.login);
+		}
+		else
+		{
+			printf("Insert member's surname, or print all to print all members\n");
+			scanf("%s", &surname);
+		}
+
+		result = CrewMemberInformation(surname, &columnsNames, &rowsCount, &columnsCount);
+
+		printf("result:\n-----------------------------------\n");
+		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
+		char a[30];
+		printf("\nDo you want to exit? yes/no\n");
+		scanf("%s", &a);
+		if (strcmp(a, "Yes") == 0)
+		{
+			break;
+		}
+	}
+
+	
+}
+
+void HandleFlightsInfo()
+{
+	while (1)
+	{
+	system("CLS");
+
+	char*** result;
+	int rowsCount = 0;
+	int columnsCount = 0;
+	char surname[30];
+	char** columnsNames = NULL;
+	int command=0;
+	int isSpecial = 0;
+
+	
+
+
+		printf("Choose option:\n");
+
+		printf("1. Special flights\n");
+		printf("2. Normal flights\n");
+
+		scanf("%d", &command);
+
+		switch (command)
+		{
+		case 1:
+		{
+			isSpecial = 1;
+			break;
+		}
+		case 2:
+		{
+			isSpecial = 0;
+			break;
+		}
+		default:
+		{
+			printf("Invalid option!\n");
+			break;
+		}
+		}
+
+
+
+		result = GetFlightInformation(isSpecial, &columnsNames, &rowsCount, &columnsCount);
+
+		printf("result:\n-----------------------------------\n");
+		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
+		char a[30];
+		printf("\nDo you want to exit? yes/no\n");
+		scanf(" %c", &a);
+		if(strcmp(a,"Yes")==0)
+		{
+			break;
+		}
+		
+	}
+}
+
+void PrintMatrix(char*** matrix,char** columnsNames,int rawsCount,int columnsCount)
+{
+	for (int i = 0; i < rawsCount ; ++i)
+	{
+		for (int j = 0; j < columnsCount; ++j)
+		{
+			printf(" %s = %s\n", columnsNames[j], matrix[i][j] ? matrix[i][j] : "NULL");
+		}
+		printf("-----------------------------\n");
+	}
+}
+
+//TODO find helicopters by surname
+void HandleHelicopterInfo()
+{
+	while (1)
+	{
+		system("CLS");
+
+		char*** result;
+		int rowsCount = 0;
+		int columnsCount = 0;
+		char surname[30];
+		char** columnsNames = NULL;
+		int id = 0;
+
+		printf("Choose option:\n");
+
+
+		if (CurrentUser.privilege == commando)
+		{
+
+			printf("Insert helicopters id\n");
+			scanf("%d", &id);
+
+
+
+		}
+
+
+
+		result = HelicopterFlyDurationAndFlyingResourse(id, &columnsNames, &rowsCount, &columnsCount);
+
+		printf("result:\n-----------------------------------\n");
+		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
+		char a[30];
+		printf("\nDo you want to exit? yes/no\n");
+		scanf(" %c", &a);
+		if (strcmp(a, "Yes") == 0)
+		{
+			break;
+		}
+	}
+}
+
+
+
