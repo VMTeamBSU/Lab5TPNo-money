@@ -416,6 +416,52 @@ int GetYesNo()
 	}
 }
 
+void HandleFlightsInfoByDate()
+{
+	int stop = 1;
+	while (stop == 1)
+	{
+		system("CLS");
+
+		char*** result;
+		int rowsCount = 0;
+		int columnsCount = 0;
+		char surname[30];
+		char** columnsNames = NULL;
+		char* date1[15];
+		char* date2[15];
+		
+		int id = 0;
+
+		printf("Choose option:\n");
+
+
+		if (CurrentUser.privilege != member)
+		{
+			printf("Insert start date\n");
+			scanf("%s", date1);
+			printf("Insert last date\n");
+			scanf("%s", date2);
+			id = GetInteger();
+		}
+
+
+
+		result = HelicopterFlyDurationAndFlyingResourse(id, &columnsNames, &rowsCount, &columnsCount);
+
+		printf("result:\n-----------------------------------\n");
+		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
+		char a[30];
+
+		printf("\nDo you want to exit? yes/no\n");
+		if (GetYesNo() == 1)
+		{
+			stop = 0;
+		}
+	}
+}
+
+
 
 
 

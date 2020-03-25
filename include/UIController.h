@@ -8,6 +8,7 @@ void UiControllerInit();
 void HandleCrewMemberInfo();
 void HandleFlightsInfo();
 void HandleHelicopterInfo();
+void HandleFlightsInfoByDate();
 int GetYesNo();
 int GetInteger();
 int IsValidNumber(char* string);
