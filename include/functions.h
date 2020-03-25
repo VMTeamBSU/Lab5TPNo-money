@@ -20,7 +20,7 @@ char*** GetFlightInformation(int special, char*** columnName, int* rowCount, int
 //columnCount: переменная, которая содержит информацию о количестве колонок в таблице-ответе;
 //Result: наша фукция возвращает матрицу, содержащая таблицу-ответ на запрос по каждому вертолету за определенную дату, на выходе получаем: количество всех полетов в этот день, суммарное вес всех перевезенных грузов за этот день, суммарное количество людей за этот день. По столюцам соответсвенно;
 //Пример: firstDate = '2020-02-10' secondDate = '2020-02-10', Result[0][0] = 1, Result[0][1] = 3, Result[0][3] = 1; 
-char*** DateHelicopterInformation(char* firstDate, char* secondDate,char*** columnName, int* rowCount, int* columnCount);
+char*** DateHelicopterInformation(char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount);
 
 //helicopterId: переменная, которая содержит ID вертолета.
 //columnName: массив, который содержит названия столбцов по порядку вывода;
