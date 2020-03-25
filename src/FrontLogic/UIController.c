@@ -9,6 +9,37 @@
 
 int timesToType;
 
+
+int GetInteger()
+{
+	int result = 0;
+	char input[30];
+	while (fgets(input, sizeof(input), stdin))
+	{
+		if (IsValidNumber(input) == 1 && sscanf(input, "%d", &result) == 1)
+		{
+			break;
+		}
+		if (input[0] != '\n') {
+			printf("Invalid input!\n");
+		}
+	}
+	return result;
+}
+
+int IsValidNumber(char* string)
+{
+	for (int i = 0; i < strlen(string)-1; i++)
+	{
+		//ASCII value of 0 = 48, 9 = 57. So if value is outside of numeric range then fail
+		//Checking for negative sign "-" could be added: ASCII value 45.
+		if (string[i] < 48 || string[i] > 57)
+			return 0;
+	}
+
+	return 1;
+}
+
 void UiControllerInit()
 {
 	timesToType = 3;
@@ -80,8 +111,8 @@ void HandleMainMenu()
 		printf("Flights information :2\n");
 		printf("Helicopters information :3\n");
 
-		int option = 0;
-		scanf("%d", &option);
+		int option = GetInteger();
+		
 
 		switch (option)
 		{
@@ -170,8 +201,13 @@ void HandleStartWindow()
 	printf("Register: 2\n");
 	printf("Exit: 3\n");
 
-	int option;
-	scanf("%d", &option);
+	int option = GetInteger();
+
+	
+	
+		
+	
+	
 	int stop = 1;
 	while (stop == 1)
 	{
@@ -205,7 +241,8 @@ void HandleStartWindow()
 
 void HandleCrewMemberInfo()
 {
-	while (1) {
+	int stop = 1;
+	while (stop==1) {
 		system("CLS");
 
 		char*** result;
@@ -228,12 +265,10 @@ void HandleCrewMemberInfo()
 
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
-		char a[30];
 		printf("\nDo you want to exit? yes/no\n");
-		scanf("%s", &a);
-		if (strcmp(a, "yes") == 0)
+		if (GetYesNo() == 1)
 		{
-			break;
+			stop = 0;
 		}
 	}
 
@@ -242,7 +277,8 @@ void HandleCrewMemberInfo()
 
 void HandleFlightsInfo()
 {
-	while (1)
+	int stop = 1;
+	while (stop==1)
 	{
 	system("CLS");
 
@@ -262,7 +298,7 @@ void HandleFlightsInfo()
 		printf("1. Special flights\n");
 		printf("2. Normal flights\n");
 
-		scanf("%d", &command);
+		command = GetInteger();
 
 		switch (command)
 		{
@@ -291,10 +327,10 @@ void HandleFlightsInfo()
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
 		char a[30];
 		printf("\nDo you want to exit? yes/no\n");
-		scanf(" %c", &a);
-		if(strcmp(a,"Yes")==0)
+		printf("\nDo you want to exit? yes/no\n");
+		if (GetYesNo() == 1)
 		{
-			break;
+			stop = 0;
 		}
 		
 	}
@@ -308,14 +344,15 @@ void PrintMatrix(char*** matrix,char** columnsNames,int rawsCount,int columnsCou
 		{
 			printf(" %s = %s\n", columnsNames[j], matrix[i][j] ? matrix[i][j] : "No information found");
 		}
-		printf("-----------------------------\n");
+		printf("------------------------------------------------\n");
 	}
 }
 
 //TODO find helicopters by surname
 void HandleHelicopterInfo()
 {
-	while (1)
+	int stop = 1;
+	while (stop==1)
 	{
 		system("CLS");
 
@@ -331,12 +368,8 @@ void HandleHelicopterInfo()
 
 		if (CurrentUser.privilege != member)
 		{
-
-			printf("Insert helicopters id\n");
-			scanf("%d", &id);
-
-
-
+			printf("Insert helicopter's id\n");
+			id = GetInteger();
 		}
 
 
@@ -346,14 +379,43 @@ void HandleHelicopterInfo()
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
 		char a[30];
+		
 		printf("\nDo you want to exit? yes/no\n");
-		scanf("%s", &a);
-		if (strcmp(a, "yes") == 0)
+		if(GetYesNo()==1)
 		{
+			stop = 0;
+		}
+	}
+
+}
+
+int GetYesNo()
+{
+	char input[30];
+	while (1)
+	{
+
+
+		scanf("%s", &input);
+		if (strcmpi(input, "yes") == 0)
+		{
+			return 1;
 			break;
+		}
+		else
+		{
+			if (strcmpi(input, "no") != 0)
+			{
+				printf("Incorrect answer! type yes/no\n");
+			}
+			else
+			{
+				return 0;
+			}
 		}
 	}
 }
+
 
 
 
