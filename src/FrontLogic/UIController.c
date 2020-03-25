@@ -78,10 +78,7 @@ void HandleMainMenu()
 		printf("Choose option \n");
 		printf("Crew member information :1\n");
 		printf("Flights information :2\n");
-
-
-		printf("Choose option \n");
-		printf("Choose option \n");
+		printf("Helicopters information :3\n");
 
 		int option = 0;
 		scanf("%d", &option);
@@ -96,6 +93,12 @@ void HandleMainMenu()
 		case  2:
 			{
 			HandleFlightsInfo();
+				break;
+			}
+		case 3:
+			{
+			HandleHelicopterInfo();
+				break;
 			}
 		default:
 			{
@@ -228,7 +231,7 @@ void HandleCrewMemberInfo()
 		char a[30];
 		printf("\nDo you want to exit? yes/no\n");
 		scanf("%s", &a);
-		if (strcmp(a, "Yes") == 0)
+		if (strcmp(a, "yes") == 0)
 		{
 			break;
 		}
@@ -303,7 +306,7 @@ void PrintMatrix(char*** matrix,char** columnsNames,int rawsCount,int columnsCou
 	{
 		for (int j = 0; j < columnsCount; ++j)
 		{
-			printf(" %s = %s\n", columnsNames[j], matrix[i][j] ? matrix[i][j] : "NULL");
+			printf(" %s = %s\n", columnsNames[j], matrix[i][j] ? matrix[i][j] : "No information found");
 		}
 		printf("-----------------------------\n");
 	}
@@ -326,7 +329,7 @@ void HandleHelicopterInfo()
 		printf("Choose option:\n");
 
 
-		if (CurrentUser.privilege == commando)
+		if (CurrentUser.privilege != member)
 		{
 
 			printf("Insert helicopters id\n");
@@ -344,8 +347,8 @@ void HandleHelicopterInfo()
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
 		char a[30];
 		printf("\nDo you want to exit? yes/no\n");
-		scanf(" %c", &a);
-		if (strcmp(a, "Yes") == 0)
+		scanf("%s", &a);
+		if (strcmp(a, "yes") == 0)
 		{
 			break;
 		}
