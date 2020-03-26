@@ -149,9 +149,10 @@ void HandleMainMenu()
 		system("CLS");
 		printf("Oh, you are in main menu.\n ");
 		printf("Choose option \n");
-		printf("Crew member information :1\n");
-		printf("Flights information :2\n");
-		printf("Helicopters information :3\n");
+		printf("1. Crew member information\n");
+		printf("2. Flights information\n");
+		printf("3. Helicopters information\n");
+		printf("4. Registration\n");
 
 		int option = GetInteger();
 		
@@ -173,6 +174,11 @@ void HandleMainMenu()
 			HandleHelicopterInfo();
 				break;
 			}
+		case 4:
+			{
+			HandleRegistration();
+			break;
+			}
 		default:
 			{
 			printf("Invalid option!\n");
@@ -185,7 +191,7 @@ void HandleMainMenu()
 	
 }
 
-void HandleRegistration()
+void HandleRegistrationNewUser()
 {
 	system("CLS");
 	int option;
@@ -199,10 +205,10 @@ void HandleRegistration()
 	switch (option)
 	{
 	case 1:
-		{
+	{
 		HandleRegistrationAdmin();
-			break;
-		}
+		break;
+	}
 	case 2:
 	{
 		HandleRegistrationCommando();
@@ -217,22 +223,75 @@ void HandleRegistration()
 	printf("Press enter to continue...\n");
 }
 
+void HandleRegistration()
+{
+	system("CLS");
+	int option;
+
+	printf("1. Register helicopter\n");
+	printf("2. Register flight\n");
+	printf("3. Register new user\n");
+
+	option = GetInteger();
+
+	switch (option)
+	{
+	case 1:
+		{
+			
+		
+		if (CurrentUser.privilege != member) {
+			HandleRegistrationHelicopter();
+		}
+		else
+		{
+			printf("You do not have permissions to register new flights\n");
+		}
+			break;
+		}
+		
+	case 2:
+	{
+		if (CurrentUser.privilege != member) {
+			HandleRegisterFlight();
+		}
+		else
+		{
+			printf("You do not have permissions to register new flights\n");
+		}
+		break;
+	}
+	case 3:
+	{
+		if (CurrentUser.privilege == admin) {
+			HandleRegistrationNewUser();
+		}
+		else
+		{
+			printf("You do not have permissions to register new users\n");
+		}
+		break;
+	}
+	}
+	printf("Press enter to continue...\n");
+}
+
 void HandleRegistrationHelicopter()
 {
 	system("CLS");
 	int stop = 1;
-	char dateOfRepair[30];
+	char* dateOfRepair;
 	char name[30];
-	char dateOfCreation[30];
+	char* dateOfCreation;
 	int capacity;
 	int resources;
 
 	printf("Enter name:\n");
 	scanf(" %[^\n]", &name);
 	printf("Enter date of creation:\n");
-	scanf(" %[^\n]", &dateOfCreation);
+	dateOfCreation = GetData();
 	printf("Enter date of repair:\n");
-	scanf(" %[^\n]", &dateOfRepair);
+	dateOfRepair = GetData();
 	printf("Enter capacity \n");
 	capacity = GetInteger();
 	printf("Enter flying resources amount\n");
@@ -251,7 +310,7 @@ void HandleRegistrationMember()
 	char passwordRepeat[30];
 	char login[30];
 	char surname[30];
-	char dateOfBirth[30];
+	char* dateOfBirth;
 	char commanderSurname[30];
 	char position[30];
 	int experience;
@@ -272,7 +331,7 @@ void HandleRegistrationMember()
 			scanf("%s", &password);
 
 			printf(" Enter date of birth (yyyy.mm.dd): \n");
-			scanf("%s", &dateOfBirth);
+			dateOfBirth = GetData();
 
 			printf("Enter experience: \n");
 			experience = GetInteger();
@@ -317,7 +376,7 @@ void HandleRegistrationCommando()
 	char passwordRepeat[30];
 	char login[30];
 	char surname[30];
-	char dateOfBirth[30];
+	char* dateOfBirth;
 	char position[30];
 	int experience;
 
@@ -337,7 +396,7 @@ void HandleRegistrationCommando()
 			scanf("%s", &password);
 
 			printf(" Enter date of birth (yyyy.mm.dd): \n");
-			scanf("%s", &dateOfBirth);
+			dateOfBirth = GetData();
 
 			printf("Enter experience: \n");
 			experience = GetInteger();
@@ -425,7 +484,7 @@ void HandleRegistrationAdmin()
 
 void HandleRegisterFlight()
 {
-	char date[30];
+	char* date;
 	char helicopterName[30];
 	int weightOfGoods;
 	int numberOfPeople;
@@ -434,9 +493,9 @@ void HandleRegisterFlight()
 	int isSpecial;
 
 	printf("enter date (yyyy.mm.dd):\n");
-	scanf("%s", &date);
+	date = GetData();
 	printf("enter helicopter's name:\n");
-	scanf(" %[^\n]", &date);
+	scanf(" %[^\n]", &helicopterName);
 	printf("enter weight of goods:\n");
 	scanf("%d", &weightOfGoods);
 	printf("enter number of people:\n");
@@ -472,12 +531,11 @@ void HandleStartWindow()
 	printf("Login: 1\n");
 	printf("Register: 2\n");
 	printf("Exit: 3\n");
-
-	int option = GetInteger();
 	
 	int stop = 1;
 	while (stop == 1)
 	{
+		int option = GetInteger();
 		switch (option)
 		{
 		case 1:
@@ -606,7 +664,6 @@ void HandleFlightsInfo()
 
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
-		char a[30];
 		printf("\nPress enter to continue\n");
 		GetEnter();
 		

@@ -1,0 +1,10 @@
+C:/Lab5TPNo-money/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Lab5TPNo-money/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/Lab5TPNo-money/out/build/x64-Debug/lib/sqlite3/CMakeFiles/Sqlite3_lib.dir
+C:/Lab5TPNo-money/out/build/x64-Debug/lib/sqlite3/CMakeFiles/edit_cache.dir
+C:/Lab5TPNo-money/out/build/x64-Debug/lib/sqlite3/CMakeFiles/rebuild_cache.dir
+C:/Lab5TPNo-money/out/build/x64-Debug/src/CMakeFiles/MainLib.dir
+C:/Lab5TPNo-money/out/build/x64-Debug/src/CMakeFiles/edit_cache.dir
+C:/Lab5TPNo-money/out/build/x64-Debug/src/CMakeFiles/ExampleProject_run.dir
+C:/Lab5TPNo-money/out/build/x64-Debug/src/CMakeFiles/ExampleProject_lib.dir
+C:/Lab5TPNo-money/out/build/x64-Debug/src/CMakeFiles/rebuild_cache.dir
