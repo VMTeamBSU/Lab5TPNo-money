@@ -8,7 +8,7 @@ TEST(test311, timesType) {
 
 	char*** result;
 	int** ID = NULL;
-	char b = 0;
+	char*** b = 0;
 	int c = 0;
 	int d = 0;
 	result = HelicopterFlyDurationAndFlyingResourse(1, &b, &c, &d);
@@ -19,7 +19,7 @@ TEST(test311, timesType) {
 
 	char*** result;
 	int** ID = NULL;
-	char b = 0;
+	char*** b = 0;
 	int c = 0;
 	int d = 0;
 	result = HelicopterFlyDurationAndFlyingResourse(1, &b, &c, &d);
@@ -30,7 +30,7 @@ TEST(test311, timesType) {
 
 	char*** result;
 	int** ID = NULL;
-	char b = 0;
+	char*** b = 0;
 	int c = 0;
 	int d = 0;
 	result = HelicopterFlyDurationAndFlyingResourse(2, &b, &c, &d);
@@ -41,7 +41,7 @@ TEST(test311, timesType) {
 
 	char*** result;
 	int** ID = NULL;
-	char b = 0;
+	char*** b = 0;
 	int c = 0;
 	int d = 0;
 	result = HelicopterFlyDurationAndFlyingResourse(2, &b, &c, &d);
@@ -52,7 +52,7 @@ TEST(test311, timesType) {
 
 	char*** result;
 	int** ID = NULL;
-	char b = 0;
+	char*** b = 0;
 	int c = 0;
 	int d = 0;
 	result = HelicopterFlyDurationAndFlyingResourse(3, &b, &c, &d);
@@ -63,7 +63,7 @@ TEST(test311, timesType) {
 
 	char*** result;
 	int** ID = NULL;
-	char b = 0;
+	char*** b = 0;
 	int c = 0;
 	int d = 0;
 	result = HelicopterFlyDurationAndFlyingResourse(3, &b, &c, &d);
@@ -74,7 +74,7 @@ TEST(test311, timesType) {
 
 	char*** result;
 	int** ID = NULL;
-	char b = 0;
+	char*** b = 0;
 	int c = 0;
 	int d = 0;
 	result = HelicopterFlyDurationAndFlyingResourse(4, &b, &c, &d);
@@ -85,7 +85,7 @@ TEST(test311, timesType) {
 
 	char*** result;
 	int** ID = NULL;
-	char b = 0;
+	char*** b = 0;
 	int c = 0;
 	int d = 0;
 	result = HelicopterFlyDurationAndFlyingResourse(4, &b, &c, &d);
