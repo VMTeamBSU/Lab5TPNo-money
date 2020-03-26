@@ -6,7 +6,7 @@ extern  "C" {
 #include "stdlib.h"
 }
 
-TEST(testCrewMember, testingCrewInfo) {
+TEST(testCrewMember, testingvalidCrew) {
 	
 	char*** result;
 	char** names=NULL;
