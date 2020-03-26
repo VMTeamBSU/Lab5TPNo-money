@@ -1,7 +1,11 @@
-
-void DisplayData();
+#pragma once
+void HandleRegisterFlight();
 void HandleAuthorization();
 void HandleRegistration();
+void HandleRegistrationMember();
+void HandleRegistrationHelicopter();
+void HandleRegistrationCommando();
+void HandleRegistrationAdmin();
 void HandleMainMenu();
 void HandleStartWindow();
 void UiControllerInit();
@@ -11,6 +15,7 @@ void HandleHelicopterInfo();
 void HandleFlightsInfoByDate();
 int GetYesNo();
 int GetInteger();
+char* GetData();
 int IsValidNumber(char* string);
 void PrintMatrix(char*** matrix, char** columnsNames, int rawsCount, int columnsCount);
 int TryLogin(char* login, char* password);

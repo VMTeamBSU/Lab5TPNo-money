@@ -1,4 +1,6 @@
 #include "../../include/UIController.h"
+
+#include <ctype.h>
 #include <stdio.h>
 #include "../../include/Authorization.h"
 #include "../../include/Registration.h"
@@ -25,6 +27,48 @@ int GetInteger()
 		}
 	}
 	return result;
+}
+
+char* GetData()
+{
+	char input[30];
+	static char* data;
+	data = (char*)calloc(30, sizeof(char));
+	
+	while (fgets(input, sizeof(input), stdin))
+	{
+		if (strlen(input) == 11 && isdigit(input[0]) && isdigit(input[1]) && isdigit(input[2]) && isdigit(input[3]) && input[4] == '.'
+			&& isdigit(input[5]) && isdigit(input[6]) && input[7] == '.' && isdigit(input[8]) && isdigit(input[9]))
+		{
+			sscanf(input, "%s", data);
+			return data;
+		}
+		else
+		{
+			printf("Invalid date input (yyyy.mm.dd)\n");
+		}
+	}
+}
+
+
+int GetEnter()
+{
+	char input[30];
+	char charEater[30];
+	/*char c;
+	
+	while ((c = getchar()) != '\n' && c != EOF)
+	{
+		
+	}*/
+	
+	while (fgets(input, sizeof(input), stdin))
+	{
+		if (input[0] == '\n') {
+			sscanf(input, "%s", &charEater);
+			return 1;
+		}
+	}
 }
 
 int IsValidNumber(char* string)
@@ -102,8 +146,6 @@ void HandleMainMenu()
 	
 	while (1)
 	{
-
-
 		system("CLS");
 		printf("Oh, you are in main menu.\n ");
 		printf("Choose option \n");
@@ -146,50 +188,280 @@ void HandleMainMenu()
 void HandleRegistration()
 {
 	system("CLS");
+	int option;
+
+	printf("1. Register admin\n");
+	printf("2. Register commando\n");
+	printf("3. Register member\n");
+
+	option = GetInteger();
+
+	switch (option)
+	{
+	case 1:
+		{
+		HandleRegistrationAdmin();
+			break;
+		}
+	case 2:
+	{
+		HandleRegistrationCommando();
+		break;
+	}
+	case 3:
+	{
+		HandleRegistrationMember();
+		break;
+	}
+	}
+	printf("Press enter to continue...\n");
+}
+
+void HandleRegistrationHelicopter()
+{
+	system("CLS");
+	int stop = 1;
+	char dateOfRepair[30];
+	char name[30];
+	char dateOfCreation[30];
+	int capacity;
+	int resources;
+
+	printf("Enter name:\n");
+	scanf(" %[^\n]", &name);
+	printf("Enter date of creation:\n");
+	scanf(" %[^\n]", &dateOfCreation);
+	printf("Enter date of repair:\n");
+	scanf(" %[^\n]", &dateOfRepair);
+	printf("Enter capacity \n");
+	capacity = GetInteger();
+	printf("Enter flying resources amount\n");
+	resources = GetInteger();
+
+	RegisterHelicopter(name, dateOfCreation, dateOfRepair, capacity, resources);
+	printf("Registered successfully! press enter to continue... \n");
+	GetEnter();
+}
+
+void HandleRegistrationMember()
+{
+	system("CLS");
 	int stop = 1;
 	char password[30];
 	char passwordRepeat[30];
 	char login[30];
+	char surname[30];
+	char dateOfBirth[30];
+	char commanderSurname[30];
+	char position[30];
+	int experience;
 
-	while (stop==1)
+	while (stop == 1)
 	{
-		printf(" Enter your login: \n");
-
+		printf(" Enter login: \n");
 		scanf("%s", &login);
-		if(FindUser(login)==1)
+
+		if (FindUser(login) == 1)
 		{
 			printf("Login is already taken \n:");
 			continue;
 		}
 		else
 		{
+			printf(" Enter surname: \n");
+			scanf("%s", &password);
+
+			printf(" Enter date of birth (yyyy.mm.dd): \n");
+			scanf("%s", &dateOfBirth);
+
+			printf("Enter experience: \n");
+			experience = GetInteger();
+
+			printf(" Enter commander's surname: \n");
+			scanf("%s", &commanderSurname);
+
 			int stopPass = 1;
-				while (stopPass == 1) {
-					printf("Insert password \n");
-					scanf("%s", &password);
-					printf("Insert password again\n");
-					scanf("%s", &passwordRepeat);
-					if(strcmp(password,passwordRepeat)!=0)
-					{
-						printf("Password not matching! Try again\n");
-						continue;
-					}
-					else
-					{
-						RegisterUser(login, password);
-						printf("User registered successfully!\n");
-						CurrentUser = GetCurrentUser(login);
-						HandleMainMenu();
-						stop = 0;
-						break;
-					}
-
-
+			while (stopPass == 1) {
+				printf("Insert password \n");
+				scanf("%s", &password);
+				printf("Insert password again\n");
+				scanf("%s", &passwordRepeat);
+				if (strcmp(password, passwordRepeat) != 0)
+				{
+					printf("Password not matching! Try again\n");
+					continue;
 				}
+				else
+				{
+					RegisterMember(login, password, surname, experience, dateOfBirth, position, commanderSurname);
+					printf("User registered successfully!\n");
+					CurrentUser = GetCurrentUser(login);
+					HandleMainMenu();
+					stop = 0;
+					break;
+				}
+
+
+			}
 
 			break;
 		}
 	}
+}
+
+void HandleRegistrationCommando()
+{
+	system("CLS");
+	int stop = 1;
+	char password[30];
+	char passwordRepeat[30];
+	char login[30];
+	char surname[30];
+	char dateOfBirth[30];
+	char position[30];
+	int experience;
+
+	while (stop == 1)
+	{
+		printf(" Enter login: \n");
+		scanf("%s", &login);
+
+		if (FindUser(login) == 1)
+		{
+			printf("Login is already taken \n:");
+			continue;
+		}
+		else
+		{
+			printf(" Enter surname: \n");
+			scanf("%s", &password);
+
+			printf(" Enter date of birth (yyyy.mm.dd): \n");
+			scanf("%s", &dateOfBirth);
+
+			printf("Enter experience: \n");
+			experience = GetInteger();
+
+			int stopPass = 1;
+			while (stopPass == 1) {
+				printf("Insert password \n");
+				scanf("%s", &password);
+				printf("Insert password again\n");
+				scanf("%s", &passwordRepeat);
+				if (strcmp(password, passwordRepeat) != 0)
+				{
+					printf("Password not matching! Try again\n");
+					continue;
+				}
+				else
+				{
+					RegisterCommando(login, password, surname, experience, dateOfBirth, position);
+					printf("User registered successfully!\n");
+					CurrentUser = GetCurrentUser(login);
+					HandleMainMenu();
+					stop = 0;
+					break;
+				}
+
+
+			}
+
+			break;
+		}
+	}
+}
+
+void HandleRegistrationAdmin()
+{
+	system("CLS");
+	int stop = 1;
+	char password[30];
+	char passwordRepeat[30];
+	char login[30];
+
+	while (stop == 1)
+	{
+		printf(" Enter login: \n");
+		scanf("%s", &login);
+
+		if (FindUser(login) == 1)
+		{
+			printf("Login is already taken \n:");
+			continue;
+		}
+		else
+		{
+			printf(" Enter password: \n");
+			scanf("%s", &password);
+
+			int stopPass = 1;
+			while (stopPass == 1) {
+				printf("Insert password \n");
+				scanf("%s", &password);
+				printf("Insert password again\n");
+				scanf("%s", &passwordRepeat);
+				if (strcmp(password, passwordRepeat) != 0)
+				{
+					printf("Password not matching! Try again\n");
+					continue;
+				}
+				else
+				{
+					RegisterAdmin(login, password);
+					printf("User registered successfully!\n");
+					CurrentUser = GetCurrentUser(login);
+					HandleMainMenu();
+					stop = 0;
+					break;
+				}
+
+
+			}
+
+			break;
+		}
+	}
+}
+
+void HandleRegisterFlight()
+{
+	char date[30];
+	char helicopterName[30];
+	int weightOfGoods;
+	int numberOfPeople;
+	int duration;
+	int price;
+	int isSpecial;
+
+	printf("enter date (yyyy.mm.dd):\n");
+	scanf("%s", &date);
+	printf("enter helicopter's name:\n");
+	scanf(" %[^\n]", &date);
+	printf("enter weight of goods:\n");
+	scanf("%d", &weightOfGoods);
+	printf("enter number of people:\n");
+	scanf("%d", &numberOfPeople);
+	printf("enter flight duration:\n");
+	scanf("%d", &duration);
+	printf("enter price:\n");
+	scanf("%d", &price);
+	printf("enter if flight is special (yes/no) :\n");
+	if(GetYesNo()==1)
+	{
+		isSpecial = 1;
+	}
+	else
+	{
+		isSpecial = 0;
+	}
+
+	RegisterFlight(date,helicopterName, weightOfGoods, numberOfPeople, duration, price,isSpecial);
+
+	printf("Registration done successfully! Press enter to continue...\n");
+	GetEnter();
+	
+
+	
 }
 
 void HandleStartWindow()
@@ -202,11 +474,6 @@ void HandleStartWindow()
 	printf("Exit: 3\n");
 
 	int option = GetInteger();
-
-	
-	
-		
-	
 	
 	int stop = 1;
 	while (stop == 1)
@@ -297,6 +564,8 @@ void HandleFlightsInfo()
 
 		printf("1. Special flights\n");
 		printf("2. Normal flights\n");
+		printf("3. flights during period\n");
+		printf("4. exit\n");
 
 		command = GetInteger();
 
@@ -312,26 +581,34 @@ void HandleFlightsInfo()
 			isSpecial = 0;
 			break;
 		}
+		case 3:
+		{
+			HandleFlightsInfoByDate();
+			break;
+		}
+		case 4:
+		{
+			stop = 0;
+			break;
+		}
 		default:
 		{
 			printf("Invalid option!\n");
 			break;
 		}
 		}
-
-
+	if (stop=0)
+	{
+		break;
+	}
 
 		result = GetFlightInformation(isSpecial, &columnsNames, &rowsCount, &columnsCount);
 
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
 		char a[30];
-		printf("\nDo you want to exit? yes/no\n");
-		printf("\nDo you want to exit? yes/no\n");
-		if (GetYesNo() == 1)
-		{
-			stop = 0;
-		}
+		printf("\nPress enter to continue\n");
+		GetEnter();
 		
 	}
 }
@@ -348,7 +625,7 @@ void PrintMatrix(char*** matrix,char** columnsNames,int rawsCount,int columnsCou
 	}
 }
 
-//TODO find helicopters by surname
+//TODO find helicopters by name
 void HandleHelicopterInfo()
 {
 	int stop = 1;
@@ -365,14 +642,11 @@ void HandleHelicopterInfo()
 
 		printf("Choose option:\n");
 
-
 		if (CurrentUser.privilege != member)
 		{
 			printf("Insert helicopter's id\n");
 			id = GetInteger();
 		}
-
-
 
 		result = HelicopterFlyDurationAndFlyingResourse(id, &columnsNames, &rowsCount, &columnsCount);
 
@@ -428,8 +702,8 @@ void HandleFlightsInfoByDate()
 		int columnsCount = 0;
 		char surname[30];
 		char** columnsNames = NULL;
-		char* date1[15];
-		char* date2[15];
+		char* date1;
+		char* date2;
 		
 		int id = 0;
 
@@ -438,28 +712,26 @@ void HandleFlightsInfoByDate()
 
 		if (CurrentUser.privilege != member)
 		{
-			printf("Insert start date\n");
-			scanf("%s", date1);
-			printf("Insert last date\n");
-			scanf("%s", date2);
-			id = GetInteger();
+			printf("Insert start date (yyyy.mm.dd)\n");
+			date1 = GetData();
+			printf("Insert last date (yyyy.mm.dd)\n");
+			date2 = GetData();
 		}
 
-
-
-		result = HelicopterFlyDurationAndFlyingResourse(id, &columnsNames, &rowsCount, &columnsCount);
+		result = DateHelicopterInformation(date1,date2, &columnsNames, &rowsCount, &columnsCount);
 
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
-		char a[30];
 
-		printf("\nDo you want to exit? yes/no\n");
-		if (GetYesNo() == 1)
+		printf("\nDo you want to continue? yes/no\n");
+		if (GetYesNo() == 0)
 		{
-			stop = 0;
+			break;
 		}
 	}
 }
+
+
 
 
 
