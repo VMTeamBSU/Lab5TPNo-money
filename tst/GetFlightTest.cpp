@@ -10,7 +10,7 @@ TEST(test31, timesType) {
 
 	char*** result;
 	char** special = NULL;
-	int b = 0;
+	char*** b = 0;
 	int c = 0;
 	int d = 0;
 	result = GetFlightInformation(1, &b, &c, &d);
@@ -45,7 +45,7 @@ TEST(test31, timesType) {
 
 	char*** result;
 	char**special = NULL;
-	int b = 0;
+	char*** b = 0;
 	int c = 0;
 	int d = 0;
 	result = GetFlightInformation(1, &b, &c, &d);
@@ -80,7 +80,7 @@ TEST(test31, timesType) {
 
 	char*** result;
 	char** special = NULL;
-	int b = 0;
+	char*** b = 0;
 	int c = 0;
 	int d = 0;
 	result = GetFlightInformation(0, &b, &c, &d);
@@ -113,7 +113,7 @@ TEST(test31, timesType) {
 
 	char*** result;
 	char** special = NULL;
-	int b = 0;
+	char*** b = 0;
 	int c = 0;
 	int d = 0;
 	result = GetFlightInformation(0, &b, &c, &d);
