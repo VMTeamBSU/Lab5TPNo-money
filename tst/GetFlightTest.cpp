@@ -13,7 +13,7 @@ TEST(test31, timesType) {
 	char*** b = 0;
 	int c = 0;
 	int d = 0;
-	result = GetFlightInformation(1, &b, &c, &d);
+	result = GetFlightInformation(1, b, &c, &d);
 	EXPECT_STREQ(result[0][0], "2");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
 	EXPECT_STREQ(result[0][2], "2");
@@ -48,7 +48,7 @@ TEST(test31, timesType) {
 	char*** b = 0;
 	int c = 0;
 	int d = 0;
-	result = GetFlightInformation(1, &b, &c, &d);
+	result = GetFlightInformation(1, b, &c, &d);
 	EXPECT_STRNE(result[0][0], "0");
 	EXPECT_STRNE(result[0][1], "2020-02-11");
 	EXPECT_STRNE(result[0][2], "2");
@@ -83,7 +83,7 @@ TEST(test31, timesType) {
 	char*** b = 0;
 	int c = 0;
 	int d = 0;
-	result = GetFlightInformation(0, &b, &c, &d);
+	result = GetFlightInformation(0, b, &c, &d);
 	EXPECT_STREQ(result[0][0], "1");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
 	EXPECT_STREQ(result[0][2], "1");
@@ -116,7 +116,7 @@ TEST(test31, timesType) {
 	char*** b = 0;
 	int c = 0;
 	int d = 0;
-	result = GetFlightInformation(0, &b, &c, &d);
+	result = GetFlightInformation(0, b, &c, &d);
 	EXPECT_STRNE(result[0][0], "0");
 	EXPECT_STRNE(result[0][1], "2020-11-01");
 	EXPECT_STRNE(result[0][2], " ");
