@@ -4,7 +4,7 @@ extern  "C" {
 #include "stdlib.h"
 }
 
-TEST(test311, timesType) {
+TEST(testHelicopterFly, testingvalidResourse) {
 
 	char*** result;
 	int** ID = NULL;
@@ -15,7 +15,7 @@ TEST(test311, timesType) {
 	EXPECT_STREQ(result[0][0], "9");
 	EXPECT_STREQ(result[0][1], "1086");
 }
-TEST(test311, timesType) {
+TEST(testHelicopterFly, testingvalidResourse) {
 
 	char*** result;
 	int** ID = NULL;
@@ -26,7 +26,7 @@ TEST(test311, timesType) {
 	EXPECT_STRNE(result[0][0], "7");
 	EXPECT_STRNE(result[0][1], "1");
 }
-TEST(test311, timesType) {
+TEST(testHelicopterFly, testingvalidResourse) {
 
 	char*** result;
 	int** ID = NULL;
@@ -37,7 +37,7 @@ TEST(test311, timesType) {
 	EXPECT_STREQ(result[0][0], "15");
 	EXPECT_STREQ(result[0][1], "985");
 }
-TEST(test311, timesType) {
+TEST(testHelicopterFly, testingvalidResourse) {
 
 	char*** result;
 	int** ID = NULL;
@@ -48,7 +48,7 @@ TEST(test311, timesType) {
 	EXPECT_STRNE(result[0][0], "-1");
 	EXPECT_STRNE(result[0][1], "891");
 }
-TEST(test311, timesType) {
+TEST(testHelicopterFly, testingvalidResourse) {
 
 	char*** result;
 	int** ID = NULL;
@@ -59,7 +59,7 @@ TEST(test311, timesType) {
 	EXPECT_STREQ(result[0][0], "4");
 	EXPECT_STREQ(result[0][1], "1006");
 }
-TEST(test311, timesType) {
+TEST(testHelicopterFly, testingvalidResourse) {
 
 	char*** result;
 	int** ID = NULL;
@@ -70,7 +70,7 @@ TEST(test311, timesType) {
 	EXPECT_STRNE(result[0][0], "5");
 	EXPECT_STRNE(result[0][1], "1001");
 }
-TEST(test311, timesType) {
+TEST(testHelicopterFly, testingvalidResourse) {
 
 	char*** result;
 	int** ID = NULL;
@@ -81,7 +81,7 @@ TEST(test311, timesType) {
 	EXPECT_STREQ(result[0][0], "15");
 	EXPECT_STREQ(result[0][1], "995");
 }
-TEST(test311, timesType) {
+TEST(testHelicopterFly, testingvalidResourse) {
 
 	char*** result;
 	int** ID = NULL;

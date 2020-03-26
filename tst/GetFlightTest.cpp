@@ -6,7 +6,7 @@ extern  "C" {
 #include "stdlib.h"
 }
 
-TEST(test31, timesType) {
+TEST(testFlight, testingvalidInfo) {
 
 	char*** result;
 	char** special = NULL;
@@ -41,7 +41,7 @@ TEST(test31, timesType) {
 	EXPECT_STREQ(result[2][0], "7");
 	EXPECT_STREQ(result[2][1], "2020-02-08");
 }
-TEST(test31, timesType) {
+TEST(testFlight, testingvalidInfo) {
 
 	char*** result;
 	char**special = NULL;
@@ -76,7 +76,7 @@ TEST(test31, timesType) {
 	EXPECT_STRNE(result[2][0], "7");
 	EXPECT_STRNE(result[2][1], "2020-02-08");
 }
-TEST(test31, timesType) {
+TEST(testFlight, testingvalidInfo) {
 
 	char*** result;
 	char** special = NULL;
@@ -109,7 +109,7 @@ TEST(test31, timesType) {
 	EXPECT_STREQ(result[2][6], "4050");
 	EXPECT_STREQ(result[2][6], "no");
 }
-TEST(test31, timesType) {
+TEST(testFlight, testingvalidInfo) {
 
 	char*** result;
 	char** special = NULL;

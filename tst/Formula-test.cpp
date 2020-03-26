@@ -6,7 +6,7 @@ extern  "C" {
 #include "stdlib.h"
 }
 
-TEST(test1, timesType) {
+TEST(testCrewMember, testingCrewInfo) {
 	
 	char*** result;
 	char** names=NULL;
@@ -31,7 +31,7 @@ TEST(test1, timesType) {
 	EXPECT_STREQ(result[1][6], "7000");
 	EXPECT_STREQ(result[1][7], "no");
 }
-TEST(TryLogin321, timesType) {
+TEST(testCrewMember, testingCrewInfo) {
 
 	char*** result;
 	char** names = NULL;
@@ -47,7 +47,7 @@ TEST(TryLogin321, timesType) {
 	EXPECT_STRNE(result[0][6], " ");
 	EXPECT_STRNE(result[0][7], "yes");
 }
-TEST(TryLogin31313, timesType) {
+TEST(testCrewMember, testingCrewInfo) {
 
 	char*** result;
 	char** names = NULL;
@@ -72,7 +72,7 @@ TEST(TryLogin31313, timesType) {
 	EXPECT_STREQ(result[1][6], "14000");
 	EXPECT_STREQ(result[1][7], "yes");
 	}
-TEST(TryL3131ogin, timesType) {
+TEST(testCrewMember, testingCrewInfo) {
 
 	char*** result;
 	char** names = NULL;
