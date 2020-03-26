@@ -1,6 +1,0 @@
-C:/Lab5TPNo-money/Build/CMakeFiles/ALL_BUILD.dir
-C:/Lab5TPNo-money/Build/CMakeFiles/ZERO_CHECK.dir
-C:/Lab5TPNo-money/Build/lib/sqlite3/CMakeFiles/Sqlite3_lib.dir
-C:/Lab5TPNo-money/Build/src/CMakeFiles/MainLib.dir
-C:/Lab5TPNo-money/Build/src/CMakeFiles/ExampleProject_run.dir
-C:/Lab5TPNo-money/Build/src/CMakeFiles/ExampleProject_lib.dir
