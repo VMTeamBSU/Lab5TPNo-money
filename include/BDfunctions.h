@@ -43,10 +43,10 @@ char*** MaxEarnedMoneyCrewInfo(char*** columnName, int* rowCount, int* columnCou
 char*** ShowAllHelicopters(char*** columnName, int* rowCount, int* columnCount);
 
 //Функция выводит всю таблицу crew
-char*** ShowAllCrewMembers(char*** columnName, int* rowCount, int* columnCount)
+char*** ShowAllCrewMembers(char*** columnName, int* rowCount, int* columnCount);
 
 //Функция выводит всю таблицу flights
-char*** ShowAllFlights(char*** columnName, int* rowCount, int* columnCount)
+char*** ShowAllFlights(char*** columnName, int* rowCount, int* columnCount);
 
 //Функция выводит всю таблицу commaders
-char*** ShowAllCommanders(char*** columnName, int* rowCount, int* columnCount)
+char*** ShowAllCommanders(char*** columnName, int* rowCount, int* columnCount);
