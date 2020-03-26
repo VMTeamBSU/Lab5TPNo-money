@@ -74,7 +74,7 @@ TEST(testCrewMember, testinginvalidInfo) {
 	EXPECT_STRNE(result[1][5], "4");
 	EXPECT_STRNE(result[1][6], "7000");
 	EXPECT_STRNE(result[1][7], "no");
-			  NE
+			  
 
 	result = CrewMemberInformation("Pirsky", &names, &b, &c);
 	EXPECT_STRNE(result[0][0], "0");
