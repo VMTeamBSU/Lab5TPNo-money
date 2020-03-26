@@ -142,6 +142,13 @@ build src\CMakeFiles\MainLib.dir\BackEndLogic\BDfunctions.c.obj: C_COMPILER__Mai
   TARGET_COMPILE_PDB = src\CMakeFiles\MainLib.dir\MainLib.pdb
   TARGET_PDB = src\MainLib.pdb
 
+build src\CMakeFiles\MainLib.dir\BackEndLogic\functions.c.obj: C_COMPILER__MainLib ..\..\..\src\BackEndLogic\functions.c || cmake_object_order_depends_target_MainLib
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  OBJECT_DIR = src\CMakeFiles\MainLib.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\MainLib.dir\BackEndLogic
+  TARGET_COMPILE_PDB = src\CMakeFiles\MainLib.dir\MainLib.pdb
+  TARGET_PDB = src\MainLib.pdb
+
 build src\CMakeFiles\MainLib.dir\BackEndLogic\request.c.obj: C_COMPILER__MainLib ..\..\..\src\BackEndLogic\request.c || cmake_object_order_depends_target_MainLib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
   OBJECT_DIR = src\CMakeFiles\MainLib.dir
@@ -192,7 +199,7 @@ build src\CMakeFiles\MainLib.dir\FrontLogic\mainFront.c.obj: C_COMPILER__MainLib
 #############################################
 # Link the static library src\MainLib.lib
 
-build src\MainLib.lib: C_STATIC_LIBRARY_LINKER__MainLib src\CMakeFiles\MainLib.dir\BackEndLogic\BDfunctions.c.obj src\CMakeFiles\MainLib.dir\BackEndLogic\request.c.obj src\CMakeFiles\MainLib.dir\FrontLogic\Authorization.c.obj src\CMakeFiles\MainLib.dir\FrontLogic\Registration.c.obj src\CMakeFiles\MainLib.dir\FrontLogic\SessionController.c.obj src\CMakeFiles\MainLib.dir\FrontLogic\UIController.c.obj src\CMakeFiles\MainLib.dir\FrontLogic\mainFront.c.obj || lib\sqlite3\Sqlite3_lib.lib
+build src\MainLib.lib: C_STATIC_LIBRARY_LINKER__MainLib src\CMakeFiles\MainLib.dir\BackEndLogic\BDfunctions.c.obj src\CMakeFiles\MainLib.dir\BackEndLogic\functions.c.obj src\CMakeFiles\MainLib.dir\BackEndLogic\request.c.obj src\CMakeFiles\MainLib.dir\FrontLogic\Authorization.c.obj src\CMakeFiles\MainLib.dir\FrontLogic\Registration.c.obj src\CMakeFiles\MainLib.dir\FrontLogic\SessionController.c.obj src\CMakeFiles\MainLib.dir\FrontLogic\UIController.c.obj src\CMakeFiles\MainLib.dir\FrontLogic\mainFront.c.obj || lib\sqlite3\Sqlite3_lib.lib
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = src\CMakeFiles\MainLib.dir
@@ -223,6 +230,13 @@ build src\edit_cache: phony src\CMakeFiles\edit_cache.util
 build cmake_object_order_depends_target_ExampleProject_run: phony || cmake_object_order_depends_target_Sqlite3_lib
 
 build src\CMakeFiles\ExampleProject_run.dir\BackEndLogic\BDfunctions.c.obj: C_COMPILER__ExampleProject_run ..\..\..\src\BackEndLogic\BDfunctions.c || cmake_object_order_depends_target_ExampleProject_run
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  OBJECT_DIR = src\CMakeFiles\ExampleProject_run.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\ExampleProject_run.dir\BackEndLogic
+  TARGET_COMPILE_PDB = src\CMakeFiles\ExampleProject_run.dir\
+  TARGET_PDB = src\ExampleProject_run.pdb
+
+build src\CMakeFiles\ExampleProject_run.dir\BackEndLogic\functions.c.obj: C_COMPILER__ExampleProject_run ..\..\..\src\BackEndLogic\functions.c || cmake_object_order_depends_target_ExampleProject_run
   FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
   OBJECT_DIR = src\CMakeFiles\ExampleProject_run.dir
   OBJECT_FILE_DIR = src\CMakeFiles\ExampleProject_run.dir\BackEndLogic
@@ -279,7 +293,7 @@ build src\CMakeFiles\ExampleProject_run.dir\FrontLogic\mainFront.c.obj: C_COMPIL
 #############################################
 # Link the executable src\ExampleProject_run.exe
 
-build src\ExampleProject_run.exe: C_EXECUTABLE_LINKER__ExampleProject_run src\CMakeFiles\ExampleProject_run.dir\BackEndLogic\BDfunctions.c.obj src\CMakeFiles\ExampleProject_run.dir\BackEndLogic\request.c.obj src\CMakeFiles\ExampleProject_run.dir\FrontLogic\Authorization.c.obj src\CMakeFiles\ExampleProject_run.dir\FrontLogic\Registration.c.obj src\CMakeFiles\ExampleProject_run.dir\FrontLogic\SessionController.c.obj src\CMakeFiles\ExampleProject_run.dir\FrontLogic\UIController.c.obj src\CMakeFiles\ExampleProject_run.dir\FrontLogic\mainFront.c.obj | lib\sqlite3\Sqlite3_lib.lib || lib\sqlite3\Sqlite3_lib.lib
+build src\ExampleProject_run.exe: C_EXECUTABLE_LINKER__ExampleProject_run src\CMakeFiles\ExampleProject_run.dir\BackEndLogic\BDfunctions.c.obj src\CMakeFiles\ExampleProject_run.dir\BackEndLogic\functions.c.obj src\CMakeFiles\ExampleProject_run.dir\BackEndLogic\request.c.obj src\CMakeFiles\ExampleProject_run.dir\FrontLogic\Authorization.c.obj src\CMakeFiles\ExampleProject_run.dir\FrontLogic\Registration.c.obj src\CMakeFiles\ExampleProject_run.dir\FrontLogic\SessionController.c.obj src\CMakeFiles\ExampleProject_run.dir\FrontLogic\UIController.c.obj src\CMakeFiles\ExampleProject_run.dir\FrontLogic\mainFront.c.obj | lib\sqlite3\Sqlite3_lib.lib || lib\sqlite3\Sqlite3_lib.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = lib\sqlite3\Sqlite3_lib.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -301,6 +315,13 @@ build src\ExampleProject_run.exe: C_EXECUTABLE_LINKER__ExampleProject_run src\CM
 build cmake_object_order_depends_target_ExampleProject_lib: phony || cmake_object_order_depends_target_Sqlite3_lib
 
 build src\CMakeFiles\ExampleProject_lib.dir\BackEndLogic\BDfunctions.c.obj: C_COMPILER__ExampleProject_lib ..\..\..\src\BackEndLogic\BDfunctions.c || cmake_object_order_depends_target_ExampleProject_lib
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  OBJECT_DIR = src\CMakeFiles\ExampleProject_lib.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\ExampleProject_lib.dir\BackEndLogic
+  TARGET_COMPILE_PDB = src\CMakeFiles\ExampleProject_lib.dir\ExampleProject_lib.pdb
+  TARGET_PDB = src\ExampleProject_lib.pdb
+
+build src\CMakeFiles\ExampleProject_lib.dir\BackEndLogic\functions.c.obj: C_COMPILER__ExampleProject_lib ..\..\..\src\BackEndLogic\functions.c || cmake_object_order_depends_target_ExampleProject_lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
   OBJECT_DIR = src\CMakeFiles\ExampleProject_lib.dir
   OBJECT_FILE_DIR = src\CMakeFiles\ExampleProject_lib.dir\BackEndLogic
@@ -357,7 +378,7 @@ build src\CMakeFiles\ExampleProject_lib.dir\FrontLogic\mainFront.c.obj: C_COMPIL
 #############################################
 # Link the static library src\ExampleProject_lib.lib
 
-build src\ExampleProject_lib.lib: C_STATIC_LIBRARY_LINKER__ExampleProject_lib src\CMakeFiles\ExampleProject_lib.dir\BackEndLogic\BDfunctions.c.obj src\CMakeFiles\ExampleProject_lib.dir\BackEndLogic\request.c.obj src\CMakeFiles\ExampleProject_lib.dir\FrontLogic\Authorization.c.obj src\CMakeFiles\ExampleProject_lib.dir\FrontLogic\Registration.c.obj src\CMakeFiles\ExampleProject_lib.dir\FrontLogic\SessionController.c.obj src\CMakeFiles\ExampleProject_lib.dir\FrontLogic\UIController.c.obj src\CMakeFiles\ExampleProject_lib.dir\FrontLogic\mainFront.c.obj || lib\sqlite3\Sqlite3_lib.lib
+build src\ExampleProject_lib.lib: C_STATIC_LIBRARY_LINKER__ExampleProject_lib src\CMakeFiles\ExampleProject_lib.dir\BackEndLogic\BDfunctions.c.obj src\CMakeFiles\ExampleProject_lib.dir\BackEndLogic\functions.c.obj src\CMakeFiles\ExampleProject_lib.dir\BackEndLogic\request.c.obj src\CMakeFiles\ExampleProject_lib.dir\FrontLogic\Authorization.c.obj src\CMakeFiles\ExampleProject_lib.dir\FrontLogic\Registration.c.obj src\CMakeFiles\ExampleProject_lib.dir\FrontLogic\SessionController.c.obj src\CMakeFiles\ExampleProject_lib.dir\FrontLogic\UIController.c.obj src\CMakeFiles\ExampleProject_lib.dir\FrontLogic\mainFront.c.obj || lib\sqlite3\Sqlite3_lib.lib
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = src\CMakeFiles\ExampleProject_lib.dir
