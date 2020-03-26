@@ -30,3 +30,23 @@ char*** DateHelicopterInformation(char* firstDate, char* secondDate, char*** col
 //Пример: ID = 1, Result[0][0] = 9(все время, проведенное в рейсах), Result[0][1] = 1086(летный ресурс минус все время, проведенное в рейсах); 
 //Функция доступна только для коммандиров экипажей
 char*** HelicopterFlyDurationAndFlyingResourse(int helicopterId, char*** columnName, int* rowCount, int* columnCount);
+
+//Функция, которая выводит всю информацию об экипаже, который выполнил больше всех полетов и общее количество заработанных денег этого экипажа;
+//Пример вывода: Result[0][0] = 7, Result[0][1] = 'second pilot', Result[0][2] = 833 и тд;  
+char*** MaxflughtsCrewInfo(char*** columnName, int* rowCount, int* columnCount);
+
+//Функция, которая выводит всю информацию об экипаже, который заработал больше всех денег;
+//Пример вывода: Result[0][0] = 7, Result[0][1] = 'second pilot', Result[0][2] = 833 и тд;  
+char*** MaxEarnedMoneyCrewInfo(char*** columnName, int* rowCount, int* columnCount);
+
+//Функция выводит всю таблицу Helicopters
+char*** ShowAllHelicopters(char*** columnName, int* rowCount, int* columnCount);
+
+//Функция выводит всю таблицу crew
+char*** ShowAllCrewMembers(char*** columnName, int* rowCount, int* columnCount)
+
+//Функция выводит всю таблицу flights
+char*** ShowAllFlights(char*** columnName, int* rowCount, int* columnCount)
+
+//Функция выводит всю таблицу commaders
+char*** ShowAllCommanders(char*** columnName, int* rowCount, int* columnCount)
