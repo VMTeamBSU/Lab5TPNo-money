@@ -27,9 +27,7 @@ TEST(testHelicopterFly, testingvalidResourse) {
 	EXPECT_STREQ(result[0][0], "15");
 	EXPECT_STREQ(result[0][1], "995");
 }
-}
 
-}
 TEST(testHelicopterFly, testinginvalidResourse) {
 
 	char*** result;
