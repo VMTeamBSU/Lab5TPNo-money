@@ -1,0 +1,116 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "lib/sqlite3",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "lib/sqlite3",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "src",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "ExampleProject",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "ExampleProject_lib::@145eef247bfb46b6828c",
+					"jsonFile" : "target-ExampleProject_lib-Debug-a11087ea30ec95b19745.json",
+					"name" : "ExampleProject_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ExampleProject_run::@145eef247bfb46b6828c",
+					"jsonFile" : "target-ExampleProject_run-Debug-002d4325c9c33ea6cc86.json",
+					"name" : "ExampleProject_run",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "MainLib::@145eef247bfb46b6828c",
+					"jsonFile" : "target-MainLib-Debug-a4bbc388c56ccca8da6e.json",
+					"name" : "MainLib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Sqlite3_lib::@49688e1cc86df6cd46f3",
+					"jsonFile" : "target-Sqlite3_lib-Debug-ea6a844a042181e26c01.json",
+					"name" : "Sqlite3_lib",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Lab5TPNo-money/out/build/x64-Debug",
+		"source" : "C:/Lab5TPNo-money"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

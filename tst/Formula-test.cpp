@@ -6,12 +6,12 @@ extern  "C" {
 #include "stdlib.h"
 }
 
-TEST(test1, timesType) {
-	
+TEST(testCrewMember, testingvalidCrew) {
+
 	char*** result;
-	char** names=NULL;
+	char** names = NULL;
 	int b = 0;
-	int c=0;
+	int c = 0;
 	result = CrewMemberInformation("Shestopalov", &names, &b, &c);
 
 	EXPECT_STREQ(result[0][0], "1");
@@ -30,31 +30,9 @@ TEST(test1, timesType) {
 	EXPECT_STREQ(result[1][5], "4");
 	EXPECT_STREQ(result[1][6], "7000");
 	EXPECT_STREQ(result[1][7], "no");
-}
-TEST(TryLogin321, timesType) {
 
-	char*** result;
-	char** names = NULL;
-	int b = 0;
-	int c = 0;
-    result = CrewMemberInformation("Shestopalov", &names, &b, &c);
-	EXPECT_STRNE(result[0][0], "4");
-	EXPECT_STRNE(result[0][1], "2020-06-07");
-	EXPECT_STRNE(result[0][2], "D");
-	EXPECT_STRNE(result[0][3], "18");
-	EXPECT_STRNE(result[0][4], "15");
-	EXPECT_STRNE(result[0][5], "6");
-	EXPECT_STRNE(result[0][6], " ");
-	EXPECT_STRNE(result[0][7], "yes");
-}
-TEST(TryLogin31313, timesType) {
-
-	char*** result;
-	char** names = NULL;
-	int b = 0;
-	int c = 0;
 	result = CrewMemberInformation("Pirsky", &names, &b, &c);
-	
+
 	EXPECT_STREQ(result[0][0], "2");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
 	EXPECT_STREQ(result[0][2], "2");
@@ -71,13 +49,33 @@ TEST(TryLogin31313, timesType) {
 	EXPECT_STREQ(result[1][5], "10");
 	EXPECT_STREQ(result[1][6], "14000");
 	EXPECT_STREQ(result[1][7], "yes");
-	}
-TEST(TryL3131ogin, timesType) {
+}
+
+TEST(testCrewMember, testinginvalidInfo) {
 
 	char*** result;
 	char** names = NULL;
 	int b = 0;
 	int c = 0;
+    result = CrewMemberInformation("Shestopalov", &names, &b, &c);
+	EXPECT_STRNE(result[0][0], "1");
+	EXPECT_STRNE(result[0][1], "2020-02-01");
+	EXPECT_STRNE(result[0][2], "1");
+	EXPECT_STRNE(result[0][3], "12");
+	EXPECT_STRNE(result[0][4], "5");
+	EXPECT_STRNE(result[0][5], "2");
+	EXPECT_STRNE(result[0][6], "5000");
+	EXPECT_STRNE(result[0][7], "no");
+	EXPECT_STRNE(result[1][0], "6");
+	EXPECT_STRNE(result[1][1], "2020-02-07");
+	EXPECT_STRNE(result[1][2], "1");
+	EXPECT_STRNE(result[1][3], "18");
+	EXPECT_STRNE(result[1][4], "15");
+	EXPECT_STRNE(result[1][5], "4");
+	EXPECT_STRNE(result[1][6], "7000");
+	EXPECT_STRNE(result[1][7], "no");
+			  
+
 	result = CrewMemberInformation("Pirsky", &names, &b, &c);
 	EXPECT_STRNE(result[0][0], "0");
 	EXPECT_STRNE(result[0][1], "2020-06-09");
@@ -96,5 +94,6 @@ TEST(TryL3131ogin, timesType) {
 	EXPECT_STREQ(result[1][6], "14000");
 	EXPECT_STREQ(result[1][7], "no");
 }
+
 
 
