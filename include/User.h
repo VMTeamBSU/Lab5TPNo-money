@@ -11,4 +11,6 @@ struct User
 {
 	int id;
 	enum privilegeLevel privilege;
+	char login[30];
+	char surname[30];
 };
