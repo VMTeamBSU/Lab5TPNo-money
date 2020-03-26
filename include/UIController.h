@@ -15,6 +15,7 @@ void HandleFlightsInfo();
 void HandleHelicopterInfo();
 void HandleFlightsInfoByDate();
 void HandleDeleteFlight();
+void HandleTopRating();
 int GetYesNo();
 int GetInteger();
 char* GetData();

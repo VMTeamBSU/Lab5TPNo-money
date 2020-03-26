@@ -69,8 +69,7 @@ int GetEnter()
 	{
 		
 	}*/
-
-	fflush(stdin);
+	
 	while (fgets(input, sizeof(input), stdin))
 	{
 		if (input[0] == '\n') {

@@ -4,7 +4,7 @@
 #include "../../include/BDfunctions.h"
 #pragma warning(disable:4996)
 
-
+//TODO: make search by ID
 char*** CrewMemberInformation(char* surname, char*** columnName, int* rowCount, int* columnCount)
 {
 	char requestBuffer[1000];
