@@ -30,3 +30,10 @@
 293	568	606956572	src/ExampleProject_run.exe	410861881fef130
 0	270	606956757	src/CMakeFiles/ExampleProject_run.dir/FrontLogic/Registration.c.obj	3d6da35d124466c9
 271	531	606956757	src/ExampleProject_run.exe	410861881fef130
+13	636	607013846	src/CMakeFiles/ExampleProject_run.dir/FrontLogic/Authorization.c.obj	f2ad1b5c647a98c1
+10	637	607013846	src/CMakeFiles/ExampleProject_run.dir/BackEndLogic/request.c.obj	d2b563f9ae5ad77f
+7	638	607013846	src/CMakeFiles/ExampleProject_run.dir/FrontLogic/Registration.c.obj	3d6da35d124466c9
+5	256	607013893	src/CMakeFiles/ExampleProject_run.dir/FrontLogic/Authorization.c.obj	f2ad1b5c647a98c1
+4	248	607013934	src/CMakeFiles/ExampleProject_run.dir/FrontLogic/Authorization.c.obj	f2ad1b5c647a98c1
+5	251	607014008	src/CMakeFiles/ExampleProject_run.dir/FrontLogic/Authorization.c.obj	f2ad1b5c647a98c1
+4	262	607014813	src/CMakeFiles/ExampleProject_run.dir/FrontLogic/Authorization.c.obj	f2ad1b5c647a98c1

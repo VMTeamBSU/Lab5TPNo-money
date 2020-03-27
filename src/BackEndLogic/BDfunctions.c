@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "../../include/request.h"
 #include "../../include/BDfunctions.h"
-#pragma warning(disable:4996)
 
 
 char*** CrewMemberInformation(char* surname, char*** columnName, int* rowCount, int* columnCount)

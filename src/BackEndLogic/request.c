@@ -119,3 +119,17 @@ int InsertData(char* RequesInsertBuffer)
 	return 1;
 }
 
+int Validation(char* RequesInsertBuffer)
+{
+	char* errorMsg = 0;
+
+	InitDataBase();
+
+	if (sqlite3_exec(db, RequesInsertBuffer, 0, 0, &errorMsg) != SQLITE_OK)
+	{
+		printf(errorMsg);
+		return 0;
+	}
+	return 1;
+}
+
