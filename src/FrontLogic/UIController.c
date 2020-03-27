@@ -121,7 +121,9 @@ void HandleAuthorization()
 {
 	system("CLS");
 	int flag = 1;
-
+	
+	
+	
 	while (flag==1)
 	{
 		char login[30];
@@ -155,7 +157,6 @@ void HandleMainMenu()
 	
 	while (1)
 	{
-		//TODO: add exit option
 		system("CLS");
 		printf("Oh, you are in main menu.\n ");
 		printf("Choose option \n");
@@ -165,7 +166,8 @@ void HandleMainMenu()
 		printf("4. Registration\n");
 		printf("5. Remove flight\n");
 		printf("6. Show crew rating\n");
-		printf("7. Exit\n");
+		printf("7. Show crew income info\n");
+		printf("8. Exit\n");
 
 		int option = GetInteger();
 		
@@ -210,7 +212,12 @@ void HandleMainMenu()
 			}
 		case 7:
 			{
+			HandleMoneyInfo();
 				break;
+			}
+		case 8:
+			{
+				return;
 			}
 		default:
 			{
@@ -623,6 +630,7 @@ void HandleCrewMemberInfo()
 		else {
 			result = CrewMemberInformation(surname, &columnsNames, &rowsCount, &columnsCount);
 		}
+		
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
 		printf("\nDo you want to exit? yes/no\n");
@@ -648,17 +656,18 @@ void HandleFlightsInfo()
 	char surname[30];
 	char** columnsNames = NULL;
 	int command=0;
-	int isSpecial = 0;
+	int isSpecial = -1;
 
 	
 
 
 		printf("Choose option:\n");
 
-		printf("1. Special flights\n");
-		printf("2. Normal flights\n");
-		printf("3. flights during period\n");
-		printf("4. exit\n");
+		printf("1. Special flights report\n");
+		printf("2. Normal flights report\n");
+		printf("3. All flights list\n");
+		printf("4. Report of flights during period\n");
+		printf("5. exit\n");
 
 		command = GetInteger();
 
@@ -676,14 +685,20 @@ void HandleFlightsInfo()
 		}
 		case 3:
 		{
-			HandleFlightsInfoByDate();
-			break;
+			isSpecial = -1;
+				break;
 		}
 		case 4:
 		{
-			stop = 0;
+
+			HandleFlightsInfoByDate();
 			break;
 		}
+		case 5:
+			{
+			stop = 0;
+			break;
+			}
 		default:
 		{
 			printf("Invalid option!\n");
@@ -695,8 +710,15 @@ void HandleFlightsInfo()
 		break;
 	}
 
-		result = GetFlightInformation(isSpecial, &columnsNames, &rowsCount, &columnsCount);
-
+		if(isSpecial==-1)
+		{
+			result = ShowAllFlights(&columnsNames, &rowsCount, &columnsCount);
+		}
+		else {
+			result = GetFlightInformation(isSpecial, &columnsNames, &rowsCount, &columnsCount);
+			strcpy(columnsNames[0], "number of flights");
+		}
+		
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
 		printf("\nPress enter to continue\n");
@@ -711,7 +733,8 @@ void PrintMatrix(char*** matrix,char** columnsNames,int rowsCount,int columnsCou
 	{
 		for (int j = 0; j < columnsCount; ++j)
 		{
-			printf(" %s = %s\n", columnsNames[j], matrix[i][j] ? matrix[i][j] : "No information found");
+			
+			printf(" %s = %s\n", columnsNames[j], matrix[i][j] && strcmp(matrix[i][j],"NULL")!=0 ? matrix[i][j] : "No information found");
 		}
 		printf("------------------------------------------------\n");
 	}
@@ -735,12 +758,17 @@ void HandleHelicopterInfo()
 
 		if (CurrentUser.privilege != member)
 		{
-			printf("Insert helicopter's id or type \"all\" to  print all helicopters info \n");
+			printf("Insert helicopter's id \n");
 			id = GetInteger();
 		}
+		/*else
+		{
+			id = CurrentUser.id;
+		}*/
 
 		result = HelicopterFlyDurationAndFlyingResourse(id, &columnsNames, &rowsCount, &columnsCount);
 
+		strcpy(columnsNames[1], "fly resource remaining");
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
 		char a[30];
@@ -902,7 +930,7 @@ void HandleMoneyInfo()
 
 		if (CurrentUser.privilege != member)
 		{
-			printf("print member's id, or print \"all\" to get info about all members\n");
+			printf("print member's id\n");
 			id = GetInteger();
 
 		}
