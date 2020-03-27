@@ -1,6 +1,7 @@
 #include "../../include/Registration.h"
 #include "../../include/request.h"
 #include <stdio.h>
+#include <time.h>
 
 int RegisterMember(char* login, char* password, char* surname, int experience, char* dateOfBirth,char* position, char* commanderID)
 {
@@ -35,19 +36,52 @@ int RegisterAdmin(char* login, char* password)
 
 int RegisterFlight(char* date, int helicopterID, int weightOfGoods, int numberOfPeople, int duration, int price, int isSpecial)
 {
-	char* text;
-	if (isSpecial == 1)
-		text = "yes";
-	else
-		text = "no";
-
 	char requestBuffer[500];
-	sprintf(requestBuffer,
-		"INSERT INTO flights(date, ID_helicopter, weight_of_goods, num_of_people, duration, price, special) VALUES ('%s', '%d', '%d', '%d', '%d', '%d', '%s'); ",
-		date, helicopterID, weightOfGoods, numberOfPeople, duration, price, text);
-	InsertData(requestBuffer);
 
-	return 1;
+	sprintf(requestBuffer,
+		"SELECT (helicopter.flying_resourse - %d)FROM helicopter WHERE helicopter.ID = %d", 
+		duration, helicopterID);
+
+	char** ColumnName = NULL;
+	int row = 0;
+	int column = 0;
+	char*** Result = GetResult(requestBuffer, &column, &row, &ColumnName);
+	
+	if (Result[0][1] >= 0)
+	{
+		char* text;
+		if (isSpecial == 1)
+			text = "yes";
+		else
+			text = "no";
+
+
+		sprintf(requestBuffer,
+			"INSERT INTO flights(date, ID_helicopter, weight_of_goods, num_of_people, duration, price, special) VALUES ('%s', '%d', '%d', '%d', '%d', '%d', '%s'); ",
+			date, helicopterID, weightOfGoods, numberOfPeople, duration, price, text);
+		InsertData(requestBuffer);
+
+	
+		return 1;
+	}
+	else
+	{
+	
+		struct tm* ptr;
+		time_t lt;
+		lt = time(NULL);
+
+		ptr = localtime(time(NULL));
+		
+
+		sprintf(requestBuffer,
+			"UPDATE helicopter SET flying_resourse = 1000 AND date_of_repair = %s-%s-%s WHERE helicopter.ID = %d",
+			ptr->tm_year, ptr->tm_mon, ptr->tm_mday,duration, helicopterID);
+		InsertData(requestBuffer);
+		return 0;
+	}
+
+
 }
 
 int RegisterHelicopter(char* name, char* creationDate, char* repairDate, int capacity, int flyingResources)
@@ -61,3 +95,4 @@ int RegisterHelicopter(char* name, char* creationDate, char* repairDate, int cap
 
 	return 1;
 }
+

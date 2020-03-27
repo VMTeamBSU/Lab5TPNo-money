@@ -39,4 +39,14 @@ int FindUser(char* login)
 	{
 		return 0;
 	}
+
+	char requestBuffer[500];
+	sprintf(requestBuffer,
+		"Select login from mainLogin where login  Like '%s';",
+		login);
+
+	if (Validation(requestBuffer) == 0)
+		return 0;
+	else
+		return 1;
 }
