@@ -151,3 +151,60 @@ char*** ShowAllFlights(char*** columnName, int* rowCount, int* columnCount)
 
 	return Result;
 }
+
+char*** IncomeOfCrewMember(int crewID, char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount)
+{
+	char requestBuffer[1000];
+	sprintf(requestBuffer,
+		"SELECT sum(price), special FROM flights, crew INNER JOIN commander ON commander.ID_helicopter = flights.ID_helicopter AND crew.ID_commander = commander.ID WHERE crew.ID = '%d' AND flights.date >= '%s' AND flights.date <= '%s';",
+		crewID, firstDate, secondDate);
+	char** ColumnName = NULL;
+	int row = 0;
+	int column = 0;
+	char*** Result = GetResult(requestBuffer, &column, &row, &ColumnName);
+	*rowCount = row;
+	*columnCount = column;
+	*columnName = ColumnName;
+
+	return Result;
+}
+
+char*** IncomeOfAllCrewMembers(char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount)
+{
+	char requestBuffer[1000];
+	sprintf(requestBuffer,
+		"SELECT crew.ID, sum(price), special FROM flights, crew INNER JOIN commander ON commander.ID_helicopter = flights.ID_helicopter AND crew.ID_commander = commander.ID WHERE flights.date >= '%s' AND flights.date <= '%s' GROUP BY crew.ID;",
+		firstDate, secondDate);
+	char** ColumnName = NULL;
+	int row = 0;
+	int column = 0;
+	char*** Result = GetResult(requestBuffer, &column, &row, &ColumnName);
+	*rowCount = row;
+	*columnCount = column;
+	*columnName = ColumnName;
+
+	return Result;
+}
+
+char*** IncomeOfCrewMemberForSpecificFlight(int isSpecial, int crewID, char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount)
+{
+	char* text;
+	if (isSpecial == 1)
+		text = "yes";
+	else
+		text = "no";
+
+	char requestBuffer[1000];
+	sprintf(requestBuffer,
+		"SELECT sum(price), special FROM flights, crew INNER JOIN commander ON commander.ID_helicopter = flights.ID_helicopter AND crew.ID_commander = commander.ID WHERE crew.ID = '%d' AND flights.special = '%s' AND flights.date >= '%s' AND flights.date <= '%s';",
+		crewID, text, firstDate, secondDate);
+	char** ColumnName = NULL;
+	int row = 0;
+	int column = 0;
+	char*** Result = GetResult(requestBuffer, &column, &row, &ColumnName);
+	*rowCount = row;
+	*columnCount = column;
+	*columnName = ColumnName;
+
+	return Result;
+}

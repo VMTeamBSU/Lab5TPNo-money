@@ -50,3 +50,14 @@ char*** ShowAllFlights(char*** columnName, int* rowCount, int* columnCount);
 
 //Функция выводит всю таблицу commaders
 char*** ShowAllCommanders(char*** columnName, int* rowCount, int* columnCount);
+
+//firstDate, secondDate: в качестве входного параметра выступает строка date(период за которую мы хотим посмотреть информацию о полетах). date должна быть в формате "yyyy-mm-dd";
+//crewID: ID человека, зарплату которого мы хотим узнать
+//Выводит количесвто денег за рейс и показывает какой был рейс(special, usual). Соответсвенно зп считается в зависимоти от рейса.
+char*** IncomeOfCrewMember(int crewID, char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount);
+
+char*** IncomeOfAllCrewMembers(char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount);
+
+//за указанный период определяет количество денег,
+//начисленных указанному летчику за указанный рейс(сы) или спецрейс(сы)
+char*** IncomeOfCrewMemberForSpecificFlight(int isSpecial, int crewID, char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount)
