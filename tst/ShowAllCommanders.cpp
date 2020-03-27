@@ -9,7 +9,7 @@ extern  "C" {
 TEST(testShowAllCommanders, testingvalidShowAllCommanders) {
 
 	char*** result;
-	char** all = NULL;
+	char*** all = NULL;
 	int b = 0;
 	int c = 0;
 	result = ShowAllCommanders(all, &b, &c);
@@ -42,7 +42,7 @@ TEST(testShowAllCommanders, testingvalidShowAllCommanders) {
 TEST(testShowAllCommanders, testinginvalidShowAllCommanders) {
 
 	char*** result;
-	char** all = NULL;
+	char*** all = NULL;
 	int b = 0;
 	int c = 0;
 	result = ShowAllCommanders(all, &b, &c);

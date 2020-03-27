@@ -9,7 +9,7 @@ extern  "C" {
 TEST(testShowAllFlights, testingvalidShowAllFlights) {
 
 	char*** result;
-	char** all = NULL;
+	char*** all = NULL;
 	int b = 0;
 	int c = 0;
 	result = ShowAllFlights(all, &b, &c);
@@ -106,7 +106,7 @@ TEST(testShowAllFlights, testingvalidShowAllFlights) {
 TEST(testShowAllFlights, testinginvalidShowAllFlights) {
 
 	char*** result;
-	char** all = NULL;
+	char*** all = NULL;
 	int b = 0;
 	int c = 0;
 	result = ShowAllFlights(all, &b, &c);

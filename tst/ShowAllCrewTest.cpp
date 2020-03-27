@@ -9,7 +9,7 @@ extern  "C" {
 TEST(testShowAllCrewMembers, testingvalidShowAllCrew) {
 
 	char*** result;
-	char** all = NULL;
+	char*** all = NULL;
 	int b = 0;
 	int c = 0;
 	result = ShowAllCrewMembers(all, &b, &c);
@@ -66,7 +66,7 @@ TEST(testShowAllCrewMembers, testingvalidShowAllCrew) {
 TEST(testShowAllCrewMembers, testinginvalidShowAllCrew) {
 
 	char*** result;
-	char** all = NULL;
+	char*** all = NULL;
 	int b = 0;
 	int c = 0;
 	result = ShowAllCrewMembers(all, &b, &c);
