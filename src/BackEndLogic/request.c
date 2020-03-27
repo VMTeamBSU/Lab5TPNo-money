@@ -15,7 +15,6 @@ int openResult;
 
 void InitDataBase()
 {
-	
 	if (db == NULL)
 		openResult = sqlite3_open("../DataBase/AirCab.db", &db);
 }
@@ -106,3 +105,17 @@ char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnN
 	}
 
 }
+
+int InsertData(char* RequesInsertBuffer)
+{
+	char* errorMsg = 0;
+
+	InitDataBase();
+
+	if (sqlite3_exec(db, RequesInsertBuffer, 0, 0, &errorMsg) != SQLITE_OK)
+	{
+		printf(errorMsg);
+	}
+	return 1;
+}
+

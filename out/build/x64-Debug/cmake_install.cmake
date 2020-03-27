@@ -1,8 +1,8 @@
-# Install script for directory: C:/Lab5TPNo-money
+# Install script for directory: C:/4sem/ТП/Лаба_5/SecondRep/Lab5TPNo-money
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Lab5TPNo-money/out/install/x64-Debug")
+  set(CMAKE_INSTALL_PREFIX "C:/4sem/ТП/Лаба_5/SecondRep/Lab5TPNo-money/out/install/x64-Debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Lab5TPNo-money/out/build/x64-Debug/lib/sqlite3/cmake_install.cmake")
-  include("C:/Lab5TPNo-money/out/build/x64-Debug/src/cmake_install.cmake")
+  include("C:/4sem/ТП/Лаба_5/SecondRep/Lab5TPNo-money/out/build/x64-Debug/lib/sqlite3/cmake_install.cmake")
+  include("C:/4sem/ТП/Лаба_5/SecondRep/Lab5TPNo-money/out/build/x64-Debug/src/cmake_install.cmake")
 
 endif()
 
@@ -47,5 +47,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Lab5TPNo-money/out/build/x64-Debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/4sem/ТП/Лаба_5/SecondRep/Lab5TPNo-money/out/build/x64-Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

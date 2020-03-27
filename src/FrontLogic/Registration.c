@@ -1,7 +1,25 @@
 #include "../../include/Registration.h"
+#include "../../include/request.h"
+#include <stdio.h>
 
-int RegisterMember(char* login, char* password,char* surname, int experience, char* dateOfBirth,char* position,char* commanderName)
+int RegisterMember(char* login, char* password, char* surname, int experience, char* dateOfBirth,char* position, char* commanderID)
 {
+	char requestBuffer[500];
+	sprintf(requestBuffer,
+			"INSERT INTO mainLogin(login, password) VALUES ('%s', '%s'); ",
+			login, password);
+	InsertData(requestBuffer);
+
+	sprintf(requestBuffer,
+		"INSERT INTO statusSurname(status, surname) VALUES ('member', '%s' ); ",
+		surname);
+	InsertData(requestBuffer);
+
+	sprintf(requestBuffer,
+		"INSERT INTO crew(position, experiens, date_of_birth, surname) VALUES('%s', '%d', '%s', '%s');",
+		position, experience, dateOfBirth, surname);
+	InsertData(requestBuffer);
+
 	return 1;
 }
 
