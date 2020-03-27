@@ -1,3 +1,6 @@
+//Author: Ivan Shishlyannikov
+
+//Description: User struct represents user's info
 
 #pragma once
 enum privilegeLevel

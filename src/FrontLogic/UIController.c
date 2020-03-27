@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <stdio.h>
 
-
+#include <string.h>
 
 #include "../../include/Authorization.h"
 #include "../../include/Registration.h"
@@ -33,7 +33,7 @@ int GetInteger()
 	return result;
 }
 
-char* GetData()
+char* GetDate()
 {
 	fflush(stdin);
 	char input[30];
@@ -134,7 +134,7 @@ void HandleAuthorization()
 		if (result ==1)
 		{
 			printf("Loged in successfully!\n\n");
-			CurrentUser = GetCurrentUser(login);
+			InitSession(login);
 			HandleMainMenu();
 			break;
 		}
@@ -317,9 +317,9 @@ void HandleRegistrationHelicopter()
 	printf("Enter name:\n");
 	scanf(" %[^\n]", &name);
 	printf("Enter date of creation:\n");
-	dateOfCreation = GetData();
+	dateOfCreation = GetDate();
 	printf("Enter date of repair:\n");
-	dateOfRepair = GetData();
+	dateOfRepair = GetDate();
 	printf("Enter capacity \n");
 	capacity = GetInteger();
 	printf("Enter flying resources amount\n");
@@ -356,10 +356,10 @@ void HandleRegistrationMember()
 		else
 		{
 			printf(" Enter surname: \n");
-			scanf("%s", &password);
+			scanf("%s", &surname);
 
 			printf(" Enter date of birth (yyyy.mm.dd): \n");
-			dateOfBirth = GetData();
+			dateOfBirth = GetDate();
 
 			printf("Enter experience: \n");
 			experience = GetInteger();
@@ -421,10 +421,10 @@ void HandleRegistrationCommando()
 		else
 		{
 			printf(" Enter surname: \n");
-			scanf("%s", &password);
+			scanf("%s", &surname);
 
 			printf(" Enter date of birth (yyyy.mm.dd): \n");
-			dateOfBirth = GetData();
+			dateOfBirth = GetDate();
 
 			printf("Enter experience: \n");
 			experience = GetInteger();
@@ -478,8 +478,6 @@ void HandleRegistrationAdmin()
 		}
 		else
 		{
-			printf(" Enter password: \n");
-			scanf("%s", &password);
 
 			int stopPass = 1;
 			while (stopPass == 1) {
@@ -521,7 +519,7 @@ void HandleRegisterFlight()
 	int isSpecial;
 
 	printf("enter date (yyyy.mm.dd):\n");
-	date = GetData();
+	date = GetDate();
 	printf("enter helicopter's name:\n");
 	scanf(" %[^\n]", &helicopterName);
 	printf("enter weight of goods:\n");
@@ -609,12 +607,17 @@ void HandleCrewMemberInfo()
 		}
 		else
 		{
-			printf("Insert member's surname, or print all to print all members\n");
+			printf("Insert member's surname, or print \"all\" to print all members\n");
 			scanf("%s", &surname);
 		}
 
-		result = CrewMemberInformation(surname, &columnsNames, &rowsCount, &columnsCount);
-
+		if(strcmp(surname,"all")==0)
+		{
+			result = ShowAllCrewMembers(&columnsNames, &rowsCount, &columnsCount);
+		}
+		else {
+			result = CrewMemberInformation(surname, &columnsNames, &rowsCount, &columnsCount);
+		}
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
 		printf("\nDo you want to exit? yes/no\n");
@@ -697,9 +700,9 @@ void HandleFlightsInfo()
 	}
 }
 
-void PrintMatrix(char*** matrix,char** columnsNames,int rawsCount,int columnsCount)
+void PrintMatrix(char*** matrix,char** columnsNames,int rowsCount,int columnsCount)
 {
-	for (int i = 0; i < rawsCount ; ++i)
+	for (int i = 0; i < rowsCount ; ++i)
 	{
 		for (int j = 0; j < columnsCount; ++j)
 		{
@@ -708,7 +711,7 @@ void PrintMatrix(char*** matrix,char** columnsNames,int rawsCount,int columnsCou
 		printf("------------------------------------------------\n");
 	}
 }
-///TODO Helicopter by name
+
 void HandleHelicopterInfo()
 {
 	int stop = 1;
@@ -727,7 +730,7 @@ void HandleHelicopterInfo()
 
 		if (CurrentUser.privilege != member)
 		{
-			printf("Insert helicopter's id\n");
+			printf("Insert helicopter's id or type \"all\" to  print all helicopters info \n");
 			id = GetInteger();
 		}
 
@@ -853,9 +856,9 @@ void HandleFlightsInfoByDate()
 		if (CurrentUser.privilege != member)
 		{
 			printf("Insert start date (yyyy.mm.dd)\n");
-			date1 = GetData();
+			date1 = GetDate();
 			printf("Insert last date (yyyy.mm.dd)\n");
-			date2 = GetData();
+			date2 = GetDate();
 		}
 
 		result = DateHelicopterInformation(date1,date2, &columnsNames, &rowsCount, &columnsCount);
@@ -870,5 +873,99 @@ void HandleFlightsInfoByDate()
 		}
 	}
 }
+
+void HandleMoneyInfo()
+{
+
+	int stop = 1;
+	while (stop == 1)
+	{
+		system("CLS");
+
+		char*** result;
+		int rowsCount = 0;
+		int columnsCount = 0;
+		char surname[30];
+		char** columnsNames = NULL;
+		char* date1;
+		char* date2;
+		int id;
+		int special = -1;
+		int option;
+
+
+		if (CurrentUser.privilege != member)
+		{
+			printf("print member's id, or print \"all\" to get info about all members\n");
+			id = GetInteger();
+
+		}
+		else {
+			id = CurrentUser.id;
+		}
+
+
+		printf("Insert start date (yyyy.mm.dd)\n");
+		date1 = GetDate();
+		printf("Insert last date (yyyy.mm.dd)\n");
+		date2 = GetDate();
+
+		system("CLS");
+		printf("Choose option\n");
+		printf("1. special flights\n");
+		printf("2. normal flights\n");
+		printf("3. all flights\n");
+
+		option = GetInteger();
+
+		int stop = 1;
+		while (stop==1)
+		{
+
+
+			switch (option)
+			{
+			case 1:
+			{
+				///TODO : implement only special
+				stop = 0;
+				break;
+			}
+			case 2:
+			{
+				
+				///TODO: implement only normal
+				///stop = 0;
+				break;
+			}
+			case 3:
+			{
+				
+				///TODO: implement both
+				///stop = 0;
+				break;
+			}
+			default:
+			{
+				printf("invalid option!\n");
+				break;
+			}
+			}
+		}
+		
+		
+		/*result=*/
+
+		printf("result:\n-----------------------------------\n");
+		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
+
+		printf("\nDo you want to continue? yes/no\n");
+		if (GetYesNo() == 0)
+		{
+			break;
+		}
+	}
+}
+
 
 

@@ -1,8 +1,14 @@
-#include "User.h"
-#include "Command.h"
+//Author: Ivan Shishlyannikov
 
+//Description: SessionController handles all info of current session
+
+#include "User.h"
+
+//Current user in session
 extern struct User CurrentUser;
-extern int ExecuteCommand(struct command* command);
+
+//Get current user by login
 struct User GetCurrentUser(char* login);
-int CheckPermission(struct User user,int commandId);
-void InitDataBase(char* login);
+
+//All initialization should be done here
+void InitSession(char* login);

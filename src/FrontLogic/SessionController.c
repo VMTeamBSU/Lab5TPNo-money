@@ -14,19 +14,9 @@ struct User GetCurrentUser(char* login)
 	return  user;
 }
 
-int CheckPermission(struct User user, int commandId)
-{
-	return 1;
-}
 
 
-
-int ExecuteCommand(struct command* command)
-{
-	command->function();
-}
-
-void Init(char* login)
+void InitSession(char* login)
 {
 	CurrentUser = GetCurrentUser(login);
 }
