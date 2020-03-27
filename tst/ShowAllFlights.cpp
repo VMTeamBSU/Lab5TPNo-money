@@ -12,7 +12,7 @@ TEST(testShowAllFlights, testingvalidShowAllFlights) {
 	char** all = NULL;
 	int b = 0;
 	int c = 0;
-	result = ShowAllHelicopters("all", &b, &c);
+	result = ShowAllFlights(all, &b, &c);
 
 	EXPECT_STREQ(result[0][0], "1");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
@@ -103,13 +103,13 @@ TEST(testShowAllFlights, testingvalidShowAllFlights) {
 	EXPECT_STREQ(result[10][6], "7000");
 	EXPECT_STREQ(result[10][7], "no");
 }
-TEST(testAllHelicoptersr, testinginvalidShowAllFlights) {
+TEST(testShowAllFlights, testinginvalidShowAllFlights) {
 
 	char*** result;
 	char** all = NULL;
 	int b = 0;
 	int c = 0;
-	result = ShowAllHelicopters("all", &b, &c);
+	result = ShowAllFlights(all, &b, &c);
 
 
 

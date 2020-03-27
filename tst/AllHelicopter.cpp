@@ -6,13 +6,13 @@ extern  "C" {
 #include "stdlib.h"
 }
 
-TEST(testAllHelicoptersr, testingvalidAllHelicopters) {
+TEST(testAllHelicopters, testingvalidAllHelicopters) {
 
 	char*** result;
 	char** all = NULL;
 	int b = 0;
 	int c = 0;
-	result = ShowAllHelicopters("all", &b, &c);
+	result = ShowAllHelicopters(all, &b, &c);
 
 	EXPECT_STREQ(result[0][0], "MI-26");
 	EXPECT_STREQ(result[0][1], "2");
@@ -44,13 +44,13 @@ TEST(testAllHelicoptersr, testingvalidAllHelicopters) {
 	EXPECT_STREQ(result[4][4], "2020-12-09");
 	EXPECT_STREQ(result[4][5], "1010");
 }
-TEST(testAllHelicoptersr, testinginvalidAllHelicoptersr) {
+TEST(testAllHelicopters, testinginvalidAllHelicopter) {
 
 	char*** result;
 	char** all = NULL;
 	int b = 0;
 	int c = 0;
-	result = ShowAllHelicopters("all", &b, &c);
+	result = ShowAllHelicopters(all, &b, &c);
 
 
 	EXPECT_STREQ(result[0][0], "MI-26");

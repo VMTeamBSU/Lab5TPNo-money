@@ -12,7 +12,7 @@ TEST(testShowAllCommanders, testingvalidShowAllCommanders) {
 	char** all = NULL;
 	int b = 0;
 	int c = 0;
-	result = ShowAllHelicopters("all", &b, &c);
+	result = ShowAllCommanders(all, &b, &c);
 
 	EXPECT_STREQ(result[0][0], "1");
 	EXPECT_STREQ(result[0][1], "Poletov");
@@ -39,13 +39,13 @@ TEST(testShowAllCommanders, testingvalidShowAllCommanders) {
 	EXPECT_STREQ(result[3][4], "1979-03-15");
 	EXPECT_STREQ(result[3][5], "4");
 }
-TEST(testAllHelicoptersr, testinginvalidShowAllCommanders) {
+TEST(testShowAllCommanders, testinginvalidShowAllCommanders) {
 
 	char*** result;
 	char** all = NULL;
 	int b = 0;
 	int c = 0;
-	result = ShowAllHelicopters("all", &b, &c);
+	result = ShowAllCommanders(all, &b, &c);
 
 
 
