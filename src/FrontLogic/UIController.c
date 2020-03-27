@@ -165,6 +165,7 @@ void HandleMainMenu()
 		printf("4. Registration\n");
 		printf("5. Remove flight\n");
 		printf("6. Show crew rating\n");
+		printf("7. Exit\n");
 
 		int option = GetInteger();
 		
@@ -205,6 +206,10 @@ void HandleMainMenu()
 		case 6:
 			{
 			HandleTopRating();
+				break;
+			}
+		case 7:
+			{
 				break;
 			}
 		default:
@@ -798,6 +803,7 @@ void HandleDeleteFlight()
 		printf("Enter flights id\n");
 		id = GetInteger();
 		//TODO delete here....
+		
 		printf("Deleted successfully!Do you want to exit?\n");
 		if(GetYesNo()==1)
 		{
@@ -927,22 +933,21 @@ void HandleMoneyInfo()
 			{
 			case 1:
 			{
-				///TODO : implement only special
+				result = IncomeOfCrewMemberForSpecificFlight(1, id, date1, date2, &columnsNames, &rowsCount, &columnsCount);
 				stop = 0;
 				break;
 			}
 			case 2:
 			{
 				
-				///TODO: implement only normal
-				///stop = 0;
+				result = IncomeOfCrewMemberForSpecificFlight(0, id, date1, date2, &columnsNames, &rowsCount, &columnsCount);
+				stop = 0;
 				break;
 			}
 			case 3:
-			{
-				
-				///TODO: implement both
-				///stop = 0;
+			{				
+				result = IncomeOfCrewMember( id, date1, date2, &columnsNames, &rowsCount, &columnsCount);
+				stop = 0;
 				break;
 			}
 			default:

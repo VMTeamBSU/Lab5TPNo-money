@@ -60,4 +60,4 @@ char*** IncomeOfAllCrewMembers(char* firstDate, char* secondDate, char*** column
 
 //за указанный период определяет количество денег,
 //начисленных указанному летчику за указанный рейс(сы) или спецрейс(сы)
-char*** IncomeOfCrewMemberForSpecificFlight(int isSpecial, int crewID, char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount)
+char*** IncomeOfCrewMemberForSpecificFlight(int isSpecial, int crewID, char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount);

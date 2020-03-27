@@ -14,7 +14,7 @@
     },
     {
       "name": "Существующий кэш",
-      "cacheRoot": "C:/4sem/ТП/Лаба_5/SecondRep/Lab5TPNo-money",
+      "cacheRoot": "C:/Lab5TPNo-money/Build",
       "inheritEnvironments": [],
       "variables": [],
       "cacheGenerationCommand": ""
