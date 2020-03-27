@@ -21,7 +21,7 @@ TEST(testAllHelicopters, testingvalidAllHelicopters) {
 	EXPECT_STREQ(result[0][4], "2020-02-23");
 	EXPECT_STREQ(result[0][5], "1095");
 	EXPECT_STREQ(result[1][0], "MI-26");
-	EXPECT_STREQ(result[1][1]"2");
+	EXPECT_STREQ(result[1][1], "2");
 	EXPECT_STREQ(result[1][2], "2014-11-11");
 	EXPECT_STREQ(result[1][3], "20");
 	EXPECT_STREQ(result[1][4], "2020-11-11");
@@ -60,7 +60,7 @@ TEST(testAllHelicopters, testinginvalidAllHelicopter) {
 	EXPECT_STREQ(result[0][4], "2020-02-23");
 	EXPECT_STREQ(result[0][5], "1095");
 	EXPECT_STREQ(result[1][0], "MI-26");
-	EXPECT_STREQ(result[1][1]"2");
+	EXPECT_STREQ(result[1][1], "2");
 	EXPECT_STREQ(result[1][2], "2014-11-11");
 	EXPECT_STREQ(result[1][3], "20");
 	EXPECT_STREQ(result[1][4], "2020-11-11");
