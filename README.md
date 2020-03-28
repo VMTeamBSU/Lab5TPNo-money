@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/rexxmagtar/Lab5TPNo-money.svg?branch=master)](https://travis-ci.com/rexxmagtar/Lab5TPNo-money)
+[![Build Status](https://travis-ci.com/VMTeamBSU/Lab5TPNo-money.svg?branch=master)](https://travis-ci.com/VMTeamBSU/Lab5TPNo-money)
 # Project Name: 
 AirCab
 # Description:
