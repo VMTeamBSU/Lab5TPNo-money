@@ -1,7 +1,4 @@
-
-# TestingTests
-# labrabota5gruppa1-vm
-
+[![Build Status](https://travis-ci.com/rexxmagtar/Lab5TPNo-money.svg?branch=master)](https://travis-ci.com/rexxmagtar/Lab5TPNo-money)
 # Project Name: 
 AirCab
 # Description:
@@ -10,13 +7,17 @@ This project helps automate the control of the squad. The main functionality is 
 1. Download repository
 2. Save "bin" folder on your machine
 3. Run bin/debug/AirCab
-# Usage: 
-Рекомендации как использовать приложение после установки.
-Может содержать скриншоты.
+# Usage:
+1. During first run you will be able to create Admin profile. Just insert login and password
+2. Go to Registartion menu
+3. Go to Register members. Now you can register new flights, helicopters and members
+4. In main menu you can regi
 # Credits:
-Сведения об авторах проекта и какие задачи реализовывали.
-labrabota5gruppa1-vm created by GitHub Classroom
+1. Shishlynnikov Ivan: frontEnd
+2. Lihovets Maksim: backEnd
+3. Drepokova Angelina: QA
 
-[![Build Status](https://travis-ci.com/rexxmagtar/Lab5TPNo-money.svg?branch=master)](https://travis-ci.com/rexxmagtar/Lab5TPNo-money)
+
+
 
 
