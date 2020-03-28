@@ -119,7 +119,6 @@ char*** ShowAllHelicopters(char*** columnName, int* rowCount, int* columnCount)
 	*rowCount = row;
 	*columnCount = column;
 	*columnName = ColumnName;
-
 	return Result;
 }
 

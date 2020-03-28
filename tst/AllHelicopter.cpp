@@ -47,10 +47,10 @@ TEST(testAllHelicopters, testingvalidAllHelicopters) {
 TEST(testAllHelicopters, testinginvalidAllHelicopter) {
 
 	char*** result;
-	char*** all = NULL;
+	char** all = NULL;
 	int b = 0;
 	int c = 0;
-	result = ShowAllHelicopters(all, &b, &c);
+	result = ShowAllHelicopters(&all, &b, &c);
 
 
 	EXPECT_STRNE(result[0][0], "MI-26");

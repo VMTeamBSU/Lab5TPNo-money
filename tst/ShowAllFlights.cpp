@@ -9,10 +9,10 @@ extern  "C" {
 TEST(testShowAllFlights, testingvalidShowAllFlights) {
 
 	char*** result;
-	char*** all = NULL;
+	char** all = NULL;
 	int b = 0;
 	int c = 0;
-	result = ShowAllFlights(all, &b, &c);
+	result = ShowAllFlights(&all, &b, &c);
 
 	EXPECT_STREQ(result[0][0], "1");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
@@ -106,10 +106,10 @@ TEST(testShowAllFlights, testingvalidShowAllFlights) {
 TEST(testShowAllFlights, testinginvalidShowAllFlights) {
 
 	char*** result;
-	char*** all = NULL;
+	char** all = NULL;
 	int b = 0;
 	int c = 0;
-	result = ShowAllFlights(all, &b, &c);
+	result = ShowAllFlights(&all, &b, &c);
 
 
 

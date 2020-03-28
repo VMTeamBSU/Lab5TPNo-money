@@ -9,10 +9,10 @@ extern  "C" {
 TEST(testShowAllCrewMembers, testingvalidShowAllCrew) {
 
 	char*** result;
-	char*** all = NULL;
+	char** all = NULL;
 	int b = 0;
 	int c = 0;
-	result = ShowAllCrewMembers(all, &b, &c);
+	result = ShowAllCrewMembers(&all, &b, &c);
 
 	EXPECT_STREQ(result[0][0], "1");
 	EXPECT_STREQ(result[0][1], "second pilot");
@@ -66,10 +66,10 @@ TEST(testShowAllCrewMembers, testingvalidShowAllCrew) {
 TEST(testShowAllCrewMembers, testinginvalidShowAllCrew) {
 
 	char*** result;
-	char*** all = NULL;
+	char** all = NULL;
 	int b = 0;
 	int c = 0;
-	result = ShowAllCrewMembers(all, &b, &c);
+	result = ShowAllCrewMembers(&all, &b, &c);
 
 
 	EXPECT_STRNE(result[0][0], "1");

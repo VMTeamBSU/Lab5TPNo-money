@@ -103,7 +103,6 @@ char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnN
 		*aColumn = columns;
 		*aColumnName = RequestColumnName;
 		MyDInit();
-		printf("Ok... %d,%d", rows, columns);
 		return ResultMatrix;
 	}
 	else
