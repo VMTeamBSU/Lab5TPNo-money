@@ -216,7 +216,7 @@ char*** GetUserInfo(char* login, char*** columnName, int* rowCount, int* columnC
 	int column = 0;
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
-		"Select mainLogin.ID,status from mainLogin, statusSurname where statusSurname.ID = mainLogin.ID and login  = '%s';",login);
+		"Select mainLogin.ID,status from mainLogin, LoginStatus where LoginStatus.ID = mainLogin.ID and login  = '%s';",login);
 	
 	char*** Result = GetResult(requestBuffer, &column, &row, &ColumnName);
 	
