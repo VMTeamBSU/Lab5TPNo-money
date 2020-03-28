@@ -27,7 +27,7 @@ void TestValueById(char* text)
 {
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
-		"SELECT * FROM flights WHERE ID_helicopter = (SELECT ID_helicopter FROM commander INNER JOIN crew ON commander.ID = crew.ID_commander WHERE crew.surname = '%s');",
+		"SELECT * FROM flights WHERE ID_helicopter = (SELECT ID_helicopter FROM commander INNER JOIN crew ON helicopter.ID = crew.ID_helicopter WHERE crew.surname = '%s');",
 		text);
 	char** ColumnName = NULL;
 	int row = 0;

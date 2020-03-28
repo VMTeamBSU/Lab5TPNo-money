@@ -8,7 +8,7 @@ char*** CrewMemberInformation(int id, char*** columnName, int* rowCount, int* co
 {
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
-		"SELECT * FROM flights WHERE ID_helicopter = (SELECT ID_helicopter FROM commander INNER JOIN crew ON commander.ID = crew.ID_commander WHERE crew.ID = %d);",
+		"SELECT * FROM flights WHERE ID_helicopter = (SELECT ID_helicopter FROM helicopter INNER JOIN crew ON helicopter.ID = crew.ID_helicopter WHERE crew.ID = %d);",
 		id);
 	char** ColumnName = NULL;
 	int row = 0;
@@ -83,7 +83,7 @@ char*** HelicopterFlyDurationAndFlyingResourse(int helicopterId, char*** columnN
 
 char*** MaxflightsCrewInfo(char*** columnName, int* rowCount, int* columnCount)
 {
-	char requestBuffer[1000] = "SELECT crew.*, SUM(price) FROM crew, flights INNER JOIN commander On commander.id = crew.ID_commander WHERE commander.id_helicopter = (SELECT id_helicopter FROM flights GROUP By id_helicopter ORDER BY COUNT(id_helicopter) DESC LIMIT 1) GROUP BY crew.ID";
+	char requestBuffer[1000] = "SELECT crew.*, SUM(price) FROM crew, flights INNER JOIN helicopter On helicopter.id = crew.ID_helicopter WHERE helicopter.id = (SELECT id_helicopter FROM flights GROUP By id_helicopter ORDER BY COUNT(id_helicopter) DESC LIMIT 1) GROUP BY crew.ID";
 	char** ColumnName = NULL;
 	int row = 0;
 	int column = 0;
@@ -97,7 +97,7 @@ char*** MaxflightsCrewInfo(char*** columnName, int* rowCount, int* columnCount)
 
 char*** MaxEarnedMoneyCrewInfo(char*** columnName, int* rowCount, int* columnCount)
 {
-	char requestBuffer[1000] = "SELECT crew.*, SUM(price) FROM crew, flights INNER JOIN commander On commander.id = crew.ID_commander WHERE commander.id_helicopter = (SELECT id_helicopter FROM flights GROUP By id_helicopter ORDER BY SUM(price) DESC LIMIT 1) GROUP BY crew.ID";
+	char requestBuffer[1000] = "SELECT crew.*, SUM(price) FROM crew, flights INNER JOIN helicopter On helicopter.id = crew.ID_helicopter WHERE helicopter.id = (SELECT id_helicopter FROM flights GROUP By id_helicopter ORDER BY SUM(price) DESC LIMIT 1) GROUP BY crew.ID;";
 	char** ColumnName = NULL;
 	int row = 0;
 	int column = 0;
@@ -155,7 +155,7 @@ char*** IncomeOfCrewMember(int crewID, char* firstDate, char* secondDate, char**
 {
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
-		"SELECT sum(price), special FROM flights, crew INNER JOIN commander ON commander.ID_helicopter = flights.ID_helicopter AND crew.ID_commander = commander.ID WHERE crew.ID = '%d' AND flights.date >= '%s' AND flights.date <= '%s';",
+		"SELECT sum(price), special FROM flights, crew INNER JOIN helicopter ON helicopter.id = flights.ID_helicopter AND crew.ID_helicopter = helicopter.ID WHERE crew.ID = '%d' AND flights.date >= '%s' AND flights.date <= '%s';",
 		crewID, firstDate, secondDate);
 	char** ColumnName = NULL;
 	int row = 0;
@@ -172,7 +172,7 @@ char*** IncomeOfAllCrewMembers(char* firstDate, char* secondDate, char*** column
 {
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
-		"SELECT crew.ID, sum(price), special FROM flights, crew INNER JOIN commander ON commander.ID_helicopter = flights.ID_helicopter AND crew.ID_commander = commander.ID WHERE flights.date >= '%s' AND flights.date <= '%s' GROUP BY crew.ID;",
+		"SELECT crew.ID, sum(price), special FROM flights, crew INNER JOIN helicopter ON helicopter.id = flights.ID_helicopter AND crew.ID_helicopter = helicopter.ID WHERE flights.date >= '%s' AND flights.date <= '%s' GROUP BY crew.ID;",
 		firstDate, secondDate);
 	char** ColumnName = NULL;
 	int row = 0;
@@ -195,7 +195,7 @@ char*** IncomeOfCrewMemberForSpecificFlight(int isSpecial, int crewID, char* fir
 
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
-		"SELECT sum(price), special FROM flights, crew INNER JOIN commander ON commander.ID_helicopter = flights.ID_helicopter AND crew.ID_commander = commander.ID WHERE crew.ID = '%d' AND flights.special = '%s' AND flights.date >= '%s' AND flights.date <= '%s';",
+		"SELECT sum(price), special FROM flights, crew INNER JOIN helicopter ON helicopter.ID = flights.ID_helicopter AND crew.ID_helicopter = helicopter.ID WHERE crew.ID = '%d' AND flights.special = '%s' AND flights.date >= '%s' AND flights.date <= '%s';",
 		crewID, text, firstDate, secondDate);
 	char** ColumnName = NULL;
 	int row = 0;

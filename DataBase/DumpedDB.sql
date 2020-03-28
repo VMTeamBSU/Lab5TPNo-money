@@ -8,39 +8,6 @@ CREATE TABLE IF NOT EXISTS "mainLogin" (
 );
 INSERT INTO mainLogin VALUES(0,'admin','1111');
 INSERT INTO mainLogin VALUES(1,'NewUser','12345');
-CREATE TABLE IF NOT EXISTS "commander" (
-	"ID"	INTEGER UNIQUE,
-	"surname"	TEXT,
-	"experience"	INTEGER,
-	"address"	TEXT,
-	"date_of_birth"	TEXT,
-	"ID_helicopter"	INTEGER,
-	PRIMARY KEY("ID")
-);
-INSERT INTO commander VALUES(1,'Poletov',2000,'Lenina 6','1980-10-29',1);
-INSERT INTO commander VALUES(2,'Zemnof',2201,'Sadovaya 12','1975-01-22',2);
-INSERT INTO commander VALUES(3,'Vertoletov',3683,'Marksa 21','1978-02-14',3);
-INSERT INTO commander VALUES(4,'Koltun',2785,'Jasminova 13','1979-03-15',4);
-CREATE TABLE IF NOT EXISTS "crew" (
-	"ID"	INTEGER UNIQUE,
-	"position"	TEXT,
-	"experiens"	INTEGER,
-	"date_of_birth"	TEXT,
-	"ID_commander"	INTEGER,
-	"surname"	INTEGER,
-	PRIMARY KEY("ID")
-);
-INSERT INTO crew VALUES(1,'second pilot',1090,'1985-05-05',1,'Shestopalov');
-INSERT INTO crew VALUES(2,'third pilot',900,'1990-10-10',1,'Paloshestov');
-INSERT INTO crew VALUES(3,'second pilot',1067,'1991-11-11',2,'Pirsky');
-INSERT INTO crew VALUES(4,'third pilot',567,'1992-12-12',2,'Kotletov');
-INSERT INTO crew VALUES(5,'second pilot',999,'1989-12-21',3,'Kalinchuk');
-INSERT INTO crew VALUES(6,'third pilot',765,'1988-04-13',3,'Opanasenko');
-INSERT INTO crew VALUES(7,'second pilot',833,'1990-06-18',4,'Goptev');
-INSERT INTO crew VALUES(8,'third pilot',900,'1991-07-13',4,'Kleshev');
-INSERT INTO crew VALUES(9,'ллллллллллллллллллллллллллллллллллллллллллллХ',1000,'2000.10.10',NULL,'dsdsdsd');
-INSERT INTO crew VALUES(10,'ллллллллллллллллллллллллллллллллллллллллллллп',2000,'2000.01.01',NULL,'Lihovets');
-INSERT INTO crew VALUES(11,'лллллллллллллллллллллллллллллллллллллллллллл═',4000,'2000.10.10',NULL,'Shelkov');
 CREATE TABLE IF NOT EXISTS "flights" (
 	"ID"	INTEGER UNIQUE,
 	"date"	TEXT,
@@ -83,4 +50,24 @@ CREATE TABLE IF NOT EXISTS "statusSurname" (
 );
 INSERT INTO statusSurname VALUES(0,'admin');
 INSERT INTO statusSurname VALUES(1,'member');
+CREATE TABLE IF NOT EXISTS "crew" (
+	"ID"	INTEGER UNIQUE,
+	"position"	TEXT,
+	"experiens"	INTEGER,
+	"date_of_birth"	TEXT,
+	"ID_helicopter"	INTEGER,
+	"surname"	INTEGER,
+	PRIMARY KEY("ID")
+);
+INSERT INTO crew VALUES(1,'second pilot',1090,'1985-05-05',1,'Shestopalov');
+INSERT INTO crew VALUES(2,'third pilot',900,'1990-10-10',1,'Paloshestov');
+INSERT INTO crew VALUES(3,'second pilot',1067,'1991-11-11',2,'Pirsky');
+INSERT INTO crew VALUES(4,'third pilot',567,'1992-12-12',2,'Kotletov');
+INSERT INTO crew VALUES(5,'second pilot',999,'1989-12-21',3,'Kalinchuk');
+INSERT INTO crew VALUES(6,'third pilot',765,'1988-04-13',3,'Opanasenko');
+INSERT INTO crew VALUES(7,'second pilot',833,'1990-06-18',4,'Goptev');
+INSERT INTO crew VALUES(8,'third pilot',900,'1991-07-13',4,'Kleshev');
+INSERT INTO crew VALUES(9,'ллллллллллллллллллллллллллллллллллллллллллллХ',1000,'2000.10.10',4,'dsdsdsd');
+INSERT INTO crew VALUES(10,'ллллллллллллллллллллллллллллллллллллллллллллп',2000,'2000.01.01',NULL,'Lihovets');
+INSERT INTO crew VALUES(11,'лллллллллллллллллллллллллллллллллллллллллллл═',4000,'2000.10.10',NULL,'Shelkov');
 COMMIT;
