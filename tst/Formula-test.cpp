@@ -12,7 +12,7 @@ TEST(testCrewMember, testingvalidCrew) {
 	char** names = NULL;
 	int b = 0;
 	int c = 0;
-	result = CrewMemberInformation("Shestopalov", &names, &b, &c);
+	result = CrewMemberInformation(1, &names, &b, &c);
 
 	EXPECT_STREQ(result[0][0], "1");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
@@ -31,7 +31,7 @@ TEST(testCrewMember, testingvalidCrew) {
 	EXPECT_STREQ(result[1][6], "7000");
 	EXPECT_STREQ(result[1][7], "no");
 
-	result = CrewMemberInformation("Pirsky", &names, &b, &c);
+	result = CrewMemberInformation(2, &names, &b, &c);
 
 	EXPECT_STREQ(result[0][0], "2");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
@@ -57,7 +57,7 @@ TEST(testCrewMember, testinginvalidInfo) {
 	char** names = NULL;
 	int b = 0;
 	int c = 0;
-    result = CrewMemberInformation("Shestopalov", &names, &b, &c);
+    result = CrewMemberInformation(2, &names, &b, &c);
 	EXPECT_STRNE(result[0][0], "1");
 	EXPECT_STRNE(result[0][1], "2020-02-01");
 	EXPECT_STRNE(result[0][2], "1");
@@ -76,7 +76,7 @@ TEST(testCrewMember, testinginvalidInfo) {
 	EXPECT_STRNE(result[1][7], "no");
 			  
 
-	result = CrewMemberInformation("Pirsky", &names, &b, &c);
+	result = CrewMemberInformation(0, &names, &b, &c);
 	EXPECT_STRNE(result[0][0], "0");
 	EXPECT_STRNE(result[0][1], "2020-06-09");
 	EXPECT_STRNE(result[0][2], "F");
