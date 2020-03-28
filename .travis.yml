@@ -11,7 +11,7 @@ jobs:
       - "cd build"
       - "cmake \"Visual Studio 16 2019\" .."
       - "cmake --build . --config Release"
-      - if [ $TRAVIS_OS_NAME != windows ]; then ./tst/ExampleProject_tst; fi
+      - if [ $TRAVIS_OS_NAME != windows ]; then ./tst/AirCabSoft_tst; fi
     - stage: deploy
       os: windows
       if: branch = master and tag = Release
