@@ -11,7 +11,7 @@ This project helps automate the control of the squad. The main functionality is 
 1. During first run you will be able to create Admin profile. Just insert login and password
 2. Go to Registartion menu
 3. Go to Register members. Now you can register new flights, helicopters and members
-4. In main menu you can regi
+4. In main menu you can get all available information about squad
 # Credits:
 1. Shishlynnikov Ivan: frontEnd
 2. Lihovets Maksim: backEnd
