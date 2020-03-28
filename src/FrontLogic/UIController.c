@@ -244,8 +244,7 @@ void HandleRegistrationNewUser()
 	int option;
 
 	printf("1. Register admin\n");
-	printf("2. Register commando\n");
-	printf("3. Register member\n");
+	printf("2. Register member\n");
 
 	option = GetInteger();
 
@@ -258,14 +257,13 @@ void HandleRegistrationNewUser()
 	}
 	case 2:
 	{
-		HandleRegistrationCommando();
-		break;
-	}
-	case 3:
-	{
 		HandleRegistrationMember();
 		break;
 	}
+	default:
+		{
+		printf("Invalid option\n");
+		}
 	}
 	printf("Press enter to continue...\n");
 }
@@ -292,7 +290,7 @@ void HandleRegistration()
 		}
 		else
 		{
-			printf("You do not have permissions to register new flights\n");
+			printf("You do not have permissions to register new helicopters\n");
 		}
 			break;
 		}
