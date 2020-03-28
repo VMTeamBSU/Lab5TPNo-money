@@ -14,15 +14,14 @@
     </ATTRIBUTES>
     <DEPENDENCIES>
       <COMP relation="OwnedElement">
-        <COMPID name="Член экипажа" mc="Standard.Actor" uid="47a93d9f-a58e-4a8f-8bcf-eb800f9d38cb"/>
-        <COMPID name="Пользователь системы" mc="Standard.Actor" uid="ec75504d-0c06-47fd-9f8b-1d4feed797c5"/>
-        <COMPID name="Регистрация в системе" mc="Standard.UseCase" uid="af1dac50-f375-41ed-88de-8c8d8440877e"/>
-        <COMPID name="Редактирование данных в системе" mc="Standard.UseCase" uid="76b214fe-96f0-41cf-ab27-65566642387c"/>
-        <COMPID name="Удаление полета  из системы" mc="Standard.UseCase" uid="2ae9de7c-1fb6-4036-8c10-4ccf310527ad"/>
-        <COMPID name="Получить запрашиваемые данные" mc="Standard.UseCase" uid="4cd45f04-3306-4d71-8767-762686204939"/>
-        <COMPID name="Сервер" mc="Standard.Actor" uid="dc7b9c54-9604-4d9c-b2da-9fb9ba8eb950"/>
-        <COMPID name="Админ" mc="Standard.Actor" uid="6f298109-373e-448b-96c3-284010f1bca1"/>
-        <COMPID name="Оповестить систему о завершении полета" mc="Standard.UseCase" uid="70bf0f11-a091-4737-bb48-da23d58df200"/>
+        <COMPID name="Crew member" mc="Standard.Actor" uid="47a93d9f-a58e-4a8f-8bcf-eb800f9d38cb"/>
+        <COMPID name="User" mc="Standard.Actor" uid="ec75504d-0c06-47fd-9f8b-1d4feed797c5"/>
+        <COMPID name="Register new users,helicopters,flights" mc="Standard.UseCase" uid="af1dac50-f375-41ed-88de-8c8d8440877e"/>
+        <COMPID name="Edit database" mc="Standard.UseCase" uid="76b214fe-96f0-41cf-ab27-65566642387c"/>
+        <COMPID name="Remove flights info" mc="Standard.UseCase" uid="2ae9de7c-1fb6-4036-8c10-4ccf310527ad"/>
+        <COMPID name="Get requsted info" mc="Standard.UseCase" uid="4cd45f04-3306-4d71-8767-762686204939"/>
+        <COMPID name="Server" mc="Standard.Actor" uid="dc7b9c54-9604-4d9c-b2da-9fb9ba8eb950"/>
+        <COMPID name="Admin" mc="Standard.Actor" uid="6f298109-373e-448b-96c3-284010f1bca1"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Use case Use Case diagram" mc="Standard.UseCaseDiagram" uid="e2b21fc7-c6e4-4216-8152-be40d939de66"/>

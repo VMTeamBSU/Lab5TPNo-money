@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Регистрация вертолетов/пользователей/вылетов в системе" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Register new users,helicopters,flights" version="4">
   <OBJECT>
-    <ID name="Регистрация вертолетов/пользователей/вылетов в системе" mc="Standard.UseCase" uid="af1dac50-f375-41ed-88de-8c8d8440877e"/>
+    <ID name="Register new users,helicopters,flights" mc="Standard.UseCase" uid="af1dac50-f375-41ed-88de-8c8d8440877e"/>
     <PID name="Use case" mc="Standard.Package" uid="81993dd9-111e-4dea-8e92-867836c825b0"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
@@ -9,7 +9,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Регистрация вертолетов/пользователей/вылетов в системе]]></ATT>
+      <ATT name="Name"><![CDATA[Register new users,helicopters,flights]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -22,7 +22,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Редактирование данных в системе" mc="Standard.UseCase" uid="76b214fe-96f0-41cf-ab27-65566642387c"/>
+              <ID name="Edit database" mc="Standard.UseCase" uid="76b214fe-96f0-41cf-ab27-65566642387c"/>
             </LINK>
             <LINK relation="Extension">
               <FOREIGNID name="include" mc="Infrastructure.Stereotype" uid="00000000-0000-9c49-0000-000000000000"/>

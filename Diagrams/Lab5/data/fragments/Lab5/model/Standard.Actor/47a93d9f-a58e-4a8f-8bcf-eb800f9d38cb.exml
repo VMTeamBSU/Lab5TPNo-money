@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Член экипажа" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Crew member" version="4">
   <OBJECT>
-    <ID name="Член экипажа" mc="Standard.Actor" uid="47a93d9f-a58e-4a8f-8bcf-eb800f9d38cb"/>
+    <ID name="Crew member" mc="Standard.Actor" uid="47a93d9f-a58e-4a8f-8bcf-eb800f9d38cb"/>
     <PID name="Use case" mc="Standard.Package" uid="81993dd9-111e-4dea-8e92-867836c825b0"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
@@ -9,7 +9,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Член экипажа]]></ATT>
+      <ATT name="Name"><![CDATA[Crew member]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -23,7 +23,23 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="SuperType">
-              <ID name="Пользователь системы" mc="Standard.Actor" uid="ec75504d-0c06-47fd-9f8b-1d4feed797c5"/>
+              <ID name="User" mc="Standard.Actor" uid="ec75504d-0c06-47fd-9f8b-1d4feed797c5"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="6260d809-1861-4735-8371-3a803618491c"/>
+          <ATTRIBUTES>
+            <ATT name="Content"><![CDATA[<Enter note text here>]]></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
             </LINK>
           </DEPENDENCIES>
         </OBJECT>

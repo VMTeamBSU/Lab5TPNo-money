@@ -26,11 +26,21 @@ int RegisterMember(char* login, char* password, char* surname, int experience, c
 
 int RegisterCommando(char* login, char* password, char* surname, int experience, char* dateOfBirth, char* position)
 {
+	
 	return 1;
 }
 
 int RegisterAdmin(char* login, char* password)
 {
+	char requestBuffer[500];
+	sprintf(requestBuffer,
+		"INSERT INTO mainLogin(login, password) VALUES ('%s', '%s'); ",
+		login, password);
+	InsertData(requestBuffer);
+
+	sprintf(requestBuffer,
+		"INSERT INTO statusSurname(status) VALUES ('admin')");
+	InsertData(requestBuffer);
 	return 1;
 }
 

@@ -52,3 +52,16 @@ int FindUser(char* login)
 		return 1;
 }
 
+int FindById(int id)
+{
+	char requestBuffer[500];
+	sprintf(requestBuffer,
+		"Select login from mainLogin where login  = %d;",
+		id);
+
+	if (Validation(requestBuffer) == 0)
+		return 0;
+	else
+		return 1;
+}
+

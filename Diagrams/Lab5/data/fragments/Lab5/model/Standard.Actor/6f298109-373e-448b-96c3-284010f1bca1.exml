@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Админ" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Admin" version="4">
   <OBJECT>
-    <ID name="Админ" mc="Standard.Actor" uid="6f298109-373e-448b-96c3-284010f1bca1"/>
+    <ID name="Admin" mc="Standard.Actor" uid="6f298109-373e-448b-96c3-284010f1bca1"/>
     <PID name="Use case" mc="Standard.Package" uid="81993dd9-111e-4dea-8e92-867836c825b0"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
@@ -9,7 +9,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Админ]]></ATT>
+      <ATT name="Name"><![CDATA[Admin]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -33,7 +33,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Удаление полета  из системы" mc="Standard.UseCase" uid="2ae9de7c-1fb6-4036-8c10-4ccf310527ad"/>
+              <ID name="Remove flights info" mc="Standard.UseCase" uid="2ae9de7c-1fb6-4036-8c10-4ccf310527ad"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -94,7 +94,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Редактирование данных в системе" mc="Standard.UseCase" uid="76b214fe-96f0-41cf-ab27-65566642387c"/>
+              <ID name="Edit database" mc="Standard.UseCase" uid="76b214fe-96f0-41cf-ab27-65566642387c"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -155,7 +155,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Регистрация вертолетов/пользователей/вылетов в системе" mc="Standard.UseCase" uid="af1dac50-f375-41ed-88de-8c8d8440877e"/>
+              <ID name="Register new users,helicopters,flights" mc="Standard.UseCase" uid="af1dac50-f375-41ed-88de-8c8d8440877e"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -208,7 +208,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="SuperType">
-              <ID name="Пользователь системы" mc="Standard.Actor" uid="ec75504d-0c06-47fd-9f8b-1d4feed797c5"/>
+              <ID name="User" mc="Standard.Actor" uid="ec75504d-0c06-47fd-9f8b-1d4feed797c5"/>
             </LINK>
           </DEPENDENCIES>
         </OBJECT>

@@ -38,9 +38,9 @@ char* GetDate()
 	fflush(stdin);
 	char input[30];
 	static char* data;
-	
+
 	data = (char*)calloc(30, sizeof(char));
-	
+
 	while (fgets(input, sizeof(input), stdin))
 	{
 		fflush(stdin);
@@ -52,8 +52,8 @@ char* GetDate()
 		}
 		else
 		{
-			if(input[0]!='\n')
-			printf("Invalid date input (yyyy.mm.dd)\n");
+			if (input[0] != '\n')
+				printf("Invalid date input (yyyy.mm.dd)\n");
 		}
 	}
 }
@@ -64,10 +64,10 @@ int GetEnter()
 	char input[30];
 	char charEater[30];
 	/*char c;
-	
+
 	while ((c = getchar()) != '\n' && c != EOF)
 	{
-		
+
 	}*/
 
 	fflush(stdin);
@@ -82,7 +82,7 @@ int GetEnter()
 
 int IsValidNumber(char* string)
 {
-	for (int i = 0; i < strlen(string)-1; i++)
+	for (int i = 0; i < strlen(string) - 1; i++)
 	{
 		//ASCII value of 0 = 48, 9 = 57. So if value is outside of numeric range then fail
 		//Checking for negative sign "-" could be added: ASCII value 45.
@@ -98,10 +98,10 @@ void UiControllerInit()
 	timesToType = 3;
 }
 
-int TryLogin(char* login,char* password)
+int TryLogin(char* login, char* password)
 {
 	timesToType--;
-	if(timesToType<0)
+	if (timesToType < 0)
 	{
 		return -2;
 	}
@@ -121,10 +121,10 @@ void HandleAuthorization()
 {
 	system("CLS");
 	int flag = 1;
-	
-	
-	
-	while (flag==1)
+
+
+
+	while (flag == 1)
 	{
 		char login[30];
 		char password[30];
@@ -133,14 +133,14 @@ void HandleAuthorization()
 		printf("Insert password\n");
 		scanf("%s", password);
 		int result = TryLogin(login, password);
-		if (result ==1)
+		if (result == 1)
 		{
 			printf("Loged in successfully!\n\n");
 			InitSession(login);
 			HandleMainMenu();
 			break;
 		}
-		if(result== -2)
+		if (result == -2)
 		{
 			printf("No more times left\n ");
 			break;
@@ -154,7 +154,7 @@ void HandleAuthorization()
 
 void HandleMainMenu()
 {
-	
+
 	while (1)
 	{
 		system("CLS");
@@ -170,7 +170,7 @@ void HandleMainMenu()
 		printf("8. Exit\n");
 
 		int option = GetInteger();
-		
+
 
 		switch (option)
 		{
@@ -180,17 +180,17 @@ void HandleMainMenu()
 			break;
 		}
 		case  2:
-			{
+		{
 			HandleFlightsInfo();
-				break;
-			}
+			break;
+		}
 		case 3:
-			{
+		{
 			HandleHelicopterInfo();
-				break;
-			}
+			break;
+		}
 		case 4:
-			{
+		{
 			if (CurrentUser.privilege == admin) {
 				HandleRegistration();
 			}
@@ -200,9 +200,9 @@ void HandleMainMenu()
 				system("pause");
 			}
 			break;
-			}
+		}
 		case 5:
-			{
+		{
 			if (CurrentUser.privilege == admin) {
 				HandleDeleteFlight();
 			}
@@ -210,32 +210,32 @@ void HandleMainMenu()
 			{
 				printf("You do not have permissions to remove flights");
 			}
-				break;
-			}
+			break;
+		}
 		case 6:
-			{
+		{
 			HandleTopRating();
-				break;
-			}
+			break;
+		}
 		case 7:
-			{
+		{
 			HandleMoneyInfo();
-				break;
-			}
+			break;
+		}
 		case 8:
-			{
-				return;
-			}
+		{
+			return;
+		}
 		default:
-			{
+		{
 			printf("Invalid option!\n");
-				break;
-			}
+			break;
+		}
 
 		}
 	}
-	
-	
+
+
 }
 
 void HandleRegistrationNewUser()
@@ -261,9 +261,9 @@ void HandleRegistrationNewUser()
 		break;
 	}
 	default:
-		{
+	{
 		printf("Invalid option\n");
-		}
+	}
 	}
 	printf("Press enter to continue...\n");
 }
@@ -282,9 +282,9 @@ void HandleRegistration()
 	switch (option)
 	{
 	case 1:
-		{
-			
-		
+	{
+
+
 		if (CurrentUser.privilege != member) {
 			HandleRegistrationHelicopter();
 		}
@@ -292,9 +292,9 @@ void HandleRegistration()
 		{
 			printf("You do not have permissions to register new helicopters\n");
 		}
-			break;
-		}
-		
+		break;
+	}
+
 	case 2:
 	{
 		if (CurrentUser.privilege != member) {
@@ -548,7 +548,7 @@ void HandleRegisterFlight()
 	printf("enter price:\n");
 	price = GetInteger();
 	printf("enter if flight is special (yes/no) :\n");
-	if(GetYesNo()==1)
+	if (GetYesNo() == 1)
 	{
 		isSpecial = 1;
 	}
@@ -557,29 +557,35 @@ void HandleRegisterFlight()
 		isSpecial = 0;
 	}
 
-	if(RegisterFlight(date,helicopterId, weightOfGoods, numberOfPeople, duration, price,isSpecial)!=1)
+	if (RegisterFlight(date, helicopterId, weightOfGoods, numberOfPeople, duration, price, isSpecial) != 1)
 	{
 		printf("Registration failed!Not enough flying resources\n");
 	}
 	else {
 		printf("Registration done successfully!\n");
 	}
-	
+
 	printf("Press enter to continue...\n");
 	GetEnter();
-	
 
-	
+
+
 }
 
 void HandleStartWindow()
 {
 	system("CLS");
 	printf("Welcome everybody!\n");
+
+	if (FindById(0) == 0)
+	{
+		HandleRegistrationAdmin();
+		return;
+	}
 	printf("Select option\n");
 	printf("1. Login\n");
 	printf("2. Exit\n");
-	
+
 	int stop = 1;
 	while (stop == 1)
 	{
@@ -609,13 +615,13 @@ void HandleStartWindow()
 void HandleCrewMemberInfo()
 {
 	int stop = 1;
-	while (stop==1) {
+	while (stop == 1) {
 		system("CLS");
 
 		char*** result;
 		int rowsCount = 0;
 		int columnsCount = 0;
-		int id=0;
+		int id = 0;
 		char** columnsNames = NULL;
 
 
@@ -628,10 +634,10 @@ void HandleCrewMemberInfo()
 			id = GetInteger();
 		}
 
-		
-			result = CrewMemberInformation(id, &columnsNames, &rowsCount, &columnsCount);
-		
-		
+
+		result = CrewMemberInformation(id, &columnsNames, &rowsCount, &columnsCount);
+
+
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
 		printf("\nDo you want to exit? yes/no\n");
@@ -641,25 +647,25 @@ void HandleCrewMemberInfo()
 		}
 	}
 
-	
+
 }
 
 void HandleFlightsInfo()
 {
 	int stop = 1;
-	while (stop==1)
+	while (stop == 1)
 	{
-	system("CLS");
+		system("CLS");
 
-	char*** result;
-	int rowsCount = 0;
-	int columnsCount = 0;
-	char surname[30];
-	char** columnsNames = NULL;
-	int command=0;
-	int isSpecial = -1;
+		char*** result;
+		int rowsCount = 0;
+		int columnsCount = 0;
+		char surname[30];
+		char** columnsNames = NULL;
+		int command = 0;
+		int isSpecial = -1;
 
-	
+
 
 
 		printf("Choose option:\n");
@@ -687,7 +693,7 @@ void HandleFlightsInfo()
 		case 3:
 		{
 			isSpecial = -1;
-				break;
+			break;
 		}
 		case 4:
 		{
@@ -696,23 +702,23 @@ void HandleFlightsInfo()
 			break;
 		}
 		case 5:
-			{
+		{
 			stop = 0;
 			break;
-			}
+		}
 		default:
 		{
 			printf("Invalid option!\n");
 			break;
 		}
 		}
-		
-	if (stop==0)
-	{
-		break;
-	}
 
-		if(isSpecial==-1)
+		if (stop == 0)
+		{
+			break;
+		}
+
+		if (isSpecial == -1)
 		{
 			result = ShowAllFlights(&columnsNames, &rowsCount, &columnsCount);
 		}
@@ -720,23 +726,23 @@ void HandleFlightsInfo()
 			result = GetFlightInformation(isSpecial, &columnsNames, &rowsCount, &columnsCount);
 			strcpy(columnsNames[0], "number of flights");
 		}
-		
+
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
 		printf("\nPress enter to continue\n");
 		GetEnter();
-		
+
 	}
 }
 
-void PrintMatrix(char*** matrix,char** columnsNames,int rowsCount,int columnsCount)
+void PrintMatrix(char*** matrix, char** columnsNames, int rowsCount, int columnsCount)
 {
-	for (int i = 0; i < rowsCount ; ++i)
+	for (int i = 0; i < rowsCount; ++i)
 	{
 		for (int j = 0; j < columnsCount; ++j)
 		{
-			
-			printf(" %s = %s\n", columnsNames[j], matrix[i][j] && strcmp(matrix[i][j],"NULL")!=0 ? matrix[i][j] : "No information found");
+
+			printf(" %s = %s\n", columnsNames[j], matrix[i][j] && strcmp(matrix[i][j], "NULL") != 0 ? matrix[i][j] : "No information found");
 		}
 		printf("------------------------------------------------\n");
 	}
@@ -745,7 +751,7 @@ void PrintMatrix(char*** matrix,char** columnsNames,int rowsCount,int columnsCou
 void HandleHelicopterInfo()
 {
 	int stop = 1;
-	while (stop==1)
+	while (stop == 1)
 	{
 		system("CLS");
 
@@ -774,9 +780,9 @@ void HandleHelicopterInfo()
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
 		char a[30];
-		
+
 		printf("\nDo you want to exit? yes/no\n");
-		if(GetYesNo()==1)
+		if (GetYesNo() == 1)
 		{
 			stop = 0;
 		}
@@ -833,16 +839,16 @@ void HandleDeleteFlight()
 		printf("Enter flights id\n");
 		id = GetInteger();
 		//TODO delete here....
-		
+
 		printf("Deleted successfully!Do you want to exit?\n");
-		if(GetYesNo()==1)
+		if (GetYesNo() == 1)
 		{
 			break;
 		}
-		
-		
+
+
 	}
-	
+
 }
 
 void HandleTopRating()
@@ -864,9 +870,9 @@ void HandleTopRating()
 
 	printf("Print enter to continue...\n");
 	GetEnter();
-	
 
-	
+
+
 }
 
 void HandleFlightsInfoByDate()
@@ -883,7 +889,7 @@ void HandleFlightsInfoByDate()
 		char** columnsNames = NULL;
 		char* date1;
 		char* date2;
-		
+
 		int id = 0;
 
 		printf("Choose option:\n");
@@ -897,7 +903,7 @@ void HandleFlightsInfoByDate()
 			date2 = GetDate();
 		}
 
-		result = DateHelicopterInformation(date1,date2, &columnsNames, &rowsCount, &columnsCount);
+		result = DateHelicopterInformation(date1, date2, &columnsNames, &rowsCount, &columnsCount);
 
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
@@ -955,7 +961,7 @@ void HandleMoneyInfo()
 		option = GetInteger();
 
 		int stop = 1;
-		while (stop==1)
+		while (stop == 1)
 		{
 
 
@@ -969,14 +975,14 @@ void HandleMoneyInfo()
 			}
 			case 2:
 			{
-				
+
 				result = IncomeOfCrewMemberForSpecificFlight(0, id, date1, date2, &columnsNames, &rowsCount, &columnsCount);
 				stop = 0;
 				break;
 			}
 			case 3:
-			{				
-				result = IncomeOfCrewMember( id, date1, date2, &columnsNames, &rowsCount, &columnsCount);
+			{
+				result = IncomeOfCrewMember(id, date1, date2, &columnsNames, &rowsCount, &columnsCount);
 				stop = 0;
 				break;
 			}
@@ -987,8 +993,8 @@ void HandleMoneyInfo()
 			}
 			}
 		}
-		
-		
+
+
 		/*result=*/
 
 		printf("result:\n-----------------------------------\n");
