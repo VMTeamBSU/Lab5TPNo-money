@@ -8,7 +8,6 @@ struct User CurrentUser;
 
 struct User GetCurrentUser(char* login)
 {
-	//TODO implement this to make it work with database
 	char*** result;
 	int rowsCount = 0;
 	int columnsCount = 0;

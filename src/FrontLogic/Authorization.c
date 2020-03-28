@@ -56,7 +56,7 @@ int FindById(int id)
 {
 	char requestBuffer[500];
 	sprintf(requestBuffer,
-		"Select login from mainLogin where login  = %d;",
+		"Select login from mainLogin where id  = %d;",
 		id);
 
 	if (Validation(requestBuffer) == 0)

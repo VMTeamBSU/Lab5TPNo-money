@@ -577,7 +577,7 @@ void HandleStartWindow()
 	system("CLS");
 	printf("Welcome everybody!\n");
 
-	if (FindById(0) == 0)
+	if (FindById(1) == 0)
 	{
 		HandleRegistrationAdmin();
 		
