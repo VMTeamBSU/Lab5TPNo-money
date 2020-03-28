@@ -191,7 +191,14 @@ void HandleMainMenu()
 			}
 		case 4:
 			{
-			HandleRegistration();
+			if (CurrentUser.privilege == admin) {
+				HandleRegistration();
+			}
+			else
+			{
+				printf("You do not have registration permissions\n");
+				system("pause");
+			}
 			break;
 			}
 		case 5:
@@ -310,6 +317,7 @@ void HandleRegistration()
 		{
 			printf("You do not have permissions to register new users\n");
 		}
+		system("pause");
 		break;
 	}
 	}
@@ -393,8 +401,7 @@ void HandleRegistrationMember()
 				else
 				{
 					RegisterMember(login, password, surname, experience, dateOfBirth, position, commanderSurname);
-					printf("User registered successfully!\n");
-					CurrentUser = GetCurrentUser(login);
+					printf("User registered successfully!\n");;
 					HandleMainMenu();
 					stop = 0;
 					break;
@@ -523,7 +530,7 @@ void HandleRegistrationAdmin()
 void HandleRegisterFlight()
 {
 	char* date;
-	char helicopterName[30];
+	int helicopterId;
 	int weightOfGoods;
 	int numberOfPeople;
 	int duration;
@@ -532,8 +539,8 @@ void HandleRegisterFlight()
 
 	printf("enter date (yyyy.mm.dd):\n");
 	date = GetDate();
-	printf("enter helicopter's name:\n");
-	scanf(" %[^\n]", &helicopterName);
+	printf("enter helicopter's id:\n");
+	helicopterId = GetInteger();
 	printf("enter weight of goods:\n");
 	weightOfGoods = GetInteger();
 	printf("enter number of people:\n");
@@ -552,7 +559,7 @@ void HandleRegisterFlight()
 		isSpecial = 0;
 	}
 
-	if(RegisterFlight(date,helicopterName, weightOfGoods, numberOfPeople, duration, price,isSpecial)!=1)
+	if(RegisterFlight(date,helicopterId, weightOfGoods, numberOfPeople, duration, price,isSpecial)!=1)
 	{
 		printf("Registration failed!Not enough flying resources\n");
 	}
@@ -610,26 +617,22 @@ void HandleCrewMemberInfo()
 		char*** result;
 		int rowsCount = 0;
 		int columnsCount = 0;
-		char surname[30];
+		int id=0;
 		char** columnsNames = NULL;
 
 
 		if (CurrentUser.privilege == member) {
-			strcpy(surname, CurrentUser.login);
+			id = CurrentUser.id;
 		}
 		else
 		{
-			printf("Insert member's surname, or print \"all\" to print all members\n");
-			scanf("%s", &surname);
+			printf("Insert member's id \n");
+			id = GetInteger();
 		}
 
-		if(strcmp(surname,"all")==0)
-		{
-			result = ShowAllCrewMembers(&columnsNames, &rowsCount, &columnsCount);
-		}
-		else {
-			result = CrewMemberInformation(surname, &columnsNames, &rowsCount, &columnsCount);
-		}
+		
+			result = CrewMemberInformation(id, &columnsNames, &rowsCount, &columnsCount);
+		
 		
 		printf("result:\n-----------------------------------\n");
 		PrintMatrix(result, columnsNames, rowsCount, columnsCount);
@@ -705,7 +708,8 @@ void HandleFlightsInfo()
 			break;
 		}
 		}
-	if (stop=0)
+		
+	if (stop==0)
 	{
 		break;
 	}
@@ -850,7 +854,7 @@ void HandleTopRating()
 	int columnsCount = 0;
 	char** columnsNames = NULL;
 
-	result = MaxflughtsCrewInfo(&columnsNames, &rowsCount, &columnsCount);
+	result = MaxflightsCrewInfo(&columnsNames, &rowsCount, &columnsCount);
 
 	printf("Crew with max flight's count\n");
 	PrintMatrix(result, columnsNames, rowsCount, columnsCount);

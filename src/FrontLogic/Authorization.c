@@ -2,25 +2,26 @@
 #include "../../lib/sqlite3/sqlite3.h"
 #include "string.h"
 #include "../../include/request.h"
+#include "../../include/BDfunctions.h"
 #include <stdlib.h>
 #include <stdio.h>
 
 int ValidateUser(char* login, char* password)
 {
-	sqlite3* pedp;
-	sqlite3_open("dsd", &pedp);
-	if (strcmp(login, "admin") == 0 && strcmp(password, "1111")==0)
-	{
-		return  1;
-	}
-	else
-	{
-		return -1;
-	}
+
+	InitDataBase();
+	//if (strcmp(login, "admin") == 0 && strcmp(password, "1111")==0)
+	//{
+	//	return  1;
+	//}
+	//else
+	//{
+	//	return -1;
+	//}
 	
 	char requestBuffer[500];
 	sprintf(requestBuffer,
-		"Select login, password from mainLogin where login  Like '%s' AND password Like '%s';",
+		"Select login, password from mainLogin where login  = '%s' AND password = '%s';",
 		login, password);
 
 	if (Validation(requestBuffer) == 0)
@@ -31,18 +32,18 @@ int ValidateUser(char* login, char* password)
 }
 int FindUser(char* login)
 {
-	if(strcmp("admin", login)==0)
+	/*if(strcmp("admin", login)==0)
 	{
 		return 1;
 	}
 	else
 	{
 		return 0;
-	}
+	}*/
 
 	char requestBuffer[500];
 	sprintf(requestBuffer,
-		"Select login from mainLogin where login  Like '%s';",
+		"Select login from mainLogin where login  = '%s';",
 		login);
 
 	if (Validation(requestBuffer) == 0)
@@ -50,3 +51,4 @@ int FindUser(char* login)
 	else
 		return 1;
 }
+

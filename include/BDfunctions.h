@@ -5,7 +5,7 @@
 //rowCount: переменная, которая содержит информацию о количестве рядов в таблице-ответе.
 //columnCount: переменная, которая содержит информацию о количестве колонок в таблице-ответе.
 //Result: наша фукция возвращает матрица, содержащая таблицу-ответ на запрос по экипажу(или члену экипажа), – все сведения о выполненных им рейсах (*).
-char*** CrewMemberInformation(char* surname, char*** columnName, int* rowCount, int* columnCount);
+char*** CrewMemberInformation(int id, char*** columnName, int* rowCount, int* columnCount);
 
 //Special: если Special = 1, то мы получим инфрмацию о спецвылетах, если Special = 0, то мы получим информацию о обычных вылетах.
 //columnName: массив, который содержит названия столбцов по порядку вывода.
@@ -33,7 +33,7 @@ char*** HelicopterFlyDurationAndFlyingResourse(int helicopterId, char*** columnN
 
 //Функция, которая выводит всю информацию об экипаже, который выполнил больше всех полетов и общее количество заработанных денег этого экипажа;
 //Пример вывода: Result[0][0] = 7, Result[0][1] = 'second pilot', Result[0][2] = 833 и тд;  
-char*** MaxflughtsCrewInfo(char*** columnName, int* rowCount, int* columnCount);
+char*** MaxflightsCrewInfo(char*** columnName, int* rowCount, int* columnCount);
 
 //Функция, которая выводит всю информацию об экипаже, который заработал больше всех денег;
 //Пример вывода: Result[0][0] = 7, Result[0][1] = 'second pilot', Result[0][2] = 833 и тд;  
@@ -61,3 +61,5 @@ char*** IncomeOfAllCrewMembers(char* firstDate, char* secondDate, char*** column
 //за указанный период определяет количество денег,
 //начисленных указанному летчику за указанный рейс(сы) или спецрейс(сы)
 char*** IncomeOfCrewMemberForSpecificFlight(int isSpecial, int crewID, char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount);
+
+char*** GetUserInfo(char* login, char*** columnName, int* rowCount, int* columnCount);

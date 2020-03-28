@@ -64,24 +64,23 @@ int RegisterFlight(char* date, int helicopterID, int weightOfGoods, int numberOf
 	
 		return 1;
 	}
-	else
-	{
 	
+		//Edited by IVan ( no need to repair if flying resource is not zero)
+	if (Result[0][1] == 0) {
 		struct tm* ptr;
 		time_t lt;
 		lt = time(NULL);
 
 		ptr = localtime(time(NULL));
-		
+
 
 		sprintf(requestBuffer,
 			"UPDATE helicopter SET flying_resourse = 1000 AND date_of_repair = %s-%s-%s WHERE helicopter.ID = %d",
-			ptr->tm_year, ptr->tm_mon, ptr->tm_mday,duration, helicopterID);
+			ptr->tm_year, ptr->tm_mon, ptr->tm_mday, duration, helicopterID);
 		InsertData(requestBuffer);
-		return 0;
 	}
 
-
+	return 0;
 }
 
 int RegisterHelicopter(char* name, char* creationDate, char* repairDate, int capacity, int flyingResources)

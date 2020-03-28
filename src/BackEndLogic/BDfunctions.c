@@ -4,12 +4,12 @@
 #include "../../include/BDfunctions.h"
 
 
-char*** CrewMemberInformation(char* surname, char*** columnName, int* rowCount, int* columnCount)
+char*** CrewMemberInformation(int id, char*** columnName, int* rowCount, int* columnCount)
 {
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
-		"SELECT * FROM flights WHERE ID_helicopter = (SELECT ID_helicopter FROM commander INNER JOIN crew ON commander.ID = crew.ID_commander WHERE crew.surname = '%s');",
-		surname);
+		"SELECT * FROM flights WHERE ID_helicopter = (SELECT ID_helicopter FROM commander INNER JOIN crew ON commander.ID = crew.ID_commander WHERE crew.ID = %d);",
+		id);
 	char** ColumnName = NULL;
 	int row = 0;
 	int column = 0;
@@ -81,7 +81,7 @@ char*** HelicopterFlyDurationAndFlyingResourse(int helicopterId, char*** columnN
 	return Result;
 }
 
-char*** MaxflughtsCrewInfo(char*** columnName, int* rowCount, int* columnCount)
+char*** MaxflightsCrewInfo(char*** columnName, int* rowCount, int* columnCount)
 {
 	char requestBuffer[1000] = "SELECT crew.*, SUM(price) FROM crew, flights INNER JOIN commander On commander.id = crew.ID_commander WHERE commander.id_helicopter = (SELECT id_helicopter FROM flights GROUP By id_helicopter ORDER BY COUNT(id_helicopter) DESC LIMIT 1) GROUP BY crew.ID";
 	char** ColumnName = NULL;
@@ -208,27 +208,18 @@ char*** IncomeOfCrewMemberForSpecificFlight(int isSpecial, int crewID, char* fir
 	return Result;
 }
 
-char*** IncomeOfCrewMemberForSpecificFlight(int isSpecial, int crewID, char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount)
-{
-	char* text;
-	if (isSpecial == 1)
-		text = "yes";
-	else
-		text = "no";
 
-	char requestBuffer[1000];
-	sprintf(requestBuffer,
-		"SELECT sum(price), special FROM flights, crew INNER JOIN commander ON commander.ID_helicopter = flights.ID_helicopter AND crew.ID_commander = commander.ID WHERE crew.ID = '%d' AND flights.special = '%s' AND flights.date >= '%s' AND flights.date <= '%s';",
-		crewID, text, firstDate, secondDate);
+char*** GetUserInfo(char* login, char*** columnName, int* rowCount, int* columnCount)
+{
 	char** ColumnName = NULL;
 	int row = 0;
 	int column = 0;
+	char requestBuffer[1000];
+	sprintf(requestBuffer,
+		"Select mainLogin.ID,status from mainLogin, statusSurname where statusSurname.ID = mainLogin.ID and login  = '%s';",login);
+	
 	char*** Result = GetResult(requestBuffer, &column, &row, &ColumnName);
-	*rowCount = row;
-	*columnCount = column;
-	*columnName = ColumnName;
-
+	
 	return Result;
 }
-
 

@@ -39,6 +39,11 @@ static int callback(void* NotUsed, int argc, char** argv, char** azColName)
 	CurrentRow++;
 	return 0;
 }
+static int FinderCallback(void* NotUsed, int argc, char** argv, char** azColName)
+{
+	CurrentRow++;
+	return 0;
+}
 
 void MyInitFunc(int rows, int columns)
 {
@@ -68,6 +73,7 @@ void MyDInit()
 char*** GetResult(char* RequestBuffer, int *aColumn, int *aRow, char*** aColumnName)
 {
 	InitDataBase();
+	MyDInit();
 	sqlite3_stmt* pStmt;
 	if (sqlite3_prepare_v2(db, RequestBuffer, -1, &pStmt, 0) == SQLITE_OK)
 	{
@@ -121,15 +127,23 @@ int InsertData(char* RequesInsertBuffer)
 
 int Validation(char* RequesInsertBuffer)
 {
+	InitDataBase();
 	char* errorMsg = 0;
 
 	InitDataBase();
 
-	if (sqlite3_exec(db, RequesInsertBuffer, 0, 0, &errorMsg) != SQLITE_OK)
+	if (sqlite3_exec(db, RequesInsertBuffer, FinderCallback, 0, &errorMsg) != SQLITE_OK)
 	{
 		printf(errorMsg);
 		return 0;
 	}
-	return 1;
+	if (CurrentRow == 0) {
+
+		return 0;
+	}
+	else {
+		MyDInit();
+		return 1;
+	}
 }
 
