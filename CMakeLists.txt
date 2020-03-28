@@ -4,6 +4,9 @@ project(AirCabSoft)
 set(CMAKE_CXX_STANDARD 14)
 
 
+if (WIN32)
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ../../bin)
+endif (WIN32)
 
 add_subdirectory(lib/sqlite3)
 add_subdirectory(src)
