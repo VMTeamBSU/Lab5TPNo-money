@@ -171,7 +171,7 @@ char*** IncomeOfCrewMember(int crewID, char* firstDate, char* secondDate, char**
 
 char*** IncomeOfAllCrewMembers(char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount)
 {
-	//TODO make divider automatic
+	//TODO make divider automatic, add tranzaction (not here)
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
 		"SELECT crew.ID, sum(price), special FROM flights, crew INNER JOIN helicopter ON helicopter.id = flights.ID_helicopter AND crew.ID_helicopter = helicopter.ID WHERE flights.date >= '%s' AND flights.date <= '%s' GROUP BY crew.ID;",
