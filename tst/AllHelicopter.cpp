@@ -9,10 +9,10 @@ extern  "C" {
 TEST(testAllHelicopters, testingvalidAllHelicopters) {
 
 	char*** result;
-	char*** all = NULL;
+	char** all = NULL;
 	int b = 0;
 	int c = 0;
-	result = ShowAllHelicopters(all, &b, &c);
+	result = ShowAllHelicopters(&all, &b, &c);
 
 	EXPECT_STREQ(result[0][0], "MI-26");
 	EXPECT_STREQ(result[0][1], "2");
