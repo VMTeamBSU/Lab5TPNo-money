@@ -153,6 +153,7 @@ char*** ShowAllFlights(char*** columnName, int* rowCount, int* columnCount)
 
 char*** IncomeOfCrewMember(int crewID, char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount)
 {
+	//TODO make divider automatic
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
 		"SELECT sum(price), special FROM flights, crew INNER JOIN helicopter ON helicopter.id = flights.ID_helicopter AND crew.ID_helicopter = helicopter.ID WHERE crew.ID = '%d' AND flights.date >= '%s' AND flights.date <= '%s';",
@@ -170,6 +171,7 @@ char*** IncomeOfCrewMember(int crewID, char* firstDate, char* secondDate, char**
 
 char*** IncomeOfAllCrewMembers(char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount)
 {
+	//TODO make divider automatic
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
 		"SELECT crew.ID, sum(price), special FROM flights, crew INNER JOIN helicopter ON helicopter.id = flights.ID_helicopter AND crew.ID_helicopter = helicopter.ID WHERE flights.date >= '%s' AND flights.date <= '%s' GROUP BY crew.ID;",
@@ -188,15 +190,21 @@ char*** IncomeOfAllCrewMembers(char* firstDate, char* secondDate, char*** column
 char*** IncomeOfCrewMemberForSpecificFlight(int isSpecial, int crewID, char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount)
 {
 	char* text;
-	if (isSpecial == 1)
+	int divider = 1;
+	if (isSpecial == 1) {
 		text = "yes";
+		divider = 10;
+	}
 	else
+	{
 		text = "no";
-
+		divider = 5;
+	}
+	
 	char requestBuffer[1000];
 	sprintf(requestBuffer,
-		"SELECT sum(price), special FROM flights, crew INNER JOIN helicopter ON helicopter.ID = flights.ID_helicopter AND crew.ID_helicopter = helicopter.ID WHERE crew.ID = '%d' AND flights.special = '%s' AND flights.date >= '%s' AND flights.date <= '%s';",
-		crewID, text, firstDate, secondDate);
+		"SELECT sum(price)/%d, special FROM flights, crew INNER JOIN helicopter ON helicopter.ID = flights.ID_helicopter AND crew.ID_helicopter = helicopter.ID WHERE crew.ID = '%d' AND flights.special = '%s' AND flights.date >= '%s' AND flights.date <= '%s';",
+		divider,	crewID, text, firstDate, secondDate);
 	char** ColumnName = NULL;
 	int row = 0;
 	int column = 0;
