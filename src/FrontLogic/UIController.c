@@ -792,14 +792,14 @@ int GetYesNo()
 
 
 		scanf("%s", &input);
-		if (strcmpi(input, "yes") == 0)
+		if (strcmp(input, "yes") == 0)
 		{
 			return 1;
 			break;
 		}
 		else
 		{
-			if (strcmpi(input, "no") != 0)
+			if (strcmp(input, "no") != 0)
 			{
 				printf("Incorrect answer! type yes/no\n");
 			}
