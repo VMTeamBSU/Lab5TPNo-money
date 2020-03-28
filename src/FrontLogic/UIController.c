@@ -580,8 +580,9 @@ void HandleStartWindow()
 	if (FindById(0) == 0)
 	{
 		HandleRegistrationAdmin();
-		return;
+		
 	}
+	system("CLS");
 	printf("Select option\n");
 	printf("1. Login\n");
 	printf("2. Exit\n");
