@@ -81,27 +81,7 @@ TEST(testShowAllFlights, testingvalidShowAllFlights) {
 	EXPECT_STREQ(result[8][0], "8");
 	EXPECT_STREQ(result[8][1], "2020-02-08");
 	EXPECT_STREQ(result[8][2], "3");
-	EXPECT_STREQ(result[8][3], "1");
-	EXPECT_STREQ(result[8][4], "7");
-	EXPECT_STREQ(result[8][5], "2");
-	EXPECT_STREQ(result[8][6], "4050");
-	EXPECT_STREQ(result[8][7], "no");
-	EXPECT_STREQ(result[9][0], "9");
-	EXPECT_STREQ(result[9][1], "2020-02-10");
-	EXPECT_STREQ(result[9][2], "4");
-	EXPECT_STREQ(result[9][3], "3");
-	EXPECT_STREQ(result[9][4], "1");
-	EXPECT_STREQ(result[9][5], "5");
-	EXPECT_STREQ(result[9][6], "5650");
-	EXPECT_STREQ(result[9][7], "no");
-	EXPECT_STREQ(result[10][0], "10");
-	EXPECT_STREQ(result[10][1], "2020-02-11");
-	EXPECT_STREQ(result[10][2], "1");
-	EXPECT_STREQ(result[10][3], "13");
-	EXPECT_STREQ(result[10][4], "15");
-	EXPECT_STREQ(result[10][5], "3");
-	EXPECT_STREQ(result[10][6], "7000");
-	EXPECT_STREQ(result[10][7], "no");
+
 }
 TEST(testShowAllFlights, testinginvalidShowAllFlights) {
 
@@ -184,23 +164,7 @@ TEST(testShowAllFlights, testinginvalidShowAllFlights) {
 	EXPECT_STRNE(result[8][4], "7");
 	EXPECT_STRNE(result[8][5], "2");
 	EXPECT_STRNE(result[8][6], "4050");
-	EXPECT_STRNE(result[8][7], "no");
-	EXPECT_STRNE(result[9][0], "9");
-	EXPECT_STRNE(result[9][1], "2020-02-10");
-	EXPECT_STRNE(result[9][2], "44");
-	EXPECT_STRNE(result[9][3], "3");
-	EXPECT_STRNE(result[9][4], "4");
-	EXPECT_STRNE(result[9][5], "65");
-	EXPECT_STRNE(result[9][6], "50");
-	EXPECT_STRNE(result[9][7], "no");
-	EXPECT_STRNE(result[10][0], "1");
-	EXPECT_STRNE(result[10][1], "2c020-02-11");
-	EXPECT_STRNE(result[10][2], "c1");
-	EXPECT_STRNE(result[10][3], "3");
-	EXPECT_STRNE(result[10][4], "15");
-	EXPECT_STRNE(result[10][5], "3");
-	EXPECT_STRNE(result[10][6], "7000");
-	EXPECT_STRNE(result[10][7], "no");
+
 }
 
 

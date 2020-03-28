@@ -31,18 +31,6 @@ TEST(testAllHelicopters, testingvalidAllHelicopters) {
 	EXPECT_STREQ(result[2][3], "2014-12-09");
 	EXPECT_STREQ(result[2][4], "4");
 	EXPECT_STREQ(result[2][5], "1010");
-	EXPECT_STREQ(result[3][0], "MI-171");
-	EXPECT_STREQ(result[3][1], "3");
-	EXPECT_STREQ(result[3][2], "2014-12-09");
-	EXPECT_STREQ(result[3][3], "4");
-	EXPECT_STREQ(result[3][4], "2014-12-09");
-	EXPECT_STREQ(result[3][5], "1010");
-	EXPECT_STREQ(result[4][0], "MI-38");
-	EXPECT_STREQ(result[4][1], "4");
-	EXPECT_STREQ(result[4][2], "2017-12-09");
-	EXPECT_STREQ(result[4][3], "6");
-	EXPECT_STREQ(result[4][4], "2020-12-09");
-	EXPECT_STREQ(result[4][5], "1010");
 }
 TEST(testAllHelicopters, testinginvalidAllHelicopter) {
 
@@ -69,19 +57,6 @@ TEST(testAllHelicopters, testinginvalidAllHelicopter) {
 	EXPECT_STRNE(result[2][2], "3");
 	EXPECT_STRNE(result[2][3], "2014-12-09");
 	EXPECT_STRNE(result[2][4], "4");
-	EXPECT_STRNE(result[2][5], "1010");
-	EXPECT_STRNE(result[3][0], "MI-171");
-	EXPECT_STRNE(result[3][1], "3");
-	EXPECT_STRNE(result[3][2], "2014-12-09");
-	EXPECT_STRNE(result[3][3], "4");
-	EXPECT_STRNE(result[3][4], "2014-12-09");
-	EXPECT_STRNE(result[3][5], "1010");
-	EXPECT_STRNE(result[4][0], "MI-38");
-	EXPECT_STRNE(result[4][1], "4");
-	EXPECT_STRNE(result[4][2], "2017-12-09");
-	EXPECT_STRNE(result[4][3], "6");
-	EXPECT_STRNE(result[4][4], "2020-12-09");
-	EXPECT_STRNE(result[4][5], "1010");
 }
 
 
