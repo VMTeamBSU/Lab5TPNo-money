@@ -12,8 +12,7 @@ int RegisterMember(char* login, char* password, char* surname, int experience, c
 	InsertData(requestBuffer);
 
 	sprintf(requestBuffer,
-		"INSERT INTO statusSurname(status, surname) VALUES ('member', '%s' ); ",
-		surname);
+		"INSERT INTO LoginStatus( status) VALUES ('member' ); "	);
 	InsertData(requestBuffer);
 
 	sprintf(requestBuffer,
@@ -39,7 +38,7 @@ int RegisterAdmin(char* login, char* password)
 	InsertData(requestBuffer);
 
 	sprintf(requestBuffer,
-		"INSERT INTO statusSurname(status) VALUES ('admin')");
+		"INSERT INTO LoginStatus(status) VALUES ('admin')");
 	InsertData(requestBuffer);
 	return 1;
 }
