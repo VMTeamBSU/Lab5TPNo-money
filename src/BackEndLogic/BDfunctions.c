@@ -230,3 +230,15 @@ char*** GetUserInfo(char* login, char*** columnName, int* rowCount, int* columnC
 	return Result;
 }
 
+int DeleteFlightById(int id)
+{
+	char requestBuffer[500];
+	sprintf(requestBuffer,
+		"BEGIN TRANSACTION; DELETE FROM flights WHERE ID = = %d; COMMIT;",
+		id);
+
+	if (Validation(requestBuffer) == 0)
+		return 0;
+	else
+		return 1;
+}
