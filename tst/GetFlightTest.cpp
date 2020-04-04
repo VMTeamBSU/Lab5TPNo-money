@@ -41,7 +41,7 @@ TEST(testFlight, testingvalidInfo) {
 	EXPECT_STREQ(result[2][0], "7");
 	EXPECT_STREQ(result[2][1], "2020-02-08");
 
-	result = GetFlightInformation(0, b, &c, &d);
+	result = GetFlightInformation(0, &b, &c, &d);
 	EXPECT_STREQ(result[0][0], "1");
 	EXPECT_STREQ(result[0][1], "2020-02-01");
 	EXPECT_STREQ(result[0][2], "1");
@@ -102,7 +102,7 @@ TEST(testFlight, testinginvalidInfo) {
 	EXPECT_STRNE(result[2][0], "7");
 	EXPECT_STRNE(result[2][1], "2020-02-08");
 
-	result = GetFlightInformation(0, b, &c, &d);
+	result = GetFlightInformation(0, &b, &c, &d);
 	EXPECT_STRNE(result[0][0], "0");
 	EXPECT_STRNE(result[0][1], "2020-11-01");
 	EXPECT_STRNE(result[0][2], " ");
