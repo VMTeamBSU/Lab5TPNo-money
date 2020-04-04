@@ -60,3 +60,5 @@ char*** IncomeOfAllCrewMembers(char* firstDate, char* secondDate, char*** column
 char*** IncomeOfCrewMemberForSpecificFlight(int isSpecial, int crewID, char* firstDate, char* secondDate, char*** columnName, int* rowCount, int* columnCount);
 
 char*** GetUserInfo(char* login, char*** columnName, int* rowCount, int* columnCount);
+
+int DeleteFlightById(int id);
